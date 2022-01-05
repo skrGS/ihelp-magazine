@@ -1,12 +1,13 @@
 {
   "expo": {
     "name": "ihelp-magazine",
+    "description": "ihelp magazine",
     "slug": "ihelp-magazine",
-    "version": "1.0.0",
+    "version": "4.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,11 +18,16 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "mn.ihelp",
+      "buildNumber": "4.0.0"
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
+      "versionCode": 4,
+      "package": "mn.ihelp",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/images/logo-square.png",
         "backgroundColor": "#FFFFFF"
       }
     },
