@@ -1,43 +1,65 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
   View,
-  Alert,
   Dimensions,
   ImageBackground,
   ScrollView,
 } from "react-native";
 import { Input } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
-import UserContext from "../contexts/UserContex";
 import { Button } from "react-native-elements";
 import * as Animatable from "react-native-animatable";
+import { AntDesign } from "@expo/vector-icons";
+import axios from "axios";
 
-const LoginScreen2 = () => {
+const ResetPassword = () => {
   const navigation = useNavigation();
-  const [phone, setPhone] = useState("97018800");
-  const [password, setPassword] = useState("1234");
+  const [password, setPassword] = useState(null);
+  const [resetToken, setResetToken] = useState(null);
   const [error, setError] = useState(null);
-  const state = useContext(UserContext);
 
   const loginHandler = () => {
-    if (phone.length === 0) {
-      Alert.alert("Та утасны дугаараа оруулна уу");
-      return;
-    }
-    if (password.length === 0) {
-      Alert.alert("Та нууц үгээ оруулна уу");
-      return;
-    }
+    setError(null);
 
-    state.login(phone, password);
+    axios
+      .post("http://167.99.66.193/api/v1/users/reset-password", {
+        password: password,
+        resetToken: resetToken,
+      })
+      .then((result) => {
+        console.log(result.data);
+        setError(null);
+        navigation.navigate("LoginScreen");
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setError(
+          error.message === "Request failed with status code 400"
+            ? "Ta нууц үг болон нууц токен дамжуулна уу "
+            : ""
+        );
+      });
   };
+
   return (
     <ScrollView
       style={{ backgroundColor: "white" }}
       keyboardDismissMode="on-drag"
     >
+      <AntDesign
+        name="arrowleft"
+        size={30}
+        color="#ffffff"
+        style={{
+          position: "absolute",
+          top: 50,
+          left: 10,
+          zIndex: 2,
+        }}
+        onPress={() => navigation.goBack()}
+      />
       <ImageBackground
         source={require("../../assets/loginbg.png")}
         style={{ height: Dimensions.get("window").height / 2.5 }}
@@ -71,40 +93,36 @@ const LoginScreen2 = () => {
               textAlign: "center",
             }}
           >
-            Тавтай морил
+            Тавтай морил!
           </Text>
 
           <View style={{ marginTop: 20 }}>
             {error && (
               <Text style={{ fontSize: 20, textAlign: "center", color: "red" }}>
-                {" "}
-                {error}{" "}
+                {error}
               </Text>
             )}
             <Input
-              label="Утасны дугаар:"
-              value={phone}
-              onChangeText={setPhone}
+              label="Ирсэн нууц үг:"
+              value={resetToken}
+              onChangeText={setResetToken}
             />
             <Input
-              label="Пин код (4 оронтой тоо):"
+              label="
+              Шинэ нууц үг:"
               value={password}
               onChangeText={setPassword}
-              secureTextEntry={true}
-              keyboardType="number-pad"
             />
-            <Text
-              style={{ marginBottom: 10, bottom: 10, left: 10 }}
-              onPress={() => navigation.navigate("ForgetPassword")}
-            >
-              Нууц үгээ мартасан бол{" "}
-              <Text style={{ color: "blue" }}>энд дар</Text>
+
+            <Text style={{ marginBottom: 10, bottom: 10, left: 10 }}>
+              Нууц үгээ сансан бол
+              <Text style={{ color: "blue" }}>нэвтрэх</Text>
             </Text>
           </View>
           <View style={styles.forgetPassView}>
             <View style={{ flex: 1 }}>
               <Button
-                title="Нэвтрэх"
+                title="И-мэйл илгээх"
                 iconContainerStyle={{ marginRight: 10 }}
                 titleStyle={{ fontWeight: "700" }}
                 buttonStyle={{
@@ -150,7 +168,7 @@ const LoginScreen2 = () => {
   );
 };
 
-export default LoginScreen2;
+export default ResetPassword;
 
 const styles = StyleSheet.create({
   brandView: {

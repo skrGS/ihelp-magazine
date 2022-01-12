@@ -1,33 +1,65 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Image,
   Dimensions,
   ScrollView,
-  TouchableOpacity,
+  View,
   Text,
+  TouchableOpacity,
 } from "react-native";
+import { api } from "../../Constants";
+import axios from "axios";
 import { useNavigation } from "@react-navigation/native";
 
 const windowWidth = Dimensions.get("window").width;
 
-const Works = ({ data }) => {
+const Works = () => {
+  const [works, setWorks] = useState([]);
   const navigation = useNavigation();
+
+  useEffect(() => {
+    axios
+      .get(`${api}/api/v1/works?select=createdAt&sort=-createdAt&limit=1`)
+      .then((result) => {
+        setWorks(result.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <ScrollView style={{ ...styles.container, marginVertical: 1 }}>
       <Text style={styles.headerText}> Нээлттэй ажлын байр </Text>
 
-      {/* <TouchableOpacity
+      <TouchableOpacity
         onPress={() => navigation.navigate("WorkDetail")}
         style={styles.container}
-      > */}
-      <Image
-        style={styles.image}
-        source={require("../../assets/bgmagazine.png")}
-      />
+      >
+        <Image
+          style={styles.image}
+          source={require("../../assets/bgmagazine.png")}
+        />
 
-      {/* </TouchableOpacity> */}
+        {works.map((e) => {
+          return (
+            <View key={e.id}>
+              <Text
+                style={{
+                  color: "grey",
+                  fontWeight: "400",
+                  fontSize: 14,
+                  paddingTop: 10,
+                  paddingLeft: 20,
+                }}
+              >
+                {e.createdAt.slice(0, 10)} өдрийн байдлаар
+              </Text>
+            </View>
+          );
+        })}
+      </TouchableOpacity>
     </ScrollView>
   );
 };

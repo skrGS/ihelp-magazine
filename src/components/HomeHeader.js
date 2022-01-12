@@ -1,11 +1,32 @@
-import React from "react";
-import { Text, View, Dimensions, Image } from "react-native";
+import React, { useEffect, useState } from "react";
+import {
+  Text,
+  View,
+  Dimensions,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { api } from "../../Constants";
+import { Badge } from "react-native-elements";
+import axios from "axios";
 const windowWidth = Dimensions.get("window").width;
 
 const HomeHeader = () => {
   const navigation = useNavigation();
+  const [notifications, setNotifications] = useState();
+  useEffect(() => {
+    axios
+      .get(`${api}/api/v1/notifications`)
+      .then((result) => {
+        setNotifications(result.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <View
@@ -57,16 +78,31 @@ const HomeHeader = () => {
           style={{ right: 25, color: "white", top: 35 }}
           onPress={() => navigation.navigate("ProfileScreen")}
         />
-        <Ionicons
-          name="notifications-outline"
-          size={30}
-          color="#333"
-          style={{ right: 16, color: "white", top: 35 }}
+        <TouchableOpacity
           onPress={() => navigation.navigate("NotifacationScreen")}
-        />
+        >
+          <Ionicons
+            name="notifications-outline"
+            size={30}
+            color="#333"
+            style={{ right: 16, color: "white", top: 35, zIndex: 0 }}
+          />
+          <Badge
+            value={1}
+            status="primary"
+            containerStyle={styles.badgeStyle}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
 };
+const styles = StyleSheet.create({
+  badgeStyle: {
+    position: "absolute",
+    top: 30,
+    right: 15,
+  },
+});
 
 export default HomeHeader;

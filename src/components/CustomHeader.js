@@ -13,7 +13,7 @@ const CustomHeader = () => {
         flexDirection: "row",
         width: windowWidth,
         justifyContent: "space-between",
-        backgroundColor: "#041C32",
+        backgroundColor: "#1c2841",
         paddingVertical: 25,
       }}
     >
@@ -26,7 +26,7 @@ const CustomHeader = () => {
           onPress={() => navigation.goBack()}
         />
       </View>
-      <View style={{ right: 11, top: 20 }}>
+      <View style={{ top: 20 }}>
         <Text
           style={{
             color: "white",

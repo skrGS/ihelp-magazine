@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "1032570368288",
-    "project_id": "ihelp-magazine-3b89e",
-    "storage_bucket": "ihelp-magazine-3b89e.appspot.com"
+    "project_number": "580488480431",
+    "project_id": "ihelp-magazine-anroid",
+    "storage_bucket": "ihelp-magazine-anroid.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1032570368288:android:fb5f4a958e8b6e4e2a2745",
+        "mobilesdk_app_id": "1:580488480431:android:1a2870aecb8d5484fff65a",
         "android_client_info": {
-          "package_name": "mn.ihelp"
+          "package_name": "mn.ihelp.skr"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1032570368288-ivlhogvohmvtgfqsj1mtltjbu5kftjjn.apps.googleusercontent.com",
+          "client_id": "580488480431-ns9ca8st9p75c02k1uflh45h6oke8fmk.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCtLRwYLHg_PNBZDrUPPvgz_EPCMrdx7ek"
+          "current_key": "AIzaSyD_ukHBaCwZk2w5ThfRUKIP7uvk-xehZy4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "1032570368288-ivlhogvohmvtgfqsj1mtltjbu5kftjjn.apps.googleusercontent.com",
+              "client_id": "580488480431-ns9ca8st9p75c02k1uflh45h6oke8fmk.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
@@ -35,5 +35,5 @@
       }
     }
   ],
-  "configuration_version": "4"
+  "configuration_version": "1"
 }

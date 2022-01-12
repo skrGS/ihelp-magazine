@@ -12,11 +12,18 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import RegisterScreen2 from "../screens/RegisterScreen2";
 import Terms from "../components/Terms";
 import Notification from "../screens/NotificationScreen";
+import PushNotification from "../screens/PushNotificatoin";
+import ForgetPassword from "../screens/ForgetPassword";
+import ResetPassword from "../screens/ResetPassword";
+import SplashScreen from "../screens/SplashScreen";
 
 const Stack = createNativeStackNavigator();
 
 const MyStackNavigator = () => {
   const state = useContext(UserContext);
+  if (state.isLoading === true) {
+    return <SplashScreen />;
+  }
   return (
     <Stack.Navigator initialRouteName="Home" headerMode="none">
       {state.isLoggedIn ? (
@@ -65,6 +72,12 @@ const MyStackNavigator = () => {
             component={Notification}
             options={{ headerShown: false }}
           />
+          {state.userRole === "admin" && (
+            <Stack.Screen
+              name="PushNotification"
+              component={PushNotification}
+            />
+          )}
         </>
       ) : (
         <>
@@ -85,6 +98,16 @@ const MyStackNavigator = () => {
             options={() => ({
               title: "Үйлчилгээний нөхцөл",
             })}
+          />
+          <Stack.Screen
+            name="ForgetPassword"
+            component={ForgetPassword}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="ResetPassword"
+            component={ResetPassword}
+            options={{ headerShown: false }}
           />
         </>
       )}

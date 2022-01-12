@@ -5,9 +5,12 @@ import {
   View,
   Dimensions,
   ImageBackground,
-  Image,
+  Platform,
   ScrollView,
   Alert,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from "react-native";
 import { Input } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
@@ -19,27 +22,28 @@ import { AntDesign } from "@expo/vector-icons";
 const RegisterScreen2 = () => {
   const navigation = useNavigation();
   const [check4, setCheck4] = useState(false);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password1, setPassword1] = useState("");
-  const [password2, setPassword2] = useState("");
+  const [phone, setPhone] = useState("97014400");
+  const [email, setEmail] = useState("scarynomi@gmail.com");
+  const [password1, setPassword1] = useState("1234");
+  const [password2, setPassword2] = useState("1234");
   const [error, setError] = useState(null);
 
   const state = useContext(UserContext);
+
   const signupHandler = () => {
     setError(null);
+
+    if (phone.length === 0) {
+      Alert.alert("Та утасны дугаараа бичнэ үү");
+      return;
+    }
 
     if (password1 !== password2) {
       Alert.alert("Нууц үгнүүд хоорондоо таарахгүй байна!");
       return;
     }
 
-    if (check4 === false) {
-      Alert.alert("Та үйлчилгэний нөхцөл зөвшөөрөөгүй байна");
-      return;
-    }
-
-    state.signUp(name, email, password1);
+    state.signUp(phone, email, password1);
   };
   return (
     <ScrollView
@@ -106,12 +110,12 @@ const RegisterScreen2 = () => {
               Нэвтрэх
             </Text>{" "}
           </Text>
-          <View style={{ marginTop: 50 }}>
+          <View style={{ marginTop: 50, flex: 1 }}>
             <Input
               label="Утасны дугаар: "
               placeholder="8888-8888"
-              value={email}
-              onChangeText={setEmail}
+              value={phone}
+              onChangeText={setPhone}
               placeholderTextColor="#C5C5C5"
               keyboardType="numeric"
             />

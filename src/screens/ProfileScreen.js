@@ -1,18 +1,12 @@
-import {
-  AntDesign,
-  Entypo,
-  FontAwesome5,
-  Fontisto,
-  MaterialCommunityIcons,
-} from "@expo/vector-icons";
 import React, { useContext, useState, useEffect } from "react";
 import { StyleSheet, View, Image } from "react-native";
-import { Input } from "react-native-elements";
+import { Button, Input } from "react-native-elements";
 import ProfileHeader from "../components/ProfileHeader";
 import UserContext from "../contexts/UserContex";
 import FormSwitch from "../components/FormSwitch";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Notifications from "expo-notifications";
+import { useNavigation } from "@react-navigation/native";
 
 //Аппыг ажиллаж байхад нь дэлгэцэнд ил байхад нь сэрүүлэг үүсвэл яах ёстойг энд тохируулж өгж байна!
 Notifications.setNotificationHandler({
@@ -85,40 +79,42 @@ const ProfileScreen = () => {
     setAlarm((alarm) => {
       const newValue = !alarm;
 
-      if (newValue) {
-        Notifications.scheduleNotificationAsync({
-          content: {
-            title: "Карьераа хөгжүүлье!",
-            body: "Танд хэрэгтэй мэдээллүүд чанартай найдвартай баттай эх сурвалжаас...",
-            data: {
-              id: "61cd6da4e588ca5cbc955cd4",
-            },
-          },
-          trigger: {
-            seconds: 2,
-          },
-        })
-          .then((id) => {
-            console.log("alarm : ", id);
-            setNotificationId(id);
-            AsyncStorage.setItem("notificationId", id);
-          })
-          .catch((err) => console.log(err));
-      } else {
-        Notifications.cancelScheduledNotificationAsync(notificationId)
-          .then((result) => {
-            setNotificationId(null);
-            AsyncStorage.removeItem("notificationId");
-            console.log("alarm cancelled : ");
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
+      // if (newValue) {
+      //   Notifications.scheduleNotificationAsync({
+      //     content: {
+      //       title: "Карьераа хөгжүүлье!",
+      //       body: "Танд хэрэгтэй мэдээллүүд чанартай найдвартай баттай эх сурвалжаас...",
+      //       data: {
+      //         id: "61cd6da4e588ca5cbc955cd4",
+      //       },
+      //     },
+      //     trigger: {
+      //       seconds: 2,
+      //     },
+      //   })
+      //     .then((id) => {
+      //       console.log("alarm : ", id);
+      //       setNotificationId(id);
+      //       AsyncStorage.setItem("notificationId", id);
+      //     })
+      //     .catch((err) => console.log(err));
+      // } else {
+      //   Notifications.cancelScheduledNotificationAsync(notificationId)
+      //     .then((result) => {
+      //       setNotificationId(null);
+      //       AsyncStorage.removeItem("notificationId");
+      //       console.log("alarm cancelled : ");
+      //     })
+      //     .catch((err) => {
+      //       console.log(err);
+      //     });
+      // }
       AsyncStorage.setItem("alarm", JSON.stringify({ alarm: newValue }));
       return newValue;
     });
   };
+  const navigation = useNavigation();
+
   return (
     <View style={{ backgroundColor: "#041C32", flex: 1 }}>
       <ProfileHeader />
@@ -171,6 +167,13 @@ const ProfileScreen = () => {
             onValueChange={toggleAlarm}
           />
         </View>
+        {state.userRole === "admin" && (
+          <View>
+            <Button onPress={() => navigation.navigate("PushNotification")}>
+              Push Notification
+            </Button>
+          </View>
+        )}
       </View>
     </View>
   );

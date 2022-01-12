@@ -1,22 +1,11 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import Carousel, { ParallaxImage } from "react-native-snap-carousel";
 import { View, Dimensions, StyleSheet, Platform } from "react-native";
-import useBooks from "../hooks/useBooks";
 
-const ENTRIES1 = [
-  {
-    illustration: "https://i.imgur.com/UYiroysl.jpg",
-  },
-];
 const { width: screenWidth } = Dimensions.get("window");
 
-const MyCarousel = (props) => {
-  const [entries, setEntries] = useState([]);
+const MyCarousel = ({ data }) => {
   const carouselRef = useRef(null);
-  const [books] = useBooks();
-  // useEffect(() => {
-  //   setEntries(ENTRIES1);
-  // }, []);
 
   const renderItem = ({ item, index }, parallaxProps) => {
     return (
@@ -39,7 +28,7 @@ const MyCarousel = (props) => {
         sliderWidth={screenWidth}
         sliderHeight={screenWidth}
         itemWidth={screenWidth - 60}
-        data={books}
+        data={data}
         renderItem={renderItem}
         hasParallaxImages={true}
       />
@@ -64,7 +53,6 @@ const styles = StyleSheet.create({
     flex: 1,
     marginBottom: Platform.select({ ios: 0, android: 1 }), // Prevent a random Android rendering issue
     backgroundColor: "white",
-    borderRadius: 8,
   },
   image: {
     ...StyleSheet.absoluteFillObject,

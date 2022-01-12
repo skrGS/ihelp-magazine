@@ -2,16 +2,16 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { api } from "../../Constants";
 
-export default (categoryId) => {
-  const [books, setBooks] = useState([]);
+export default () => {
+  const [notifications, setNotifications] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`${api}/api/v1/books?limit=50`)
+      .get(`${api}/api/v1/notifications`)
       .then((result) => {
-        setBooks(result.data.data);
+        setNotifications(result.data.data);
         setErrorMessage(null);
         setLoading(false);
       })
@@ -23,5 +23,5 @@ export default (categoryId) => {
         setLoading(false);
       });
   }, []);
-  return [books, errorMessage, loading];
+  return [notifications, errorMessage, loading];
 };

@@ -1,7 +1,6 @@
 import React from "react";
-import { ScrollView } from "react-native";
+import { ScrollView, Text } from "react-native";
 import useBanner from "../hooks/useBanner";
-import useBooks from "../hooks/useBooks";
 import useWorks from "../hooks/useWorks";
 import useHighlightCat from "../hooks/useHighlightCat";
 import Banner from "../components/Banner";
@@ -14,20 +13,22 @@ import Works from "../components/Works";
 import useAnotherHighlights from "../hooks/useAnotherHighlights";
 import useSpecials from "../hooks/useSpecials";
 import Footer from "../components/Footer";
+import useMagazines from "../hooks/useMagazines";
 const HomeScreen = () => {
-  const [banner] = useBanner();
-  const [books] = useBooks();
+  const [banner, bannerError] = useBanner();
+  const [magazines] = useMagazines();
   const [highlightCats] = useHighlightCat();
   const [works] = useWorks();
   const [ahighlights] = useAnotherHighlights();
   const [specials] = useSpecials();
-
+  const message = "Request failed with status code 404";
   return (
     <>
       <HomeHeader />
       <ScrollView style={{ backgroundColor: "grey" }}>
         <Banner data={banner} />
-        <Magazines />
+
+        <Magazines data={magazines} />
         {highlightCats.map((cat, index) => (
           <HighCategory data={cat} key={index} />
         ))}

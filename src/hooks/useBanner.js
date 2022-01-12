@@ -4,24 +4,24 @@ import { api } from "../../Constants";
 
 export default () => {
   const [banner, setBanner] = useState([]);
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [bannerError, setBannerError] = useState(null);
+  const [bannerLoading, setBannerLoading] = useState(false);
   useEffect(() => {
-    setLoading(true);
+    setBannerLoading(true);
     axios
       .get(`${api}/api/v1/headerBanners?limit=10`)
       .then((result) => {
         setBanner(result.data.data);
-        setErrorMessage(null);
-        setLoading(false);
+        setBannerError(null);
+        setBannerLoading(false);
       })
       .catch((err) => {
         let message = err.message;
         if (message === "Request failed with status code 404")
           message = "Уучлаарай сэрвэр дахин ажилуулана уу";
-        setErrorMessage(err.message);
-        setLoading(false);
+        setBannerError(err.message);
+        setBannerLoading(false);
       });
   }, []);
-  return [banner, errorMessage, loading];
+  return [banner, bannerError, bannerLoading];
 };

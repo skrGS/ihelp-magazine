@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#041C32",
     flexDirection: "row",
-    flexWrap: "wrap-reverse",
+    flexWrap: "wrap",
     justifyContent: "center",
     paddingVertical: 15,
   },
