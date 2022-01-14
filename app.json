@@ -12,7 +12,7 @@
     "name": "ihelp-magazine",
     "description": "ihelp magazine",
     "slug": "ihelp-magazine",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/logo.png",
     "splash": {
@@ -28,13 +28,14 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "mn.ihelp.skr",
+      "bundleIdentifier": "mn.ihelp.novelist",
       "buildNumber": "1.0.0"
     },
     "android": {
       "googleServicesFile": "./google-services.json",
-      "versionCode": 2,
-      "package": "mn.ihelp.skr",
+      "versionCode": 1,
+      "package": "mn.ihelp.novelist",
+      "permissions": [],
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/logo-square.png",
         "backgroundColor": "#FFFFFF"
