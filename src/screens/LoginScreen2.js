@@ -16,8 +16,8 @@ import * as Animatable from "react-native-animatable";
 
 const LoginScreen2 = () => {
   const navigation = useNavigation();
-  const [phone, setPhone] = useState("97014400");
-  const [password, setPassword] = useState("0808");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
   const state = useContext(UserContext);
 
