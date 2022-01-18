@@ -16,8 +16,8 @@ import * as Animatable from "react-native-animatable";
 
 const LoginScreen2 = () => {
   const navigation = useNavigation();
-  const [phone, setPhone] = useState("97018800");
-  const [password, setPassword] = useState("1234");
+  const [phone, setPhone] = useState("97014400");
+  const [password, setPassword] = useState("0808");
   const [error, setError] = useState(null);
   const state = useContext(UserContext);
 
@@ -85,6 +85,7 @@ const LoginScreen2 = () => {
               label="Утасны дугаар:"
               value={phone}
               onChangeText={setPhone}
+              keyboardType="number-pad"
             />
             <Input
               label="Пин код (4 оронтой тоо):"

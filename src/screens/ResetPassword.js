@@ -13,6 +13,7 @@ import { Button } from "react-native-elements";
 import * as Animatable from "react-native-animatable";
 import { AntDesign } from "@expo/vector-icons";
 import axios from "axios";
+import { api } from "../../Constants";
 
 const ResetPassword = () => {
   const navigation = useNavigation();
@@ -24,7 +25,7 @@ const ResetPassword = () => {
     setError(null);
 
     axios
-      .post("http://167.99.66.193/api/v1/users/reset-password", {
+      .post(`${api}/api/v1/users/reset-password`, {
         password: password,
         resetToken: resetToken,
       })

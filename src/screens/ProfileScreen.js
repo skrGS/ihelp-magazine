@@ -167,13 +167,6 @@ const ProfileScreen = () => {
             onValueChange={toggleAlarm}
           />
         </View>
-        {state.userRole === "admin" && (
-          <View>
-            <Button onPress={() => navigation.navigate("PushNotification")}>
-              Push Notification
-            </Button>
-          </View>
-        )}
       </View>
     </View>
   );

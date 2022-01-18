@@ -22,10 +22,10 @@ import { AntDesign } from "@expo/vector-icons";
 const RegisterScreen2 = () => {
   const navigation = useNavigation();
   const [check4, setCheck4] = useState(false);
-  const [phone, setPhone] = useState("97014400");
-  const [email, setEmail] = useState("scarynomi@gmail.com");
-  const [password1, setPassword1] = useState("1234");
-  const [password2, setPassword2] = useState("1234");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [password1, setPassword1] = useState("");
+  const [password2, setPassword2] = useState("");
   const [error, setError] = useState(null);
 
   const state = useContext(UserContext);
@@ -34,7 +34,7 @@ const RegisterScreen2 = () => {
     setError(null);
 
     if (phone.length === 0) {
-      Alert.alert("Та утасны дугаараа бичнэ үү");
+      Alert.alert("Та утасны дугаараа оруулна уу");
       return;
     }
 

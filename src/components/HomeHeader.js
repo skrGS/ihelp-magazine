@@ -17,11 +17,14 @@ const windowWidth = Dimensions.get("window").width;
 const HomeHeader = () => {
   const navigation = useNavigation();
   const [notifications, setNotifications] = useState();
+  // console.log(notifications);
   useEffect(() => {
     axios
       .get(`${api}/api/v1/notifications`)
       .then((result) => {
-        setNotifications(result.data);
+        setNotifications(result.data.count);
+        console.log(result.data.count);
+        console.log(result.data);
       })
       .catch((err) => {
         console.log(err);
@@ -88,7 +91,7 @@ const HomeHeader = () => {
             style={{ right: 16, color: "white", top: 35, zIndex: 0 }}
           />
           <Badge
-            value={1}
+            value={notifications}
             status="primary"
             containerStyle={styles.badgeStyle}
           />

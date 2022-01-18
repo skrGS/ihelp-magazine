@@ -15,21 +15,22 @@ import * as Animatable from "react-native-animatable";
 import { AntDesign } from "@expo/vector-icons";
 import axios from "axios";
 import Spinner2 from "../components/Spinner2";
+import { api } from "../../Constants";
 
 const ForgetPassword = () => {
   const navigation = useNavigation();
-  const [email, setEmail] = useState("scarynomi@gmail.com");
+  const [email, setEmail] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const resetHandler = () => {
     setError(null);
-    if (email.length < 0) {
-      Alert.alert("Та утасны дугаараа оруулна уу");
+    if (email.length === 0) {
+      Alert.alert("И-мэйл хаягаа оруулна уу");
       return;
     }
     setLoading(true);
     axios
-      .post("http://167.99.66.193/api/v1/users/forgot-password", {
+      .post(`${api}/api/v1/users/forgot-password`, {
         email: email,
       })
       .then((result) => {

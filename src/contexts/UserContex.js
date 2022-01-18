@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { api } from "../../Constants";
+import { Alert } from "react-native";
 const UserContext = React.createContext();
 
 export const UserStore = (props) => {
@@ -39,6 +40,16 @@ export const UserStore = (props) => {
       })
       .catch((err) => {
         loginFailed(err.message);
+        let message = err.message;
+        if (message === "Request failed with status code 404")
+          message = "Утасны дугаар нууц үг хоорондоо таарахгүй байна";
+        else if (message === "Network Error")
+          message =
+            "Сэрвэр ажиллахгүй байна. Та түр хүлээгээд дахин оролдоно уу..";
+        else if (message === "Request failed with status code 401")
+          message = "Хэрэглэгчийн мэдээлэл буруу байна";
+
+        Alert.alert(message);
       });
   };
 
@@ -48,14 +59,24 @@ export const UserStore = (props) => {
         phone: phone,
         email: email,
         password: password,
-        role: "admin",
+        role: "user",
       })
       .then((result) => {
         console.log(result.data);
-        loginUserSuccessful(result.data.token, email, phone, "admin");
+        loginUserSuccessful(result.data.token, email, phone, "user");
       })
       .catch((err) => {
         loginFailed(err.message);
+        let message = err.message;
+        if (message === "Request failed with status code 404")
+          message = "Утасны дугаар нууц үг хоорондоо таарахгүй байна";
+        else if (message === "Network Error")
+          message =
+            "Сэрвэр ажиллахгүй байна. Та түр хүлээгээд дахин оролдоно уу..";
+        else if (message === "Request failed with status code 500")
+          message = "Та мэдээлэлээ бүрэн бөглөнө үү";
+
+        Alert.alert(message);
       });
   };
 
