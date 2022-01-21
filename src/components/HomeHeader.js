@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import {
   Text,
   View,
@@ -12,19 +12,18 @@ import { useNavigation } from "@react-navigation/native";
 import { api } from "../../Constants";
 import { Badge } from "react-native-elements";
 import axios from "axios";
+import UserContext from "../contexts/UserContex";
 const windowWidth = Dimensions.get("window").width;
 
 const HomeHeader = () => {
   const navigation = useNavigation();
   const [notifications, setNotifications] = useState();
-  // console.log(notifications);
   useEffect(() => {
     axios
       .get(`${api}/api/v1/notifications`)
       .then((result) => {
         setNotifications(result.data.count);
-        console.log(result.data.count);
-        console.log(result.data);
+        // console.log(result.data);
       })
       .catch((err) => {
         console.log(err);
@@ -90,11 +89,13 @@ const HomeHeader = () => {
             color="#333"
             style={{ right: 16, color: "white", top: 35, zIndex: 0 }}
           />
-          <Badge
-            value={notifications}
-            status="primary"
-            containerStyle={styles.badgeStyle}
-          />
+          {notifications === 0 ? null : (
+            <Badge
+              value={notifications}
+              status="primary"
+              containerStyle={styles.badgeStyle}
+            />
+          )}
         </TouchableOpacity>
       </View>
     </View>

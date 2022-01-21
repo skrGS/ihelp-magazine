@@ -34,7 +34,7 @@ const ForgetPassword = () => {
         email: email,
       })
       .then((result) => {
-        console.log(result.data);
+        // console.log(result.data);
         setLoading(false);
         navigation.navigate("ResetPassword");
       })

@@ -1,5 +1,5 @@
-import React from "react";
-import { ScrollView, Text } from "react-native";
+import React, { useState, useCallback } from "react";
+import { ScrollView, RefreshControl } from "react-native";
 import useBanner from "../hooks/useBanner";
 import useWorks from "../hooks/useWorks";
 import useHighlightCat from "../hooks/useHighlightCat";
@@ -14,6 +14,11 @@ import useAnotherHighlights from "../hooks/useAnotherHighlights";
 import useSpecials from "../hooks/useSpecials";
 import Footer from "../components/Footer";
 import useMagazines from "../hooks/useMagazines";
+
+const wait = (timeout) => {
+  return new Promise((resolve) => setTimeout(resolve, timeout));
+};
+
 const HomeScreen = () => {
   const [banner, bannerError] = useBanner();
   const [magazines] = useMagazines();
@@ -21,11 +26,23 @@ const HomeScreen = () => {
   const [works] = useWorks();
   const [ahighlights] = useAnotherHighlights();
   const [specials] = useSpecials();
-  const message = "Request failed with status code 404";
+
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => setRefreshing(false));
+  }, []);
   return (
     <>
       <HomeHeader />
-      <ScrollView style={{ backgroundColor: "grey" }}>
+      <ScrollView
+        style={{ backgroundColor: "grey" }}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+        showsVerticalScrollIndicator={false}
+      >
         <Banner data={banner} />
 
         <Magazines data={magazines} />

@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import Carousel, { ParallaxImage } from "react-native-snap-carousel";
 import { View, Dimensions, StyleSheet, Platform } from "react-native";
-
+import { api } from "../../Constants";
 const { width: screenWidth } = Dimensions.get("window");
 
 const MyCarousel = ({ data }) => {
@@ -11,7 +11,7 @@ const MyCarousel = ({ data }) => {
     return (
       <View style={styles.item}>
         <ParallaxImage
-          source={{ uri: item.illustration }}
+          source={{ uri: api + "/upload/" + item.photo }}
           containerStyle={styles.imageContainer}
           style={styles.image}
           parallaxFactor={0.4}

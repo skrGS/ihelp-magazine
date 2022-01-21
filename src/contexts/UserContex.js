@@ -12,6 +12,7 @@ export const UserStore = (props) => {
   const [phone, setPhone] = useState(null);
   const [userRole, setUserRole] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [userId, setUserId] = useState(null);
 
   const logout = async () => {
     await AsyncStorage.removeItem("user");
@@ -21,6 +22,7 @@ export const UserStore = (props) => {
     setEmail(null);
     setPhone(null);
     setUserRole(null);
+    setUserId(null);
   };
 
   const login = (phone, password) => {
@@ -30,12 +32,13 @@ export const UserStore = (props) => {
         password: password,
       })
       .then((result) => {
-        console.log(result.data);
+        // console.log(result.data);
         loginUserSuccessful(
           result.data.token,
           phone,
           email,
-          result.data.user.role
+          result.data.user.role,
+          result.data.user._id
         );
       })
       .catch((err) => {
@@ -62,7 +65,7 @@ export const UserStore = (props) => {
         role: "user",
       })
       .then((result) => {
-        console.log(result.data);
+        // console.log(result.data);
         loginUserSuccessful(result.data.token, email, phone, "user");
       })
       .catch((err) => {
@@ -81,23 +84,25 @@ export const UserStore = (props) => {
   };
 
   const loginFailed = (error) => {
-    console.log(error);
+    // console.log(error);
     setIsLoggedIn(false);
     setEmail(null);
     setPhone(null);
     setUserRole(null);
+    setUserId(null);
   };
 
-  const loginUserSuccessful = async (token, email, phone, userRole) => {
+  const loginUserSuccessful = async (token, email, phone, userRole, userId) => {
     setToken(token);
     setEmail(email);
     setPhone(phone);
     setUserRole(userRole);
+    setUserId(userId);
     setIsLoggedIn(true);
     try {
       await AsyncStorage.setItem(
         "user",
-        JSON.stringify({ token, phone, email, userRole })
+        JSON.stringify({ token, phone, email, userRole, userId })
       );
     } catch (err) {
       console.log("Утас руу хадгалж чадсангүй...");
@@ -122,6 +127,8 @@ export const UserStore = (props) => {
         setEmail,
         setPhone,
         setUserRole,
+        userId,
+        setUserId,
       }}
     >
       {props.children}
