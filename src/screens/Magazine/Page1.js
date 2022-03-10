@@ -20,7 +20,7 @@ const Page1 = () => {
       style={{ width: windowWidth }}
       showsVerticalScrollIndicator={false}
     >
-      <AntDesign
+      {/* <AntDesign
         name="arrowleft"
         size={30}
         color="black"
@@ -31,9 +31,9 @@ const Page1 = () => {
           zIndex: 2,
         }}
         onPress={() => navigation.goBack()}
-      />
+      /> */}
       <View
-        style={{ flexDirection: "row", marginTop: 80, marginHorizontal: 20 }}
+        style={{ flexDirection: "row", marginTop: 50, marginHorizontal: 20 }}
       >
         <Text style={{ fontWeight: "bold" }}>4-5 | </Text>
         <Text

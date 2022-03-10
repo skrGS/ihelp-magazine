@@ -76,7 +76,7 @@ const Page3 = () => {
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <View style={{ flexDirection: "row" }}>
             <Text style={{ fontWeight: "bold" }}>8-13 | </Text>
-            <Text style={{ color: "grey", fontWeight: "200" }}>
+            <Text style={{ color: "grey", fontFamily: "Montserrat-regular" }}>
               CAREER DEVELOPER
             </Text>
           </View>

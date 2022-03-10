@@ -98,7 +98,7 @@ const Page11 = () => {
         >
           <View style={{ flexDirection: "row" }}>
             <Text style={{ fontWeight: "bold", color: "black" }}>54-56 | </Text>
-            <Text style={{ color: "grey", fontWeight: "200" }}>
+            <Text style={{ color: "grey", fontFamily: "Montserrat-regular" }}>
               CAREER DEVELOPER
             </Text>
           </View>

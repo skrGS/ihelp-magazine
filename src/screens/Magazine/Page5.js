@@ -62,8 +62,8 @@ const Page5 = () => {
         {/* Header Page and text */}
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <View style={{ flexDirection: "row" }}>
-            <Text style={{ fontWeight: "bold" }}>21-25 | </Text>
-            <Text style={{ color: "grey", fontWeight: "200" }}>
+            <Text style={{ fontWeight: "bold" }}>24-27 | </Text>
+            <Text style={{ color: "grey", fontFamily: "Montserrat-regular" }}>
               CAREER DEVELOPER
             </Text>
           </View>

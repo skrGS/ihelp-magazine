@@ -29,7 +29,7 @@ const Page2 = () => {
         style={{ flexDirection: "row", marginTop: 50, marginHorizontal: 20 }}
       >
         <Text style={{ fontWeight: "bold" }}>6 | </Text>
-        <Text style={{ color: "grey", fontWeight: "200" }}>
+        <Text style={{ color: "grey", fontFamily: "Montserrat-regular" }}>
           CAREER DEVELOPER
         </Text>
       </View>

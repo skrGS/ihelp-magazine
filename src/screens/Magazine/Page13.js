@@ -114,8 +114,8 @@ const Page13 = () => {
       </ImageBackground>
       <View style={{ marginHorizontal: 20 }}>
         <View style={{ flexDirection: "row", marginTop: 20 }}>
-          <Text style={{ fontWeight: "bold" }}>6 | </Text>
-          <Text style={{ color: "grey", fontWeight: "200" }}>
+          <Text style={{ fontWeight: "bold" }}>64-66 | </Text>
+          <Text style={{ color: "grey", fontFamily: "Montserrat-regular" }}>
             CAREER DEVELOPER
           </Text>
         </View>

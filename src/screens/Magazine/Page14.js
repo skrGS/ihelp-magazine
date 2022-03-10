@@ -64,6 +64,22 @@ const Page14 = () => {
           />
         </View>
       </ImageBackground>
+      <View
+        style={{ flexDirection: "row", marginTop: 20, marginHorizontal: 20 }}
+      >
+        <Text style={{ fontWeight: "bold" }}>68-70 | </Text>
+        <Text style={{ color: "grey", fontFamily: "Montserrat-regular" }}>
+          CAREER DEVELOPER
+        </Text>
+      </View>
+      <View
+        style={{
+          borderWidth: 1,
+          marginVertical: 5,
+          borderColor: "grey",
+          marginHorizontal: 20,
+        }}
+      />
       <ImageBackground
         source={require("../../../assets/mag1/coinbg.jpg")}
         style={{

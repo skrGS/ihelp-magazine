@@ -17,8 +17,14 @@ const Page7 = () => {
       showsVerticalScrollIndicator={false}
     >
       <View style={{ flexDirection: "row", marginLeft: 20, marginTop: 50 }}>
-        <Text style={{ fontWeight: "bold", color: "white" }}>27-28 | </Text>
-        <Text style={{ color: "grey", fontWeight: "200", color: "white" }}>
+        <Text style={{ fontWeight: "bold", color: "white" }}>30-31 | </Text>
+        <Text
+          style={{
+            color: "grey",
+            fontFamily: "Montserrat-regular",
+            color: "white",
+          }}
+        >
           CAREER DEVELOPER
         </Text>
       </View>

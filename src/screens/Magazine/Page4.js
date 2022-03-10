@@ -84,7 +84,7 @@ const Page4 = () => {
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
           <View style={{ flexDirection: "row" }}>
             <Text style={{ fontWeight: "bold" }}>16-20 | </Text>
-            <Text style={{ color: "grey", fontWeight: "200" }}>
+            <Text style={{ color: "grey", fontFamily: "Montserrat-regular" }}>
               CAREER DEVELOPER
             </Text>
           </View>
