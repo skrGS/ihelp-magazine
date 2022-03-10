@@ -10,9 +10,9 @@
       ]
     ],
     "name": "Career developer",
-    "description": "ihelp magazine",
-    "slug": "ihelp-magazine",
-    "version": "1.0.1",
+    "description": "Career developer magazine",
+    "slug": "career-developer",
+    "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/logo.png",
     "splash": {
@@ -28,13 +28,13 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "mn.ihelp.novelist",
+      "bundleIdentifier": "mn.ihelp.career.developer",
       "buildNumber": "1.0.0"
     },
     "android": {
       "googleServicesFile": "./google-services.json",
-      "versionCode": 2,
-      "package": "mn.ihelp.novelist",
+      "versionCode": 1,
+      "package": "mn.ihelp.career.developer",
       "permissions": [],
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/logo-square.png",
