@@ -37,7 +37,7 @@ const HomeScreen = () => {
     <>
       <HomeHeader />
       <ScrollView
-        style={{ backgroundColor: "grey" }}
+        style={{ backgroundColor: "#ADD8E6" }}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }

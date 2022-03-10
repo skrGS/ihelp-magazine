@@ -7,6 +7,8 @@ import FormSwitch from "../components/FormSwitch";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Notifications from "expo-notifications";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
+import { api } from "../../Constants";
 
 //Аппыг ажиллаж байхад нь дэлгэцэнд ил байхад нь сэрүүлэг үүсвэл яах ёстойг энд тохируулж өгж байна!
 Notifications.setNotificationHandler({
@@ -41,7 +43,7 @@ const ProfileScreen = () => {
   const state = useContext(UserContext);
   const [alarm, setAlarm] = useState("Сануулахгүй");
   const [notificationId, setNotificationId] = useState(null);
-
+  const [userName, setUserName] = useState(state.userName);
   useEffect(() => {
     const notificationResponseReceivedListener =
       Notifications.addNotificationResponseReceivedListener((response) => {
@@ -114,7 +116,13 @@ const ProfileScreen = () => {
     });
   };
   const navigation = useNavigation();
-
+  const changeData = () => {
+    axios.put(`${api}/v1/users/${state.userId}`, {
+      name: userName,
+      email: email,
+      phone: phone,
+    });
+  };
   return (
     <View style={{ backgroundColor: "#041C32", flex: 1 }}>
       <ProfileHeader />
@@ -143,18 +151,25 @@ const ProfileScreen = () => {
           mode="flat"
           label="Нэр:"
           placeholder="Нэрээ оруулна уу"
-          value={state.userName}
+          value={userName}
           style={{ color: "white" }}
         />
 
         <Input
           mode="flat"
+          label="Утасны дугаар:"
+          placeholder="Утасны дугаар"
+          value={state.phone}
+          style={{ color: "white" }}
+        />
+        <Input
+          mode="flat"
           label="И-мэйл хаяг:"
-          placeholder="Нэрээ оруулна уу"
+          placeholder="И-мэйл хаяг уу"
           value={state.email}
           style={{ color: "white" }}
         />
-        <View style={{ paddingHorizontal: 10 }}>
+        {/* <View style={{ paddingHorizontal: 10 }}>
           <FormSwitch
             label="Мэдэгдэл:"
             icon={
@@ -166,7 +181,8 @@ const ProfileScreen = () => {
             value={alarm}
             onValueChange={toggleAlarm}
           />
-        </View>
+        </View> */}
+        {console.log(state.userId)}
       </View>
     </View>
   );

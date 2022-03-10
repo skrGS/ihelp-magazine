@@ -1,22 +1,34 @@
 import React, { useRef } from "react";
 import Carousel, { ParallaxImage } from "react-native-snap-carousel";
-import { View, Dimensions, StyleSheet, Platform } from "react-native";
+import {
+  View,
+  Dimensions,
+  StyleSheet,
+  Platform,
+  TouchableOpacity,
+} from "react-native";
 import { api } from "../../Constants";
 const { width: screenWidth } = Dimensions.get("window");
-
+import { useNavigation } from "@react-navigation/native";
 const MyCarousel = ({ data }) => {
   const carouselRef = useRef(null);
+  const navigation = useNavigation();
 
   const renderItem = ({ item, index }, parallaxProps) => {
     return (
       <View style={styles.item}>
-        <ParallaxImage
-          source={{ uri: api + "/upload/" + item.photo }}
-          containerStyle={styles.imageContainer}
-          style={styles.image}
-          parallaxFactor={0.4}
-          {...parallaxProps}
-        />
+        <TouchableOpacity
+          onPress={() => navigation.navigate("MagazineDetail", { id: item.id })}
+          style={styles.item}
+        >
+          <ParallaxImage
+            source={{ uri: api + "/upload/" + item.photo }}
+            containerStyle={styles.imageContainer}
+            style={styles.image}
+            parallaxFactor={0.4}
+            {...parallaxProps}
+          />
+        </TouchableOpacity>
       </View>
     );
   };

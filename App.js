@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { Platform } from "react-native";
 import Constants from "expo-constants";
@@ -6,7 +6,8 @@ import * as Notifications from "expo-notifications";
 import axios from "axios";
 import { UserStore } from "./src/contexts/UserContex";
 import MyStackNavigator from "./src/navigation/MyStackNavigator";
-
+import AppLoading from "expo-app-loading";
+import { useFonts } from "expo-font";
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
@@ -64,6 +65,29 @@ function App() {
       };
     }
   });
+  let [fontsLoaded] = useFonts({
+    "MinionPro-black": require("./assets/fonts/MinionPro-Regular.otf"),
+    "Montserrat-medium": require("./assets/fonts/Montserrat-Medium.ttf"),
+    "Montserrat-light": require("./assets/fonts/Montserrat-Light.ttf"),
+    "Montserrat-regular": require("./assets/fonts/Montserrat-Regular.ttf"),
+    "Montserrat-bold": require("./assets/fonts/Montserrat-Bold.ttf"),
+    "Montserrat-semibold": require("./assets/fonts/Montserrat-SemiBold.ttf"),
+    "Montserrat-black": require("./assets/fonts/Montserrat-Black.ttf"),
+    "Montserrat-semibold-italic": require("./assets/fonts/Montserrat-SemiBoldItalic.ttf"),
+    "Playfair-regular": require("./assets/fonts/PlayfairDisplay-Regular.ttf"),
+    "Playfair-bold": require("./assets/fonts/PlayfairDisplay-Bold.ttf"),
+    "Cambria-bold": require("./assets/fonts/cambriab.ttf"),
+    "Cambria-bold-italic": require("./assets/fonts/cambriaz.ttf"),
+    "Cambria-italic": require("./assets/fonts/cambriai.ttf"),
+    "Oswald-medium": require("./assets/fonts/Oswald-Medium.ttf"),
+    "Oswald-bold": require("./assets/fonts/Oswald-Bold.ttf"),
+    "Oswald-light": require("./assets/fonts/Oswald-Light.ttf"),
+    "Oswald-regular": require("./assets/fonts/Oswald-Regular.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
   return (
     <NavigationContainer>
       <UserStore>

@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
 import HighlightDetail from "../screens/HighlightDetail";
 import WorkDetail from "../screens/WorkDetail";
-import MainPage from "../screens/Magazine.js/MainPage";
+import MainPage from "../screens/Magazine/MainPage";
 import AnotherHighlightDetail from "../screens/AnotherHighlightDetail";
 import BestPersonDetail from "../screens/BestPersonDetail";
 import UserContext from "../contexts/UserContex";

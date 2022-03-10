@@ -32,11 +32,11 @@ export const UserStore = (props) => {
         password: password,
       })
       .then((result) => {
-        // console.log(result.data);
+        console.log(result.data);
         loginUserSuccessful(
           result.data.token,
+          result.data.email,
           phone,
-          email,
           result.data.user.role,
           result.data.user._id
         );

@@ -17,6 +17,7 @@ const WorkDetail = () => {
           marginBottom: 10,
         }}
       />
+      <Text style={{ color: "white", fontSize: 30 }}>Нээлттэй ажлын байр</Text>
       {works.map((e, index) => {
         return (
           <View key={index}>
