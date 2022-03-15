@@ -1,32 +1,118 @@
 import React from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import { api } from "../../Constants";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  Dimensions,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
-const AnotherHiglight = ({ data }) => {
+import useBolors from "../hooks/useBolors";
+import { api } from "../../Constants";
+import useTops from "../hooks/useTops";
+import useTechnos from "../hooks/useTechnos";
+import useCoins from "../hooks/useCoins";
+const windowWidth = Dimensions.get("window").width;
+const AnotherHiglight = () => {
   const navigation = useNavigation();
-
+  const [bolors] = useBolors();
+  const [tops] = useTops();
+  const [technos] = useTechnos();
+  const [coins] = useCoins();
   return (
-    <View style={styles.container}>
-      {data.map((e) => {
-        return (
-          <View key={e._id} style={styles.viewer}>
-            {/* <TouchableOpacity
-              onPress={() =>
-                navigation.navigate("AnotherHighlightDetail", { id: e.id })
-              }
-            > */}
-            <Image
-              source={{ uri: api + "/upload/" + e.photo }}
-              style={styles.image}
-            />
-            <Text style={styles.name}>{e.name}</Text>
-            <Text style={styles.title}>{e.title}</Text>
-            {/* </TouchableOpacity> */}
+    <>
+      <View style={{ backgroundColor: "#041C32" }}>
+        <Text
+          style={{
+            marginLeft: 21,
+            fontWeight: "bold",
+            fontSize: 22,
+            color: "white",
+            paddingTop: 20,
+          }}
+        >
+          Булангууд
+        </Text>
+        <View style={styles.container}>
+          <View style={styles.viewer}>
+            {bolors.map((e, index) => {
+              return (
+                <TouchableOpacity
+                  key={index}
+                  onPress={() => navigation.navigate("Bolor", { id: e.id })}
+                >
+                  <Image
+                    source={{ uri: api + "/upload/" + e.photo }}
+                    style={styles.image}
+                  />
+                  <Text style={styles.name}>МАНЛАЙЛАЛ</Text>
+                  <Text style={[styles.title, { width: windowWidth / 2.6 }]}>
+                    ЦХХХЯ-ын ТНБДарга {e.name}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
           </View>
-        );
-      })}
-    </View>
+          <View style={styles.viewer}>
+            {tops.map((e, index) => {
+              return (
+                <TouchableOpacity
+                  key={index}
+                  onPress={() => navigation.navigate("Ceos", { id: e.id })}
+                >
+                  <Image
+                    source={{ uri: api + "/upload/" + e.photo }}
+                    style={styles.image}
+                  />
+                  <Text style={styles.name}>{e.name}</Text>
+                  <Text style={[styles.title, { width: windowWidth / 2.6 }]}>
+                    {" "}
+                    Гүйцэтгэх захирлуудын зөвлөгөө
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+          <View style={{ padding: 10, left: 1 }}>
+            {technos.map((e, index) => {
+              return (
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("Toptech", { id: e.id })}
+                  key={index}
+                >
+                  <Image
+                    source={{ uri: api + "/upload/" + e.photo }}
+                    style={styles.image}
+                  />
+                  <Text style={styles.name}>{e.name}</Text>
+                  <Text style={styles.title}>{e.content}</Text>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+          <View style={[styles.viewer, { left: 10 }]}>
+            {coins.map((e, index) => {
+              return (
+                <TouchableOpacity
+                  key={index}
+                  onPress={() => navigation.navigate("Topcoin", { id: e.id })}
+                >
+                  <Image
+                    source={{ uri: api + "/upload/" + e.photo }}
+                    style={styles.image}
+                  />
+                  <Text style={styles.name}>{e.name}</Text>
+                  <Text style={[styles.title, { width: windowWidth / 2.6 }]}>
+                    {e.content}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+        </View>
+      </View>
+    </>
   );
 };
 

@@ -12,11 +12,31 @@ import LoginScreen2 from "../screens/LoginScreen2";
 import RegisterScreen2 from "../screens/RegisterScreen2";
 import Terms from "../components/Terms";
 import Notification from "../screens/NotificationScreen";
-import PushNotification from "../screens/PushNotificatoin";
 import ForgetPassword from "../screens/ForgetPassword";
 import ResetPassword from "../screens/ResetPassword";
 import SplashScreen from "../screens/SplashScreen";
 import NotificationDetailScreen from "../screens/NotificationDetailScreen";
+import Page3 from "../screens/Magazine/Page3";
+import Page4 from "../screens/Magazine/Page4";
+import Page10 from "../screens/Magazine/Page10";
+import Page9 from "../screens/Magazine/Page9";
+import Page5 from "../screens/Magazine/Page5";
+import Page7 from "../screens/Magazine/Page7";
+import Page11 from "../screens/Magazine/Page11";
+import Page12 from "../screens/Magazine/Page12";
+import Page13 from "../screens/Magazine/Page13";
+import Page14 from "../screens/Magazine/Page14";
+import useMagazine from "../hooks/useMagazine";
+import Ariunzaya from "../components/Ariunzaya";
+import Binance from "../components/Binance";
+import Odko from "../components/Odko";
+import Bolor from "../components/Bolor";
+import Top from "../components/Top";
+import TopTech from "../components/TopTech";
+import Coin from "../components/Coin";
+import Bayka from "../components/Bayka";
+import Bataa from "../components/Bataa";
+import Deegii from "../components/Deegii";
 const Stack = createNativeStackNavigator();
 
 const MyStackNavigator = () => {
@@ -24,6 +44,7 @@ const MyStackNavigator = () => {
   if (state.isLoading === true) {
     return <SplashScreen />;
   }
+
   return (
     <Stack.Navigator initialRouteName="Home" headerMode="none">
       {state.isLoggedIn ? (
@@ -77,12 +98,57 @@ const MyStackNavigator = () => {
             component={NotificationDetailScreen}
             options={{ headerShown: false }}
           />
-          {state.userRole === "admin" && (
-            <Stack.Screen
-              name="PushNotification"
-              component={PushNotification}
-            />
-          )}
+          <Stack.Screen
+            name="Ariuk"
+            component={Ariunzaya}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Bolor"
+            component={Bolor}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Ceos"
+            component={Top}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Binance"
+            component={Binance}
+            options={{ headerShown: false }}
+          />
+
+          <Stack.Screen
+            name="Toptech"
+            component={TopTech}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Odko"
+            component={Odko}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Topcoin"
+            component={Coin}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Bayka"
+            component={Bayka}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Davaa"
+            component={Bataa}
+            options={{ headerShown: false }}
+          />
+          <Stack.Screen
+            name="Deegii"
+            component={Deegii}
+            options={{ headerShown: false }}
+          />
         </>
       ) : (
         <>

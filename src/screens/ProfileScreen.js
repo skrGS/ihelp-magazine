@@ -3,7 +3,6 @@ import { StyleSheet, View, Image } from "react-native";
 import { Button, Input } from "react-native-elements";
 import ProfileHeader from "../components/ProfileHeader";
 import UserContext from "../contexts/UserContex";
-import FormSwitch from "../components/FormSwitch";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as Notifications from "expo-notifications";
 import { useNavigation } from "@react-navigation/native";

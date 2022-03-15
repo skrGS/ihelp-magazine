@@ -37,37 +37,23 @@ const HomeHeader = () => {
         width: windowWidth,
         justifyContent: "space-between",
         backgroundColor: "#1c2841",
-        paddingVertical: 25,
+        paddingVertical: 35,
       }}
     >
       <View>
         <Image
-          source={require("../../assets/2smal.png")}
-          style={{ width: 77, height: 36, top: 32, left: 18 }}
+          source={require("../../assets/faceLogo.png")}
+          style={{
+            width: 160,
+            height: 30,
+            justifyContent: "center",
+            alignSelf: "center",
+            left: 10,
+            top: 24,
+          }}
         />
       </View>
-      <View style={{ right: 11, top: 20 }}>
-        <Text
-          style={{
-            color: "white",
-            fontWeight: "bold",
-            fontSize: 30,
-          }}
-        >
-          Career
-        </Text>
-        <Text
-          style={{
-            color: "white",
-            fontWeight: "bold",
-            fontSize: 21,
-            fontWeight: "500",
-            bottom: 8,
-          }}
-        >
-          developer
-        </Text>
-      </View>
+
       <View
         style={{
           flexDirection: "row",
@@ -77,17 +63,17 @@ const HomeHeader = () => {
           name="user"
           size={30}
           color="#333"
-          style={{ right: 25, color: "white", top: 35 }}
+          style={{ right: 10, color: "white", top: 23 }}
           onPress={() => navigation.navigate("ProfileScreen")}
         />
-        <TouchableOpacity
+        {/* <TouchableOpacity
           onPress={() => navigation.navigate("NotifacationScreen")}
         >
           <Ionicons
             name="notifications-outline"
             size={30}
             color="#333"
-            style={{ right: 16, color: "white", top: 35, zIndex: 0 }}
+            style={{ right: 16, color: "white", zIndex: 0, top: 23 }}
           />
           {notifications === 0 ? null : (
             <Badge
@@ -96,7 +82,7 @@ const HomeHeader = () => {
               containerStyle={styles.badgeStyle}
             />
           )}
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </View>
   );

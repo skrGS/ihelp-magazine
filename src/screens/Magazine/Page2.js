@@ -8,18 +8,10 @@ import {
   Image,
 } from "react-native";
 const windowWidth = Dimensions.get("window").width;
-const windowHeight = Dimensions.get("window").height;
 import * as Animatable from "react-native-animatable";
+import { api } from "../../../Constants";
 
-const Page2 = () => {
-  const fadeIn = {
-    from: {
-      opacity: 0,
-    },
-    to: {
-      opacity: 1,
-    },
-  };
+const Page2 = ({ data }) => {
   return (
     <ScrollView
       style={{ width: windowWidth }}
@@ -43,9 +35,8 @@ const Page2 = () => {
       />
       <View style={{}}>
         <Animatable.Text
-          animation="slideInDown"
-          iterationCount={5}
-          direction="alternate"
+          animation="fadeInDownBig"
+          duration={800}
           style={{
             fontFamily: "Montserrat-bold",
             marginHorizontal: 20,
@@ -54,7 +45,7 @@ const Page2 = () => {
             marginTop: 10,
           }}
         >
-          ЭРХЛЭГЧИЙН ЗУРВАС
+          {data.p2BlueTitle}
         </Animatable.Text>
         <View
           style={{
@@ -67,7 +58,7 @@ const Page2 = () => {
         <Animatable.Image
           animation={"fadeInUpBig"}
           duration={1000}
-          source={require("../../../assets/mag1/nka.png")}
+          source={{ uri: api + "/upload/" + data.p2Naki }}
           style={{ width: windowWidth / 1.1, height: 400, alignSelf: "center" }}
           resizeMode="cover"
         />
@@ -79,57 +70,20 @@ const Page2 = () => {
             marginVertical: 25,
           }}
         >
-          XXI зуун мэдээллийн ил тод байдал, өрсөлдөөнийг шинэ шатанд гаргалаа.
+          {data.p2NakiTitle}
         </Text>
-        <Text style={styles.text}>
-          Нэг талаас, мэдээллийн тасралтгүй урсгал эрх чөлөөг мэдрүүлж, суралцах
-          төдийгүй хөгжих боломжийг харамгүй олгож буй мэт боловч мэдээллийн их
-          шуурга, далай дунд тэнцвэртэй, үнэн, үнэ цэнтэй мэдээллийг шүүн авахад
-          цаг хугацаа, хүчин чармайлт шаардаж байна. Тийм ч учраас карьертаа
-          анхаардаг, карьераа дөнгөж эхлүүлж байгаа болон эхлүүлэх гээд суралцаж
-          буй монгол залууст зөвхөн зорилтот, чанартай бөгөөд цаг зав хэмнэсэн,
-          үнэ цэнтэй, уншингаа суралцах боломжтой сэтгүүл та бүхний өмнө цоо
-          шинээр хуудсаа дэлгэж байна. Энэ сэдвийн малгай дор анх удаа медиа зах
-          зээлд эрхлэн гаргаж буй, бидний сэтгэл, хичээл зүтгэлээ шингээн
-          бэлтгэсэн энэхүү сэтгүүл цаашид сар бүр та бүхэнд хэвлэмэл болон
-          дижитал хувилбараар хүрэх юм. Дижитал хувилбар үнэ төлбөргүй бөгөөд
-          залууст бидний зүгээс чадан ядан хийж буй хөрөнгө оруулалт болохыг та
-          бүгд ойлгох биз ээ. ihelp төслийн хүрээнд эрхлэн гаргаж буй CAREER
-          DEVELOPER сэтгүүлтэй хамт байгаа хэн бүхэн чухал, хэрэгцээт, өөрийгөө
-          хөгжүүлэх мэдээллийг хамгийн сайн шүүн тунгаагдсан хувилбараар тогтмол
-          авч байх боломжийг нээж байна.
-        </Text>
+        <Text style={styles.text}>{data.p2NakiText}</Text>
         <Text
           style={{ fontFamily: "Montserrat-bold", margin: 20, fontSize: 18 }}
         >
-          МЭДЛЭГ, ҮНЭ ЦЭН, БОЛОМЖ
+          {data.p2NakiTitle1}
         </Text>
-        <Text style={styles.text}>
-          Анхны дугаартаа бид хөдөлмөрийн зах зээлийн бодлого тодорхойлогч,
-          салбарын сайд хатагтай А.Ариунзаяаг онцолж байна. Тэрчлэн Монголын
-          бизнесийн экосистемд олон стартап байгуулж, тэр чинээгээрээ богино
-          хугацаанд амжилтад хүргэж буй В.Баярсайханы зүгээс залууст хандан
-          хэлэх зөвлөгөө, Цахим Монгол буюу E-Mongolia төслийн удирдагч,
-          Харилцаа холбоо, мэдээллийн технологийн газрын дарга Б.Болор-Эрдэнийн
-          ажил хэрэгтээ баримталдаг зарчим, мөн хөдөлмөрийн зах зээл, түүнийг
-          дагасан тоо, бодлого, статистик мэдээллийг Үндэсний Статистикийн
-          Хорооны дарга Б.Батдаваагийн ярилцлага зэргээр дамжуулан хүргэж байна.
-          Career Developer сэтгүүлийн анхны дугаартай хамт байж, үнэ цэнтэй
-          мэдлэг, мэдээлэл, туршлагаа хуваалцсан бүх эрхэмд гүн талархал
-          илэрхийлье.
+        <Text style={styles.text}>{data.p2NakiText1}</Text>
+        <Text style={[styles.text, { marginHorizontal: 8 }]}>
+          {data.p2NakiText2}
         </Text>
-        <Text style={styles.text}>
-          Тэрчлэн 180 хоногт дэлхийд хүлээн зөвшөөрөгдсөн Binance, Төрийн банкны
-          чадварлаг менежер Б.Одбаясал, Монголын санхүүгийн зах зээлд шинэ
-          давлагаа үүсгэж буй топ гүйцэтгэлтэй дижитал ассетууд, 2022 онд дэлхий
-          дахины хөгжлийг эрчимжүүлэх шинэ технологиуд зэрэг мэдээллийг та
-          бүхэнд онцлон хүргэж байна.
-        </Text>
-        <Text style={styles.text}>
-          Та бүхнийг бидэнтэй ямагт хамт байж, оюунаа цэнэглэн, цэгцтэй, үнэн
-          зөв мэдээллийг баталгаатайгаар тогтмол хүлээн авч байгаарай хэмээн
-          хүсье. Амжилтад тань үргэлж тус дэм болох CAREER DEVELOPER сэтгүүлийн
-          хамт олноос амжилт ерөөе!
+        <Text style={[styles.text, { marginHorizontal: 8 }]}>
+          {data.p2NakiText3}
         </Text>
       </View>
       <View>
@@ -138,7 +92,7 @@ const Page2 = () => {
           animation="slideInRight"
           iterationCount={1}
           direction="alternate"
-          source={require("../../../assets/mag1/careerdeveloper.png")}
+          source={require("../../../assets/faceLogo.png")}
           style={{ width: windowWidth / 1.1, height: 100, alignSelf: "center" }}
           resizeMode="contain"
         />
@@ -151,17 +105,17 @@ const Page2 = () => {
             marginVertical: 20,
           }}
         >
-          2022/03 сар | Дугаар №001
+          {data.p2Date}
         </Animatable.Text>
         <View style={{ borderWidth: 1, marginHorizontal: 20 }} />
-        <Text style={styles.textWork}>Ерөнхий эрхлэгч</Text>
-        <Text style={styles.textName}>Г.НАМХАЙДОРЖ</Text>
-        <Text style={styles.textWork}>Зөвлөх</Text>
-        <Text style={styles.textName}>Т.БЯМБАЖАРГАЛ</Text>
-        <Text style={styles.textWork}>Контентын хэлтэс</Text>
-        <Text style={styles.textName}>Г.ИЧИНХОРОЛ</Text>
-        <Text style={styles.textWork}>Бизнесийн хэлтэс</Text>
-        <Text style={styles.textName}>Б.БАЯРМАА</Text>
+        <Text style={styles.textWork}>{data.p2Dircetor}</Text>
+        <Text style={styles.textName}>{data.p2DirectorName}</Text>
+        <Text style={styles.textWork}>{data.p2Support}</Text>
+        <Text style={styles.textName}>{data.p2SupportName}</Text>
+        <Text style={styles.textWork}>{data.p2Contet}</Text>
+        <Text style={styles.textName}>{data.p2ContetName}</Text>
+        <Text style={styles.textWork}>{data.p2Bussiness}</Text>
+        <Text style={styles.textName}>{data.p2BussinessName}</Text>
         <View style={{ borderWidth: 1, margin: 20 }} />
         <Text
           style={{
@@ -170,7 +124,7 @@ const Page2 = () => {
             fontFamily: "Montserrat-bold",
           }}
         >
-          Зар сурталчилгаа
+          {data.p2AdsTitle}
         </Text>
         <Text
           style={{
@@ -181,9 +135,7 @@ const Page2 = () => {
             marginHorizontal: 20,
           }}
         >
-          Бидэнтэй хамтран ажиллах, зар сурталчилгаа байршуулахыг хүсвэл та
-          бүхэн 7755-5255 дугаарын утсаар болон magazine@ihelp.mn хаягаар холбоо
-          барина уу.
+          {data.p2AdsText}
         </Text>
         <Text
           style={{
@@ -193,7 +145,7 @@ const Page2 = () => {
             marginTop: 30,
           }}
         >
-          Холбоо барих
+          {data.p2ContactTitle}
         </Text>
         <Text
           style={{
@@ -204,8 +156,7 @@ const Page2 = () => {
             marginHorizontal: 20,
           }}
         >
-          Улаанбаатар хот, Сүхбаатар дүүрэг, 1-р хороо, UBH төв, 9-р давхар,
-          930Б
+          {data.p2ContactText}
         </Text>
         <Text
           style={{
@@ -215,7 +166,7 @@ const Page2 = () => {
             marginTop: 30,
           }}
         >
-          Эрхлэн гаргагч
+          {data.p2CompanyTitle}
         </Text>
         <Text
           style={{
@@ -226,20 +177,31 @@ const Page2 = () => {
             marginHorizontal: 20,
           }}
         >
-          “Новелист Тайм” ХХК
+          {data.p2CompanyName}
         </Text>
         <View style={{ borderWidth: 1, margin: 20 }} />
         <Image
-          source={require("../../../assets/mag1/magazinelogo.png")}
+          source={require("../../../assets/magazinelogo.png")}
           style={{ width: windowWidth, height: 100 }}
           resizeMode="contain"
         />
         <Image
-          source={require("../../../assets/mag1/companylogo.png")}
+          source={require("../../../assets/companylogo.png")}
           style={{ width: windowWidth, height: 200 }}
           resizeMode="contain"
         />
       </View>
+      <Text
+        style={{
+          fontSize: 14,
+          fontFamily: "Montserrat-bold",
+          marginHorizontal: 20,
+
+          textAlign: "right",
+        }}
+      >
+        2022/03 САР
+      </Text>
     </ScrollView>
   );
 };

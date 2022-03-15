@@ -8,22 +8,38 @@ import {
   ScrollView,
 } from "react-native";
 import React from "react";
+import { api } from "../../../Constants";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
-const Page13 = () => {
+import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+const Page13 = ({ data }) => {
+  const navigation = useNavigation();
   return (
     <ScrollView
       style={{ width: windowWidth }}
       showsVerticalScrollIndicator={false}
     >
       <ImageBackground
-        source={require("../../../assets/mag1/backgroundImage.jpg")}
+        source={{ uri: api + "/upload/" + data.p13TechFace }}
         style={{
           width: windowWidth,
           height: windowHeight,
           flex: 1,
         }}
       >
+        <AntDesign
+          name="arrowleft"
+          size={30}
+          color="white"
+          style={{
+            position: "absolute",
+            top: 55,
+            left: 20,
+            zIndex: 2,
+          }}
+          onPress={() => navigation.goBack()}
+        />
         <Text
           style={{
             fontFamily: "Montserrat-bold",
@@ -34,7 +50,7 @@ const Page13 = () => {
             flex: 1,
           }}
         >
-          ТЕХНОЛОГИ
+          {data.p13TechFaceTop}
         </Text>
         <View style={{ flex: 2 }}>
           <Text
@@ -47,7 +63,7 @@ const Page13 = () => {
               fontSize: 50,
             }}
           >
-            2022
+            {data.p13TechFaceDate}
           </Text>
           <Text
             style={{
@@ -59,7 +75,7 @@ const Page13 = () => {
               fontSize: 35,
             }}
           >
-            ОНД ШИНЭЭР ГАРЧ ИРЖ БУЙ
+            {data.p13TechFaceTitle}
           </Text>
           <View
             style={{
@@ -82,7 +98,7 @@ const Page13 = () => {
             }}
           >
             {/* шилдэг 10 технологи{" "} */}
-            ШИЛДЭГ
+            {data.p13TechFaceTitle1}
           </Text>
           <Text
             style={{
@@ -95,7 +111,7 @@ const Page13 = () => {
               fontSize: 50,
             }}
           >
-            10
+            {data.p13TechFaceTitle2}
           </Text>
           <Text
             style={{
@@ -108,7 +124,7 @@ const Page13 = () => {
               fontSize: 35,
             }}
           >
-            ТЕХНОЛОГИ
+            {data.p13TechFaceTitle3}
           </Text>
         </View>
       </ImageBackground>
@@ -141,10 +157,10 @@ const Page13 = () => {
               top: 5,
             }}
           >
-            элхийн Эдийн Засгийн Чуулганаас оны шилдэг, шинэ технологиудыг 10
+            {data.p13TechFaceText}
           </Text>
         </View>
-        <Text
+        {/* <Text
           style={{
             fontSize: 18,
             fontFamily: "Montserrat-regular",
@@ -158,12 +174,12 @@ const Page13 = () => {
           сорилтууд тулгараад байгаа билээ. Тиймээс ДЭЗЧ эдгээр том асуудлыг
           шийдвэрлэхэд түлхэц болохуйц шилдэг 10 технологийг энэ удаа нэрлээд
           буй юм.
-        </Text>
+        </Text> */}
         <Text style={[styles.textTitle, { marginVertical: 20 }]}>
-          1. Нүүрстөрөгчийг бууруулах нь
+          {data.p13Tech1Title}
         </Text>
         <Image
-          source={require("../../../assets/mag1/techno1.png")}
+          source={{ uri: api + "/upload/" + data.p13Tech1 }}
           style={{ width: windowWidth / 1.1, alignSelf: "center", height: 300 }}
         />
         <Text
@@ -173,227 +189,105 @@ const Page13 = () => {
             marginTop: 15,
           }}
         >
-          Уур амьсгалын асуудлыг шийдвэрлэх талаарх өргөн хүрээтэй амлалтууд
-          шинэ технологиудыг илүү ихээр "төрүүлнэ".
+          {data.p13Tech1Text}
         </Text>
-        <Text style={styles.textStatus}>
-          Улс орнууд хүлэмжийн хийн ялгарлаа бууруулахын тулд бүх хүчин чадлаа
-          дайчлахад бэлэн болсон. Хүлэмжийн хийн ялгарлын хоёр дахь том
-          үйлдвэрлэгч болох АНУ л гэхэд 2030 он гэхэд нүүрстөрөгчийн хэмжээг
-          хоёр дахин бууруулж, 2005 оны түвшинд хүргэх зорилт тавьсан. Их
-          Британи 1990 оны түвшнээсээ 68 хувь бууруулахаа мэдэгдсэн. Энэ
-          мэтчилэн Парисын хэлэлцээрийн хүрээнд амласан амлалтаа биелүүлэх улс
-          орнуудын чармайлтад технологийн дэвшил хамгийн чухал үүрэгтэй болж.
-          Үүний тулд машин унах, хоол хийхээс авахуулаад өдөр тутмын амьдралын
-          алхам бүрийг нүүрстөрөгч багатай, бүр огт ялгаруулдаггүй технологиор
-          шийдэж, орлуулах шаардлага байгаа. Иймд Засгийн газрууд энэ чиглэлийн
-          хөрөнгө оруулалтыг нэмэгдүүлэх хэрэгцээ үүсэж байгааг онцолжээ.
-        </Text>
+        <Text style={styles.textStatus}>{data.p13Tech1Text1}</Text>
         <View style={{ flexDirection: "row", flex: 1 }}>
           <Image
-            source={require("../../../assets/mag1/techno3.jpg")}
+            source={{ uri: api + "/upload/" + data.p13Tech2 }}
             style={{ width: windowWidth / 2.2, height: 400 }}
           />
           <View style={{ flex: 1, marginLeft: 8 }}>
-            <Text style={styles.textTitle}>
-              2. Үр тариа өөрөө бордоогоо “үйлдвэрлэдэг” байвал ямар вэ?
-            </Text>
-            <Text style={styles.textStatus}>
-              Газар тариалангийн үйлдвэрлэлийг нэмэгдүүлэхийн тулд өнөөдөр
-              дэлхий дээр жил бүр 110 сая гаруй тонн азотын бордоо ашиглаж буй.
-            </Text>
-            <Text style={styles.textStatus}>
-              Хэрэв үр тариа буурцагт ургамал шиг азотыг аммиак хэлбэрт
-              "хөрвүүлэх" замаар газар тариалан өөрөө азотыг тогтоон барьж
-              чадвал яах вэ?
-            </Text>
+            <Text style={styles.textTitle}>{data.p13Tech2Title}</Text>
+            <Text style={styles.textStatus}>{data.p13Tech2Text}</Text>
           </View>
         </View>
-        <Text style={styles.textStatus}>
-          Шинээр гарч ирж буй шилдэг технологиудын жагсаалтад багтахын тулд
-          судлаачид бусад үр тариаг эрдэнэ шиш шиг болгохыг зорьж байна. Шошны
-          төрлийн ургамлын бордоо “үйлдвэрлэх” байгалийн чанарыг буурцагт
-          ургамалд "хуулбарлахдаа" нянгийн хоорондох симбиотик молекулын
-          холбоосыг ашиглахаар судлаачид ажиллаж байгаа юм.
-        </Text>
+        <Text style={styles.textStatus}>{data.p13Tech2Text1}</Text>
         <Text style={[styles.textTitle, { marginBottom: 15 }]}>
-          3. Амьсгалаар нь өвчнийг оношлох нь
+          {data.p13Tech3Title}
         </Text>
+
         <Image
-          source={require("../../../assets/mag1/techno5.png")}
+          source={{ uri: api + "/upload/" + data.p13Tech3 }}
           style={{ width: windowWidth / 1.1, alignSelf: "center", height: 200 }}
         />
-        <Text style={styles.textStatus}>
-          Өвчтөнүүдийг шинжилж, оношлох нь удахгүй амьсгаа аваад гаргахтай адил
-          хялбархан болно. Амьсгал мэдрэгч шинэ төхөөрөмжийн тусламжтайгаар,
-          хүний амьсгалд агуулагддаг 800 гаруй төрлийн найрлагыг ашиглан өвчнийг
-          оношилдог болно. Тухайлбал, хүний амьсгал дахь ацетон өсөх нь чихрийн
-          шижин өвчнийг илтгэдэг.
-        </Text>
-        <Text style={styles.textTitle}>
-          4. Эмийн бүтээгдэхүүнийг эрэлтэд нийцүүлэх нь
-        </Text>
-        <Text style={styles.textStatus}>
-          Өнөөдөр эмүүдийг ихэвчлэн олон үе шатаар, массаар нь үйлдвэрлэдэг
-          бөгөөд үйлдвэрлэлийн зарим дамжлага дэлхий даяар тархсан байдаг.
-          Үүнтэй холбоотойгоор маш их хэмжээний түүхий эд ордгоос гадна
-          үйлдвэрлэл бүрэн дуусахад хэдэн сарын хугацаа шаарддаг тул тогтвортой
-          байдал, найдвартай нийлүүлэлтэд зарим талаар бэрхшээл үүсдэг.
-        </Text>
+        <Text style={styles.textStatus}>{data.p13Tech3Text}</Text>
+        <Text style={styles.textStatus}>{data.p13Tech3Text1}</Text>
+        <Text style={styles.textTitle}>{data.p13Tech4Title}</Text>
+        <Text style={styles.textStatus}>{data.p13Tech4Text}</Text>
         <Image
-          source={require("../../../assets/mag1/techno6.jpg")}
+          source={{ uri: api + "/upload/" + data.p13Tech4 }}
           style={{ width: windowWidth / 1.1, height: 200 }}
         />
-        <Text style={styles.textStatus}>
-          Микро шингэн болон эрэлт хэрэгцээнд нийцсэн эмийн үйлдвэрлэлийн дэвшил
-          нь өсөн нэмэгдэж буй хэрэгцээг бага үйлдвэрлэлээр хангах боломжийг
-          олгож байна. Товчхондоо алслагдсан байршилд эсвэл хээрийн эмнэлгүүдэд
-          эмийг зөөврийн төхөөрөмжөөр хүргэх ба тунг нь өвчтөн бүрд тохируулан
-          хийх боломжтой болсон. Мөн энэ нь өртгийг бууруулж байгаагаараа давуу
-          талтай.
-        </Text>
-        <Text style={styles.textTitle}>5. Утасгүй дохионоос эрчим хүч </Text>
+        <Text style={styles.textStatus}>{data.p13Tech4Text1}</Text>
+        <Text style={styles.textTitle}>{data.p13Tech5Title} </Text>
         <Image
-          source={require("../../../assets/mag1/techno7.jpg")}
+          source={{ uri: api + "/upload/" + data.p13Tech5 }}
           style={{ width: windowWidth / 1.1, height: 200, marginTop: 20 }}
         />
-        <Text style={styles.textStatus}>
-          Юмсын интернэт(IoT)-ийн ажиллагааны зарчим нь интернэт холболт
-          ашигладаг олон тэрбум электрон төхөөрөмжөөс бүрдэх тал бий. IoT
-          мэдрэгч нь бидний өдөр тутмын амьдралд чухал ач холбогдолтой өгөгдлийг
-          мэдээлдэг, маш бага чадалтай төхөөрөмж. Батарей ашиглалтын хугацаа
-          хязгаарлагдмал тул орон нутгийн орчинд цэнэглэхэд хүндрэлтэй болдог.
-        </Text>
-        <Text style={styles.textStatus}>
-          Тэгвэл 5G технологи нь хангалттай хүчтэй утасгүй дохиог өгч байгаа тул
-          IoT мэдрэгч дэх жижиг антенн нь ийм дохионоос эрчим хүч "цуглуулах”
-          боломжтой болсон.
-        </Text>
-        <Text style={styles.textTitle}>
-          6. Илүү урт, эрүүл амьдралыг инженерчлэх нь{" "}
-        </Text>
+        <Text style={styles.textStatus}>{data.p13Tech5Text}</Text>
+        <Text style={styles.textStatus}>{data.p13Tech5Text1}</Text>
+        <Text style={styles.textTitle}>{data.p13Tech6Title}</Text>
         <Image
-          source={require("../../../assets/mag1/techno8.jpeg")}
+          source={{ uri: api + "/upload/" + data.p13Tech6 }}
           style={{ width: windowWidth / 1.1, height: 200, marginTop: 20 }}
         />
-        <Text style={styles.textStatus}>
-          ДЭМБ-ын мэдээлснээр 2015-2050 оны хооронд 60 ба түүнээс дээш настай
-          дэлхийн хүн ам 12 хувиас 22 хувь болж, хоёр дахин өсөх тооцоолол бий.
-          Хөгшрөлт нь хорт хавдар, хоёрдугаар хэлбэрийн чихрийн шижин, сэтгэцийн
-          хомсдол, зүрхний өвчин зэрэг цочмог болон архаг өвчинтэй холбогддог.
-        </Text>
-        <Text style={styles.textStatus}>
-          Судлаачид хүнийг зөвхөн урт наслах төдийгүй эрүүлээр удаан амьдрахад
-          тус болох молекулын зарчмын талаар эртнээс ойлголттой болсон. Омик
-          технологи (жишээлбэл, бүх генийн үйл ажиллагааны концентрацийг эсвэл
-          эс дэх бүх уургийн концентрацийг нэгэн зэрэг хэмжих боломжтой) болон
-          эпигенетикийн ойлголтыг ашиглан судлаачид идэвхтэй эмчилгээний
-          зорилтуудыг санал болгодог өвчний гол таамаглал болох биомаркеруудыг
-          тодорхойлох боломжтой.
-        </Text>
-        <Text style={styles.textTitle}>7. Аммиак ногоон өнгөтэй болох нь</Text>
+        <Text style={styles.textStatus}>{data.p13Tech6Text}</Text>
+        <Text style={styles.textStatus}>{data.p13Tech6Text1}</Text>
+        <Text style={styles.textTitle}>{data.p13Tech7Title}</Text>
         <Image
-          source={require("../../../assets/mag1/techno9.jpg")}
+          source={{ uri: api + "/upload/" + data.p13Tech7 }}
           style={{ width: windowWidth / 1.1, height: 200, marginTop: 20 }}
         />
-        <Text style={styles.textStatus}>
-          Дэлхийн хүн амыг хүнсээр хангахын тулд их хэмжээний үйлдвэрлэлд
-          аммиакийн бордоо ашигладаг. Аммиакийн бордооны нийлэгжилт буюу
-          Хабер-Бошийн процесс гэж нэрлэгддэг энэхүү ажиллагаа нь эрчим хүч
-          болон маш их хэмжээний устөрөгч шаарддаг.
-        </Text>
-        <Text style={styles.textStatus}>
-          Өнөөдөр устөрөгчийн ихэнх хэсгийг электролиз, усны молекулуудыг
-          цахилгаан ашиглан задлах, эсвэл нүүрсустөрөгчийг өндөр температурт
-          хагалах замаар үйлдвэрлэдэг.
-        </Text>
-        <Text style={styles.textStatus}>
-          Энэ хоёр аргад шаардагдах эрчим хүч аль алиных нь хувьд хүлэмжийн хийг
-          ихээр ялгаруулдаг. Сэргээгдэх эрчим хүч улам бүр түгээмэл болж байгаа
-          тул устөрөгчийн "ногоон" хувилбарыг хүлэмжийн хий ялгаруулахгүйгээр
-          гарган авах боломж бүрдсэн. Агаар мандлын илүүдэл нүүрстөрөгчийг
-          арилгахаас гадна ногоон устөрөгч нь чулуужсан түлшийг эх үүсвэр болгон
-          ашиглахад агуулагдах бохирдуулагч химийн бодис агуулаагүй зэргээрээ
-          цэвэр технологид орж буй юм.
-        </Text>
-        <Text style={styles.textTitle}>
-          8. Утасгүй ажиллах биомаркерын төхөөрөмжүүд{" "}
-        </Text>
+        <Text style={styles.textStatus}>{data.p13Tech7Text}</Text>
+        <Text style={styles.textStatus}>{data.p13Tech7Text1}</Text>
+        <Text style={styles.textStatus}>{data.p13Tech7Text2}</Text>
+        <Text style={styles.textTitle}>{data.p13Tech8Title} </Text>
         <Image
-          source={require("../../../assets/mag1/techno10.jpg")}
+          source={{ uri: api + "/upload/" + data.p13Tech8 }}
           style={{ width: windowWidth / 1.1, height: 200, marginTop: 20 }}
         />
-        <Text style={styles.textStatus}>
-          Зүүнд дуртай хүн гэж байхгүй. Гэвч нийтлэг тохиолддог цочмог болон
-          архаг эмгэг, хорт хавдар, чихрийн шижин болон бусад өвчний явцыг
-          тодорхойлоход чухал ач холбогдол бүхий биомаркеруудыг хянахын тулд их,
-          бага хэмжээгээр цусны дээж авах шаардлагатай байдаг.
-        </Text>
-        <Text style={styles.textStatus}>
-          Бага чадлын утасгүй (wireless) холбооны дэвшил, түүнчлэн оптик болон
-          электрон мэдрэгчийг ашигладаг химийн мэдрэгч бүхий шинэ техникүүд нь
-          эрүүл мэндийн чухал мэдээллийг тасралтгүй бөгөөд аюулгүй хянах
-          боломжийг олгох болов.
-        </Text>
-        <Text style={styles.textStatus}>
-          100 гаруй компани дэлхийн хэмжээнд тархаж буй чихрийн шижин өвчнийг
-          голлон төрөл бүрийн хэрэглээнд утасгүй биомаркер мэдрэгч төхөөрөмж
-          суурилуулсан ба хөгжүүлж байна. Утасгүй холболт нь алслагдсан
-          эмнэлгийн мэргэжилтэнд шаардлагатай үед хэрэгтэй мэдээллийг шууд
-          ашиглах боломжтой болгодог.
-        </Text>
-        <Text style={styles.textTitle}>
-          9. Орон нутгийн материал ашиглан байшин хэвлэх нь
-        </Text>
+        <Text style={styles.textStatus}>{data.p13Tech8Text}</Text>
+        <Text style={styles.textStatus}>{data.p13Tech8Text1}</Text>
+        <Text style={styles.textStatus}>{data.p13Tech8Text2}</Text>
+        <Text style={styles.textTitle}>{data.p13Tech9Title}</Text>
         <Image
-          source={require("../../../assets/mag1/techno11.jpg")}
+          source={{ uri: api + "/upload/" + data.p13Tech9 }}
           style={{ width: windowWidth / 1.1, height: 200, marginTop: 20 }}
         />
-        <Text style={styles.textStatus}>
-          Том хэмжээний 3D принтер ашиглан байшин барих нь АНУ болон бусад өндөр
-          хөгжилтэй орнуудад хязгаарлагдмал тархалттай байгааг харуулж байна.
-        </Text>
-        <Text style={styles.textStatus}>
-          Дэд бүтэц хязгаарламгдмал байдлаас үүдэн бараа материал тээвэрлэж
-          хүргэхэд хүндрэлтэй байдаг хөгжиж буй орнуудад 3D принтер ашиглан
-          хийсэн сүүлийн үеийн үзүүлэнгүүдийг хүргэхээс илүүтэй дотоодоос
-          гаралтай материал, шавар, элс, орон нутгийн утас зэргийг ашигласнаар
-          тээвэрлэлтийг 95 орчим хувь бууруулах боломжтой.
-        </Text>
-        <Text style={styles.textStatus}>
-          Энэхүү шинээр гарч ирж буй технологи нь орон сууцны хэрэгцээ маш хүнд,
-          тээврийн сүлжээ байхгүй алслагдсан бүс нутгуудыг бат бөх орон байраар
-          хангах боломжийг бүрдүүлнэ. Үр дүн нь хойно хоцорсон орнуудад
-          тоглоомын дүрмийг өөрчлөх юм.
-        </Text>
-        <Text style={styles.textTitle}>
-          10. Дэлхийг сансар огторгуй холбодог
-        </Text>
+        <Text style={styles.textStatus}>{data.p13Tech9Text}</Text>
+        <Text style={styles.textStatus}>{data.p13Tech9Text1}</Text>
+        <Text style={styles.textStatus}>{data.p13Tech9Text2}</Text>
+        <Text style={styles.textTitle}>{data.p13Tech10Title}</Text>
         <Image
-          source={require("../../../assets/mag1/techno12.jpg")}
+          source={{ uri: api + "/upload/" + data.p13Tech10 }}
           style={{ width: windowWidth / 1.1, height: 200, marginTop: 20 }}
         />
-        <Text style={styles.textStatus}>
-          Юмсын интернэт(IoT)-ийн мэдрэгчээр дамжуулан цаг агаар, хөрсний
-          нөхцөл, чийгийн түвшин, газар тариалангийн эрүүл байдал, нийгмийн үйл
-          ажиллагаа болон үнэ цэнэтэй бусад тоо томшгүй олон чухал багц
-          мэдээллийг бүртгэж, мэдээлэх боломжтой.
-        </Text>
-        <Text style={styles.textStatus}>
-          Сүүлийн үед дэлхийн өнцөг булан бүрээс ийм мэдээллийг цуглуулж,
-          боловсруулах, төвлөрүүлэх чадвартай, хямд өртөг бүхий тоо томшгүй
-          бичил хиймэл дагуулууд манай гарагийн нам дор тойрог замд гарч ирснээр
-          Юмсын интернэт (IoT) нь уламжлалт интернэтгүй, урьд өмнө хэзээ ч хүрч
-          байгаагүй хөгжиж буй бүс нутгийг хамарсан, дэлхийн хэмжээний ойлголтыг
-          бий болгоно.
-        </Text>
-        <Text style={styles.textStatus}>
-          Эрчим хүч багатай аюулгүй мэдээллийн холболт, богино хугацаанд дэлхийг
-          тойрон эргэдэг хиймэл дагуулын асуудал сорилт хэвээр байгаа боловч
-          тогтвортой ахиц дэвшлийн үр дүнд ойрын 3-5 жилдээ дэлхий даяар энэ
-          боломж бий болно гэсэн хүлээлттэй байна.
-        </Text>
+        <Text style={styles.textStatus}>{data.p13Tech10Text}</Text>
+        <Text style={styles.textStatus}>{data.p13Tech10Text1}</Text>
+        <Text style={styles.textStatus}>{data.p13Tech10Text2}</Text>
+        <Image
+          source={require("../../../assets/icon.png")}
+          style={{
+            width: 14,
+            height: 14,
+            bottom: 32,
+            alignSelf: "center",
+            right: 28,
+          }}
+        />
       </View>
+      <Text
+        style={{
+          fontSize: 14,
+          fontFamily: "Montserrat-bold",
+          marginHorizontal: 20,
+          marginVertical: 30,
+          textAlign: "right",
+        }}
+      >
+        2022/03 САР
+      </Text>
     </ScrollView>
   );
 };

@@ -22,7 +22,7 @@ const MyCarousel = ({ data }) => {
           style={styles.item}
         >
           <ParallaxImage
-            source={{ uri: api + "/upload/" + item.photo }}
+            source={{ uri: api + "/upload/" + item.photo2 }}
             containerStyle={styles.imageContainer}
             style={styles.image}
             parallaxFactor={0.4}

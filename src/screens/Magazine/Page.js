@@ -4,172 +4,203 @@ import {
   Text,
   View,
   Dimensions,
-  SafeAreaView,
   Image,
 } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { api } from "../../../Constants";
+import Loading from "../../components/Loading";
 import * as Animatable from "react-native-animatable";
-
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
-const Page = () => {
+const Page = ({ data, loading }) => {
   const navigation = useNavigation();
-
   return (
-    <ImageBackground
-      source={require("../../../assets/mag1/_DSC7836.jpg")}
-      style={{
-        width: windowWidth,
-        height: windowHeight,
-      }}
-      resizeMode="cover"
-    >
-      <AntDesign
-        name="arrowleft"
-        size={30}
-        color="#ffffff"
-        style={{
-          position: "absolute",
-          top: 50,
-          left: 10,
-          zIndex: 2,
-        }}
-        onPress={() => navigation.goBack()}
-      />
-      <Animatable.Image
-        animation={"slideInDown"}
-        duration={1800}
-        source={require("../../../assets/mag1/careerdeveloperwhite.png")}
-        style={{ width: 370, height: 70, alignSelf: "center", marginTop: 70 }}
-      />
-      <View
-        style={{
-          justifyContent: "space-between",
-          flexDirection: "row",
-          marginHorizontal: 20,
-        }}
-      >
-        <Animatable.View
-          animation={"slideInLeft"}
-          duration={1800}
-          style={{ width: windowWidth / 2.2, marginRight: 10, marginTop: 300 }}
+    <>
+      {loading === true ? (
+        <Loading />
+      ) : (
+        <ImageBackground
+          source={{ uri: api + "/upload/" + data.facePhoto }}
+          style={{
+            width: windowWidth,
+            height: windowHeight,
+          }}
+          resizeMode="cover"
         >
-          <Text
+          <AntDesign
+            name="arrowleft"
+            size={30}
+            color="#ffffff"
             style={{
-              color: "white",
-              fontSize: 16,
-              fontFamily: "Cambria-bold-italic",
+              position: "absolute",
+              top: 50,
+              left: 10,
+              zIndex: 2,
             }}
-          >
-            180 Хоногийн дотор Дэлхийд хүлээн Зөвшөөрөгдсөн
-          </Text>
-          <Image
-            source={require("../../../assets/mag1/BinanceLogo.png")}
+            onPress={() => navigation.goBack()}
+          />
+          <Animatable.Image
+            useNativeDriver={true}
+            animation="fadeInDownBig"
+            duration={800}
+            direction={"alternate"}
+            iterationDelay={2000}
+            source={{ uri: api + "/upload/" + data.faceLogo }}
             style={{
-              width: 80,
-              height: 41.9,
-              marginTop: 10,
-              marginLeft: 20,
+              width: 370,
+              height: 70,
+              alignSelf: "center",
+              marginTop: 70,
             }}
           />
-        </Animatable.View>
-        <Animatable.View
-          style={{ width: windowWidth / 2.2, marginRight: 10, marginTop: 300 }}
-          animation={"slideInRight"}
-          duration={1800}
-        >
-          <Text
+          <Animatable.View
+            useNativeDriver={true}
+            animation="fadeInLeftBig"
+            duration={500}
+            direction={"alternate"}
             style={{
-              color: "white",
-              fontSize: 16,
-              fontFamily: "Playfair-bold",
-              textAlign: "center",
+              justifyContent: "space-between",
+              flexDirection: "row",
+              marginHorizontal: 10,
             }}
           >
-            Б.ОДБАЯСАЛ:
-          </Text>
+            <View
+              style={{
+                width: windowWidth / 2.2,
+                marginRight: 20,
+                marginTop: 300,
+              }}
+            >
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 14,
+                  fontFamily: "Cambria-bold-italic",
+                }}
+              >
+                {data.faceLogo2Text}
+              </Text>
+              <Image
+                source={{ uri: api + "/upload/" + data.faceLogo2 }}
+                style={{
+                  width: 80,
+                  height: 41.9,
+                  marginTop: 10,
+                  marginLeft: 20,
+                }}
+              />
+            </View>
+            <View
+              style={{
+                width: windowWidth / 2.2,
+                marginRight: 10,
+                marginTop: 300,
+              }}
+              duration={1800}
+            >
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 14,
+                  fontFamily: "Playfair-bold",
+                  textAlign: "right",
+                }}
+              >
+                {data.faceTitle}
+              </Text>
 
-          <Text
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 16,
+                  fontFamily: "Cambria-bold-italic",
+                  textAlign: "right",
+                  marginTop: 10,
+                }}
+              >
+                {data.faceText}
+              </Text>
+            </View>
+          </Animatable.View>
+          <Animatable.View
+            useNativeDriver={true}
+            animation="fadeInRightBig"
+            duration={500}
+            direction={"alternate"}
             style={{
-              color: "white",
-              fontSize: 18,
-              fontFamily: "Cambria-bold-italic",
-              textAlign: "center",
-              marginTop: 10,
+              justifyContent: "space-between",
+              flexDirection: "row",
+              marginHorizontal: 10,
+              marginTop: 20,
             }}
           >
-            Xүлээлтээс давж Ажиллаж чаддаг Хүнд карьер ахиулах Хэцүү биш
-          </Text>
-        </Animatable.View>
-      </View>
-      <View
-        style={{
-          justifyContent: "space-between",
-          flexDirection: "row",
-          marginHorizontal: 20,
-          marginTop: 20,
-        }}
-      >
-        <Animatable.View
-          animation={"slideInLeft"}
-          duration={1800}
-          style={{ width: windowWidth / 2.5, marginRight: 10, marginTop: 10 }}
-        >
-          <Text
-            style={{ color: "white", fontSize: 20, fontFamily: "Oswald-light" }}
+            <View style={{ width: windowWidth / 3, marginTop: 10 }}>
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 16,
+                  fontFamily: "Oswald-light",
+                }}
+              >
+                {data.faceCareer}
+              </Text>
+            </View>
+            <View style={{ width: windowWidth / 2.2, marginTop: 10 }}>
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 14,
+                  fontFamily: "Playfair-bold",
+                  textAlign: "right",
+                }}
+              >
+                {data.faceTitle1}
+              </Text>
+
+              <Text
+                style={{
+                  color: "white",
+                  fontSize: 16,
+                  fontFamily: "Cambria-bold-italic",
+                  textAlign: "right",
+                  marginTop: 10,
+                }}
+              >
+                {data.faceText1}
+              </Text>
+            </View>
+          </Animatable.View>
+          <Animatable.View
+            useNativeDriver={true}
+            animation="fadeInUpBig"
+            duration={500}
+            direction={"alternate"}
+            style={{ marginTop: 50, marginHorizontal: 20 }}
           >
-            Kарьераа хөгжүүлэх төлөвлөгөө гаргах энгийн 7 арга
-          </Text>
-        </Animatable.View>
-        <Animatable.View
-          animation={"slideInRight"}
-          duration={1800}
-          style={{ width: windowWidth / 2.2, marginRight: 10, marginTop: 10 }}
-        >
-          <Text
-            style={{
-              color: "white",
-              fontSize: 16,
-              fontFamily: "Playfair-bold",
-            }}
-          >
-            Б.БОЛОР-ЭРДЭНЭ:
-          </Text>
-          <Text
-            style={{
-              color: "white",
-              fontSize: 18,
-              fontFamily: "Cambria-bold-italic",
-            }}
-          >
-            Чадварлаг залуусыг олон улсад хүч сориосой гэж хүсдэг
-          </Text>
-        </Animatable.View>
-      </View>
-      <Animatable.View
-        style={{ marginTop: 50, marginHorizontal: 20 }}
-        animation={"slideInUp"}
-        duration={5000}
-        iterationCount={2}
-      >
-        <Text
-          style={{
-            fontFamily: "Montserrat-bold",
-            color: "white",
-            fontSize: 18,
-          }}
-        >
-          В.БАЯРСАЙХАН
-        </Text>
-        <Text
-          style={{ fontFamily: "Playfair-bold", color: "white", fontSize: 21 }}
-        >
-          ЗАЛУУС ОЛДОЖ БУЙ БОЛОМЖОО ТУЛТАЛ АШИГЛААСА
-        </Text>
-      </Animatable.View>
-    </ImageBackground>
+            <Text
+              style={{
+                fontFamily: "Montserrat-bold",
+                color: "white",
+                fontSize: 18,
+              }}
+            >
+              {data.faceTitle2}
+            </Text>
+            <Text
+              style={{
+                fontFamily: "Playfair-bold",
+                color: "white",
+                fontSize: 21,
+              }}
+            >
+              {data.faceText2}
+            </Text>
+          </Animatable.View>
+        </ImageBackground>
+      )}
+    </>
   );
 };
 

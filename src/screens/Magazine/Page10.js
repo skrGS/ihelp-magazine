@@ -11,11 +11,15 @@ import {
   MaterialCommunityIcons,
   Foundation,
   FontAwesome,
+  AntDesign,
 } from "@expo/vector-icons";
 import React from "react";
+import { api } from "../../../Constants";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
-const Page10 = () => {
+import { useNavigation } from "@react-navigation/native";
+const Page10 = ({ data }) => {
+  const navigation = useNavigation();
   return (
     <ScrollView
       style={{ width: windowWidth, backgroundColor: "black" }}
@@ -24,8 +28,20 @@ const Page10 = () => {
       {/* binance nuur */}
       <ImageBackground
         style={{ width: windowWidth, height: windowHeight }}
-        source={require("../../../assets/mag1/bitcoin.jpg")}
+        source={{ uri: api + "/upload/" + data.p10Bg }}
       >
+        <AntDesign
+          name="arrowleft"
+          size={30}
+          color="white"
+          style={{
+            position: "absolute",
+            top: 55,
+            left: 20,
+            zIndex: 2,
+          }}
+          onPress={() => navigation.goBack()}
+        />
         <Text
           style={{
             backgroundColor: "#ffc20e",
@@ -35,10 +51,10 @@ const Page10 = () => {
             paddingLeft: 15,
             paddingRight: 10,
             paddingVertical: 10,
-            marginTop: 80,
+            marginTop: 100,
           }}
         >
-          ОНЦЛОХ КОМПАНИ
+          {data.p10Special}
         </Text>
 
         <View
@@ -55,7 +71,7 @@ const Page10 = () => {
               padding: 5,
             }}
           >
-            180 ХОНОГИЙН ДОТОР
+            {data.p42YellowTitle}
           </Text>
           <Text
             style={{
@@ -63,13 +79,14 @@ const Page10 = () => {
               color: "white",
               fontSize: 30,
               textAlign: "center",
+              marginHorizontal: 20,
             }}
           >
-            ДЭЛХИЙД ХҮЛЭЭН ЗӨВШӨӨРӨГДСӨН
+            {data.p42Title} {data.p42Title1}
           </Text>
         </View>
         <Image
-          source={require("../../../assets/mag1/BinanceLogo.png")}
+          source={{ uri: api + "/upload/" + data.p10Logo }}
           style={{
             width: windowWidth / 1.5,
             height: 150,
@@ -133,13 +150,13 @@ const Page10 = () => {
               fontFamily: "Montserrat-regular",
               color: "white",
               flex: 0.9,
-              top: 30,
+              // top: 30,
             }}
           >
-            элхийн тэрбумтнуудын жагсаалтыг шинэ онтой зэрэгцэн нэгэн эрхэм
+            {data.p43Text}
           </Text>
         </View>
-        <Text
+        {/* <Text
           style={{
             fontSize: 16,
             fontFamily: "Montserrat-regular",
@@ -151,25 +168,10 @@ const Page10 = () => {
           юм. Түүний цэвэр хөрөнгө 96 тэрбум ам.долларт хүрч дэлхийн хамгийн
           чинээлэг эрхмүүдийн жагсаалтын арваннэгдүгээрт бичигдэж эхэлснийг
           “Bloomberg” зарлажээ.
-        </Text>
-        <Text style={styles.textStatus}>
-          1977 онд Хятадын Жянсу аймагт нэгэн их сургуулийн багшийн гэр бүлд
-          мэндэлсэн тэрбээр 12 насандаа Канадад суурьшихаар иржээ. Түүнийг 13
-          настай байхад нь аав нь 7,000 канад.доллараар компьютер авч өгсөн нь
-          түүний мэргэжил сонголтод чухал нөлөө үзүүлжээ. Улмаар МакГилл Их
-          Сургуулийг комьютерийн ухааны ангийг төгссөний дараа Токиогийн
-          хөрөнгийн биржид арилжааны захиалга тохируулах хөгжүүлэлтийн ажилд
-          туслах дадлагажигчаар орох урилга авчээ. Улмаар Bloomberg Tradebook-д
-          хөгжүүлэгчээр дөрвөн жил ажилласны дараа 2005 онд Шанхайд амьдрахаар
-          ирж “брокеруудад зориулсан хамгийн хурдан өндөр давтамжийн арилжааны
-          системүүд” гэдгээрээ алдартай “Fusion Systems” компанийг үүсгэн
-          байгуулжээ. Карьерынхаа эхэн үед санхүүгийн салбарт тасралтгүй
-          ажилласан тэрээр 2013 онд покер тоглож яваад биткойны талаар олж
-          мэдсэн нь түүний сонирхлыг ихэд татсанаар энэ салбарлуу эргэлт
-          буцалтгүйгээр орох эхлэл болов.
-        </Text>
+        </Text> */}
+        <Text style={styles.textStatus}>{data.p43Text1}</Text>
         <Image
-          source={require("../../../assets/mag1/Cnboi.png")}
+          source={{ uri: api + "/upload/" + data.p10BiCeo }}
           style={{ width: windowWidth / 1.1, height: 300, alignSelf: "center" }}
         />
         <Text
@@ -180,10 +182,7 @@ const Page10 = () => {
             textAlign: "center",
           }}
         >
-          “Би санхүүгийн хувьд хангалттай эрх чөлөөнд хүрсэн. Надад их мөнгө
-          хэрэггүй. Миний хувьд бусад энтрепенерийн адил хөрөнгийнхөө ихэнх
-          хувийг хандивлах төлөвлөгөөтэй байгаа. Магадгүй 90-95 хувь…Бүр 99 хувь
-          ч байж болох юм”
+          {data.p10BiCeoText}
         </Text>
         <Text
           style={{
@@ -195,7 +194,7 @@ const Page10 = () => {
             marginRight: 20,
           }}
         >
-          - Changpeng Zhao -
+          {data.p10BiCeoName}
         </Text>
         <Text
           style={{
@@ -207,19 +206,9 @@ const Page10 = () => {
             marginRight: 20,
           }}
         >
-          Founder and CEO
+          {data.p10BiCeoWork}
         </Text>
-        <Text style={styles.textStatus}>
-          Ихэнх хүмүүс түүнийг дэлхийн хамгийн том криптовалютын биржийг
-          эзэмшдэгийн хувьд энэ салбарт хөрөнгө оруулалт ихээхэн хийдэг гэж
-          бодож байж магадгүй юм. Гэвч тэрээр хувьдаа хөрөнгө оруулалт төдийлөн
-          хийдэггүй бөгөөд 2014 онд худалдаж авсан биткойныхоо багахан хувийг
-          зарж, ихэнх хэсгийг нь хадгалж байгаа гэнэ.Тэрээр ашиг сонирхлын
-          зөрчилгүй байх үүднээс крипто болон крипто бус төслүүдэд өөрийн
-          хөрөнгөө биечлэн эзэмшдэггүй ажээ. Түүний ихэнх хөрөнгө binance coin
-          хэлбэрээр хадгалагддаг бөгөөд 2018 онд “Forbes”-оос түүнийг дэлхийн
-          гурав дахь криптовалютын тэрбумтан хэмээн зарласан юм.
-        </Text>
+        <Text style={styles.textStatus}>{data.p43Text2}</Text>
       </View>
       {/* Binance zurag */}
       <ScrollView
@@ -228,8 +217,8 @@ const Page10 = () => {
         showsHorizontalScrollIndicator={false}
       >
         <Image
-          source={require("../../../assets/mag1/binancezurag.png")}
-          style={{ height: windowHeight }}
+          source={{ uri: api + "/upload/" + data.p10BiTable }}
+          style={{ height: windowHeight, width: windowWidth * 3 }}
           resizeMode="contain"
         />
       </ScrollView>
@@ -274,7 +263,7 @@ const Page10 = () => {
           экосистемээ дараах байдлаар хөгжүүлжээ.
         </Text>
         <Image
-          source={require("../../../assets/mag1/binanceeco.png")}
+          source={{ uri: api + "/upload/" + data.p10BiEco }}
           style={{
             width: windowWidth,
             height: windowHeight / 2.5,
@@ -291,64 +280,42 @@ const Page10 = () => {
       >
         <View style={{ flexDirection: "row", flex: 1 }}>
           <View style={{ flex: 0.5 }}>
-            <Text style={styles.surgaltTitle}>Charity</Text>
-            <Text style={styles.surgalt}>
-              Дэлхийн өнцөг булан бүрт чанартай эрүүл мэндийн үйлчилгээ, тусламж
-              авч чадахгүй байгаа хүмүүст зориулан тусгай хандивын сан үүсгэж,
-              төслөөр дамжуулан тэдэнд тусламж үзүүлэх зорилготой.
-            </Text>
+            <Text style={styles.surgaltTitle}>{data.p47Title}</Text>
+            <Text style={styles.surgalt}>{data.p47Text}</Text>
           </View>
           <View style={{ borderWidth: 1, borderColor: "white" }} />
           <View style={{ flex: 0.5 }}>
-            <Text style={styles.surgaltTitle}>Academy</Text>
-            <Text style={styles.surgalt}>
-              Binance Академи нь блокчэйн болон крипто сургалтын нөөцийг нэг
-              дороос авах боломжийг олгодог нээлттэй сургалтын төв юм.
-            </Text>
+            <Text style={styles.surgaltTitle}>{data.p47Title1}</Text>
+            <Text style={styles.surgalt}>{data.p47Text1}</Text>
           </View>
         </View>
         <View style={{ flexDirection: "row", flex: 1 }}>
           <View style={{ flex: 0.5 }}>
             <Text style={[styles.surgaltTitle, { marginTop: 20 }]}>
-              TRUST WALLET
+              {data.p47Title2}
             </Text>
-            <Text style={styles.surgalt}>
-              Binance-ийн албан ёсны түрийвч болох Trust Wallet нь хэрэглэгчид
-              дижитал хөрөнгөө илгээх, хүлээн авах, хадгалах боломжтой
-              найдвартай, төвлөрсөн бус түрийвч юм.
-            </Text>
+            <Text style={styles.surgalt}>{data.p47Text2}</Text>
           </View>
           <View style={{ borderWidth: 1, borderColor: "white" }} />
           <View style={{ flex: 0.5 }}>
             <Text style={[styles.surgaltTitle, { marginTop: 20 }]}>
-              RESEARCH
+              {data.p47Title3}
             </Text>
-            <Text style={styles.surgalt}>
-              Дижитал хөрөнгийн салбарын бүх оролцогчдод байгууллагын түвшний
-              дүн шинжилгээ, гүнзгий ойлголт, цаг үеийн мэдээллийг өгдөг.
-            </Text>
+            <Text style={styles.surgalt}>{data.p47Text3}</Text>
           </View>
         </View>
         <View style={{ flexDirection: "row", flex: 1 }}>
           <View style={{ flex: 0.5 }}>
-            <Text style={styles.surgaltTitle}>LABS</Text>
-            <Text style={styles.surgalt}>
-              Блокчейн бизнес эрхлэгчид, гарааны бизнес эрхлэгчид,
-              нийгэмлэгүүдийг тодорхойлох, хөрөнгө оруулалт хийх, хурдасгах
-              блокчейн экосистемийг хөгжүүлэхэд туслах салбарын төслүүдэд
-              санхүүжилт олгодог. Binance Labs нь крипто орон зайд эерэгээр
-              нөлөөлж, төвлөрсөн бус вэбийг бий болгох хурдан гүйцэтгэлтэй,
-              техникийн багийг дэмжих үүрэгтэй.
+            <Text style={styles.surgaltTitle}>{data.p47Title4}</Text>
+            <Text style={[styles.surgalt, { marginLeft: 5 }]}>
+              {data.p47Text4}
             </Text>
           </View>
           <View style={{ borderWidth: 1, borderColor: "white" }} />
           <View style={{ flex: 0.5 }}>
-            <Text style={styles.surgaltTitle}>CHAIN</Text>
-            <Text style={styles.surgalt}>
-              Олон нийтэд тулгуурласан блокчейн програм хангамжийн систем бөгөөд
-              дэлхийн өнцөг булан бүрээс хөгжүүлэгчид болон хувь нэмэр
-              оруулагчидтай. Binance DEX нь Binance Chain дээр бүтээгдсэн
-              төвлөрсөн бус солилцооны функц юм.
+            <Text style={styles.surgaltTitle}>{data.p47Title5}</Text>
+            <Text style={[styles.surgalt, { marginLeft: 5 }]}>
+              {data.p47Text5}
             </Text>
           </View>
         </View>
@@ -356,19 +323,16 @@ const Page10 = () => {
         <View style={{ flexDirection: "row", flex: 1 }}>
           <View style={{ flex: 0.5 }}>
             <Text style={[styles.surgaltTitle, { marginTop: 20 }]}>
-              LAUNCHPAD
+              {data.p47Title6}
             </Text>
-            <Text style={styles.surgalt}>
-              Энтерпенеруудад өөрийн койноо гаргахад туслах платформ.
-            </Text>
+            <Text style={styles.surgalt}>{data.p47Text6}</Text>
           </View>
           <View style={{ borderWidth: 1, borderColor: "white" }} />
           <View style={{ flex: 0.5 }}>
-            <Text style={[styles.surgaltTitle, { marginTop: 20 }]}>INFO</Text>
-            <Text style={styles.surgalt}>
-              Крипто нэвтэрхий толь бичиг юм; хэн ч хувь нэмрээ оруулах
-              боломжтой нээлттэй, бодитой мэдээлэл нэгтгэх платформ.
+            <Text style={[styles.surgaltTitle, { marginTop: 20 }]}>
+              {data.p47Title7}
             </Text>
+            <Text style={styles.surgalt}>{data.p47Text7}</Text>
           </View>
         </View>
       </View>
@@ -388,7 +352,7 @@ const Page10 = () => {
               marginTop: 50,
             }}
           >
-            2021 онд хийгдсэн арилжааны дүн
+            {data.p48text1}
           </Text>
           <Text
             style={{
@@ -397,10 +361,10 @@ const Page10 = () => {
               color: "#ffc20e",
             }}
           >
-            $7.7
+            {data.p48Money}
           </Text>
           <Text style={{ fontFamily: "Montserrat-bold", fontSize: 20 }}>
-            ИХ НАЯД АМ.ДОЛЛАР
+            {data.p48Wallet}
           </Text>
           <Text
             style={{
@@ -409,7 +373,7 @@ const Page10 = () => {
               marginTop: 50,
             }}
           >
-            2022 оны ашиг (хүлээгдэж буй гүйцэтгэлээр)
+            {data.p48text2}
           </Text>
           <Text
             style={{
@@ -418,10 +382,10 @@ const Page10 = () => {
               color: "#ffc20e",
             }}
           >
-            $800
+            {data.p48Money1}
           </Text>
           <Text style={{ fontFamily: "Montserrat-bold", fontSize: 20 }}>
-            САЯ АМ.ДОЛЛАР
+            {data.p48Wallet1}
           </Text>
           <Text
             style={{
@@ -430,7 +394,7 @@ const Page10 = () => {
               marginTop: 50,
             }}
           >
-            2021 оны 12-р сарын байдлаар нийт хэрэглэгчийн тоо
+            {data.p48text3}
           </Text>
           <Text
             style={{
@@ -439,10 +403,10 @@ const Page10 = () => {
               color: "#ffc20e",
             }}
           >
-            $28.6
+            {data.p48Money2}
           </Text>
           <Text style={{ fontFamily: "Montserrat-bold", fontSize: 20 }}>
-            САЯ
+            {data.p48Wallet2}
           </Text>
           <Text
             style={{
@@ -451,7 +415,7 @@ const Page10 = () => {
               marginTop: 50,
             }}
           >
-            24 цагийн арилжааны дээд хэмжээ
+            {data.p48text4}
           </Text>
           <Text
             style={{
@@ -460,10 +424,10 @@ const Page10 = () => {
               color: "#ffc20e",
             }}
           >
-            $76
+            {data.p48Money3}
           </Text>
           <Text style={{ fontFamily: "Montserrat-bold", fontSize: 20 }}>
-            ТЕРБУМ АМ.ДОЛЛАР
+            {data.p48Wallet3}
           </Text>
           <Text
             style={{
@@ -472,7 +436,7 @@ const Page10 = () => {
               marginTop: 50,
             }}
           >
-            2021 жилийн спот арилжааны дүн өмнөх оныхоос
+            {data.p48text5}
           </Text>
           <Text
             style={{
@@ -481,10 +445,10 @@ const Page10 = () => {
               color: "#ffc20e",
             }}
           >
-            Х7
+            {data.p48Money4}
           </Text>
           <Text style={{ fontFamily: "Montserrat-bold", fontSize: 20 }}>
-            ДАХИН ӨССӨН
+            {data.p48Wallet4}
           </Text>
         </View>
         <View style={{ marginHorizontal: 20, marginTop: 50 }}>
@@ -495,7 +459,7 @@ const Page10 = () => {
               textAlign: "center",
             }}
           >
-            ДЭЛХИЙН ХАМГИЙН ТОМ
+            {data.p10BiGraphTitle}
           </Text>
           <Text
             style={{
@@ -506,20 +470,16 @@ const Page10 = () => {
               marginBottom: 50,
             }}
           >
-            КРИПТО АРИЛЖААНЫ БИРЖ
+            {data.p10BiGraphTitleYellow}
           </Text>
           <Text
             style={{ textAlign: "right", fontFamily: "Montserrat-regular" }}
           >
-            Дижитал хөрөнгийн биржүүдийн жилийн арилжааны хэмжээ
+            {data.p10BiGraphText}
           </Text>
-          <Text
-            style={{ textAlign: "right", fontFamily: "Montserrat-regular" }}
-          >
-            (тэрбум ам.доллараар)
-          </Text>
+
           <Image
-            source={require("../../../assets/mag1/binancegraph1.png")}
+            source={{ uri: api + "/upload/" + data.p10BiGraph }}
             resizeMode="contain"
             style={{
               width: windowWidth,
@@ -536,9 +496,7 @@ const Page10 = () => {
           paddingHorizontal: 20,
         }}
       >
-        <Text style={styles.binanceTitle}>
-          Binance хэр хэмжээний ашиг олдог вэ?
-        </Text>
+        <Text style={styles.binanceTitle}>{data.p49Title}</Text>
         <View
           style={{ borderWidth: 1, borderColor: "grey", marginVertical: 20 }}
         />
@@ -551,7 +509,7 @@ const Page10 = () => {
               top: 8,
             }}
           >
-            2017
+            {data.p49Date}
           </Text>
           <Text
             style={{
@@ -560,7 +518,7 @@ const Page10 = () => {
               fontSize: 25,
             }}
           >
-            $7.5
+            {data.p49Money}
           </Text>
         </View>
         <View
@@ -576,7 +534,7 @@ const Page10 = () => {
               top: 8,
             }}
           >
-            2018
+            {data.p49Date1}
           </Text>
           <Text
             style={{
@@ -585,7 +543,7 @@ const Page10 = () => {
               fontSize: 25,
             }}
           >
-            $850
+            {data.p49Money1}
           </Text>
         </View>
         <View
@@ -600,7 +558,7 @@ const Page10 = () => {
               top: 8,
             }}
           >
-            2019
+            {data.p49Date2}
           </Text>
           <Text
             style={{
@@ -609,7 +567,7 @@ const Page10 = () => {
               fontSize: 25,
             }}
           >
-            $570
+            {data.p49Money2}
           </Text>
         </View>
         <View
@@ -624,7 +582,7 @@ const Page10 = () => {
               top: 8,
             }}
           >
-            2020
+            {data.p49Date3}
           </Text>
           <Text
             style={{
@@ -633,7 +591,7 @@ const Page10 = () => {
               fontSize: 25,
             }}
           >
-            $900
+            {data.p49Money3}
           </Text>
         </View>
 
@@ -641,44 +599,17 @@ const Page10 = () => {
           style={{ borderWidth: 1, borderColor: "grey", marginVertical: 20 }}
         />
         <Text style={{ fontFamily: "Montserrat-regular", textAlign: "right" }}>
-          (сая ам.доллараар){" "}
+          {data.p49Wallet}{" "}
         </Text>
         <View
           style={{ borderWidth: 1, borderColor: "grey", marginVertical: 40 }}
         />
-        <Text style={styles.binanceTitle}>
-          КОМПАНИЙН АЖИЛЧДАДАА ӨГДӨГ БОЛОМЖУУД
-        </Text>
-        <Text style={styles.binanceStatus}>
-          Бинансчуудыг нэг өгүүлбэрээр тодорхойл гэвэл тэд бол үргэлж шинийг
-          сурах, өөрсдийгөө хөгжүүлэх гал эрмэлзэлтэй хүмүүс юм. Компанийн
-          зүгээс ч ажилчдадаа тэрхүү боломжийг хангаж өгдөг.
-        </Text>
-        <Text style={styles.binanceStatus}>
-          2020 оны ажилчдадаа санал болгосон нэгэн боломж нь 1:1 гадаад хэл
-          сурах анги юм. Маркетингийн хэлтсийн унаган турк хэлтэй нэгэн ажилчин
-          долоо хоногийн гурван удаа хичээллэх хятад хэлний ангийг сонгосон
-          бөгөөд өдгөө хятад хэлээр ахисан түвшинд ярьж, бичиж, унших сурчээ.
-          Бусад ажилчдын хувьд сурахаар шийдсэн хамгийн түгээмэл хэлэнд Араб,
-          Хятад, Япон, Англи хэлүүд орсон ажээ.
-        </Text>
-        <Text style={styles.binanceStatus}>
-          Мөн тэдний хийх хамгийн дуртай зүйл бол ном унших, сонсох. Компанийн
-          номын клубууд сонирхлоос шалтгаалан 100 хүртэлх гишүүдтэй бөгөөд 1-2
-          долоо хоногт нэг ном уншина гэвэл тэдний санал болгосон номыг уншихад
-          588 хоног шаардлагатай гэнэ. Санал болгох номын жагсаалтыг санхүү,
-          технологийн сэдэвтэй номууд тэргүүлэх бөгөөд “Хүн төрөлхтний товч
-          түүх”, “Fallen Dragon” зэрэг шинжлэх ухаан, уран зөгнөлт номууд ч
-          багтжээ.
-        </Text>
-        <Text style={styles.binanceStatus}>
-          Хувь хүний хөгжил, боловсролоос гадна Binance нь ажилчдад эрүүл мэнд,
-          ажил амьдралын тэнцвэрийг бий болгох, хувийн ажлын хуваарийг удирдах
-          чадварыг дэмжих зорилгоор теннис, йогийн сургалтуудыг явуулдаг.
-        </Text>
-        <Text style={styles.binanceTitle}>
-          Дэлхийн хамгийн том криптовалютын биржид ажиллах ямар байдаг вэ?
-        </Text>
+        <Text style={styles.binanceTitle}>{data.p49Title2}</Text>
+        <Text style={styles.binanceStatus}>{data.p49Text}</Text>
+        <Text style={styles.binanceStatus}>{data.p49Text1}</Text>
+        <Text style={styles.binanceStatus}>{data.p49Text2}</Text>
+        <Text style={styles.binanceStatus}>{data.p49Text3}</Text>
+        <Text style={styles.binanceTitle}>{data.p49Title3}</Text>
         <View style={{ flexDirection: "row", flex: 1, paddingVertical: 20 }}>
           <View style={{ flex: 0.5 }}>
             <MaterialCommunityIcons
@@ -695,12 +626,12 @@ const Page10 = () => {
                 color: "#ffc20e",
               }}
             >
-              4,115
+              {data.p49WorkStatusNumber}
             </Text>
             <Text
               style={{ textAlign: "center", fontFamily: "Montserrat-regular" }}
             >
-              Ажилтнуудын тоо
+              {data.p49WorkStatus}
             </Text>
           </View>
           <View style={{ flex: 0.5 }}>
@@ -720,7 +651,7 @@ const Page10 = () => {
                     alignSelf: "center",
                   }}
                 >
-                  50
+                  {data.p49OfficeCountryNumber}
                 </Text>
                 <Text
                   style={{
@@ -728,7 +659,7 @@ const Page10 = () => {
                     alignSelf: "center",
                   }}
                 >
-                  Дэлхийн оронд
+                  {data.p49OfficeCountry}
                 </Text>
               </View>
               <View style={{ flex: 0.5 }}>
@@ -740,7 +671,7 @@ const Page10 = () => {
                     alignSelf: "center",
                   }}
                 >
-                  40
+                  {data.p49OfficeNumber}
                 </Text>
                 <Text
                   style={{
@@ -748,7 +679,7 @@ const Page10 = () => {
                     alignSelf: "center",
                   }}
                 >
-                  Оффис
+                  {data.p49Office}
                 </Text>
               </View>
             </View>
@@ -768,46 +699,20 @@ const Page10 = () => {
             color: "#ffc20e",
           }}
         >
-          28
+          {data.p49WorksAgeNumber}
         </Text>
         <Text style={{ fontFamily: "Montserrat-regular", textAlign: "center" }}>
-          Ажилтнуудын дундаж нас{" "}
+          {data.p49WorksAge}{" "}
         </Text>
         <Text style={[styles.binanceTitle, { marginTop: 20 }]}>
           {" "}
-          АСУУДЛЫГ ХЭРХЭН ШИЙДДЭГ ВЭ?
+          {data.p49Title4}
         </Text>
-        <Text style={styles.binanceStatus}>
-          Тус компанийн үнэт зүйлс нь ажилчдынхаа дунд нь орж, эрх чөлөө, хүсэл
-          эрмэлзэл, эрхэм зорилгыг бий болгоход хувь нэмрээ оруулах ба энэ соёл
-          нь Binance-ийг өнөөдрийн түвшинд хүргэжээ. Тэд ажил дээрээ төдийгүй
-          хувийн амьдрал дээрээ ч сайн хамтрагчид, дотно найзууд байхыг зорьдог.
-          Бинансчуудын хамтын хобби бол цанаар гулгах бөгөөд баг бүрдүүлж
-          уралдаан явуулах тогтсон уламжлалтай ажээ.
-        </Text>
-        <Text style={styles.binanceStatus}>
-          Binance байгууллагын дотоод ил тод байдлыг өндөр түвшинд байлгадаг.
-          Гүйцэтгэх захирал “CZ” 1-2 сар тутамд бага хурал хийх замаар компанийн
-          хэмжээнд уулзалт зохион байгуулдаг бөгөөд Binance-ийн стратегийн
-          зорилтууд, тэр дундаа компанид тулгарч буй бэрхшээл, асуудлуудыг
-          багийн гишүүдтэй хуваалцдаг. Мөн төгсгөлд гүйцэтгэх захирал CZ-ээс
-          ажилчид хүссэн асуултаа асуух нэмэлт цаг бий. Хэрэв та тэдний ажилчин
-          бол амралтын урамшуулал яагаад цагтаа буугаагүй талаар дэлгэрэнгүй
-          тайлбар хүсэж, компанийнхаа соёлд дасаж чадахгүй байгаа талаараа
-          учирлаж болно. CZ хариуд нь урамшуулал цагтаа буугаагүй талаар
-          дэлгэрэнгүй тайлбар тавин дахин ийм асуудал гарахгүй гэж уучлалт гуйж,
-          эсвэл таныг компанийнхаа соёлд дасгахад туслахын тулд хувийн зүгээс
-          ямар тусламж үзүүлэх талаар асуух болно.
-        </Text>
-        <Text style={styles.binanceStatus}>
-          Мөн Binance-ийн нэгэн соёл бол хүн бүр “Надад нэг санаа байна” гэдгээ
-          хэнээс ч айхгүйгээр чөлөөтэй хэлэх боломжтой. Тэдний үйлчилгээнүүд,
-          экосистем эндээс л гарсан шүү дээ. Тэд нэгнийхээ санааг нухацтайгаар
-          хүлээн авч нээлттэй ярилцаж хэрэгжүүлдэг. Нэг үгээр хэлбэл компани
-          тодорхой дүрэм журамд баригддаггүй, нээлттэй органик бүтэцтэй юм.
-        </Text>
+        <Text style={styles.binanceStatus}>{data.p49Text4}</Text>
+        <Text style={styles.binanceStatus}>{data.p49Text5}</Text>
+        <Text style={styles.binanceStatus}>{data.p49Text6}</Text>
         <Image
-          source={require("../../../assets/mag1/binanceteam1.png")}
+          source={{ uri: api + "/upload/" + data.p10BiCompany }}
           style={{
             width: windowWidth / 1.1,
             height: windowHeight / 4,
@@ -815,39 +720,22 @@ const Page10 = () => {
             marginBottom: 20,
           }}
         />
-        <Text style={styles.binanceTitle}>
-          Компанийн соёлд тулгарч буй сорилтууд
-        </Text>
-        <Text style={styles.binanceStatus}>
-          Компани бүтцийн хувьд органик, нээлттэй байх нь нөгөө талаар тэдний
-          хувьд маш том сорилт болж байгаа юм. Тогтсон, тодорхой дүрэм журамд
-          баригдахгүй ажиллах нь нэг талаар шинэхэн ажилчид асуудал гарвал хэнд
-          хандахаа мэдэхгүй байх, зарим асуудлууд шийдэгдэхэд урт хугацаа
-          зарцуулах зэрэг асуудлууд гарч эхэлжээ.
-        </Text>
-        <Text style={styles.binanceStatus}>
-          Ажилчдын тоо өсөхийн хэрээр тэд үйл ажиллагааг нээлттэй, ил тод,
-          хурдан шуурхай явуулах үйл ажиллагааны бүтэц бий болгох шаардлагатай
-          байна. Дэлхийн 50 гаруй орноос ажиллаж буй 3000 ажилчдын ажиллах
-          хэвийн нөхцөлийг бүрдүүлэхийн тулд тэд менежментийн мэргэшсэн
-          хүмүүсээс тусгай сургалтуудыг авч байгаа аж. Мөн тэдний цаашид зорьж
-          буй нэгэн зорилго нь өсөн нэмэгдэж буй өрсөлдөөнтэй зах зээлд хүчтэй
-          өрсөлдөгч байхын тулд аз жаргалтайгаар ажлаа хийдэг ажилчныг бүтээх
-          юм.
-        </Text>
+        <Text style={styles.binanceTitle}>{data.p10BiCompanyTitle}</Text>
+        <Text style={styles.binanceStatus}>{data.p10BiCompanyText}</Text>
+        <Text style={styles.binanceStatus}>{data.p10BiCompanyText1}</Text>
         <View style={{ flexDirection: "row", paddingBottom: 20 }}>
           <Image
-            source={require("../../../assets/mag1/binanceteam3.png")}
+            source={{ uri: api + "/upload/" + data.p10BiFriends }}
             style={{ width: windowWidth / 2.5, height: 150, marginRight: 3 }}
           />
           <Image
-            source={require("../../../assets/mag1/binanceteam2.png")}
+            source={{ uri: api + "/upload/" + data.p10BiTeam }}
             style={{ width: windowWidth / 2, height: 150, marginLeft: 3 }}
           />
         </View>
-        <Text style={styles.binanceTitle}>Тэд хэнийг ажилд авдаг вэ?</Text>
+        <Text style={styles.binanceTitle}>{data.p51Title}</Text>
         <Image
-          source={require("../../../assets/mag1/binancedonut.png")}
+          source={{ uri: api + "/upload/" + data.p10BiGraph1 }}
           style={{
             width: windowWidth / 1.5,
             height: 300,
@@ -864,84 +752,64 @@ const Page10 = () => {
         >
           <View style={{ marginRight: 5 }}>
             <Text style={styles.graphText}>
-              <Text style={{ color: "#f15623" }}> ♦︎</Text> Operation{" "}
+              <Text style={{ color: "#f15623" }}> ♦︎</Text> {data.p51Status}{" "}
               <Text style={styles.graphPercent}> /6.8%/</Text>
             </Text>
             <Text style={styles.graphText}>
-              <Text style={{ color: "#ffc20e" }}> ♦︎</Text> Sales & BD{" "}
+              <Text style={{ color: "#ffc20e" }}> ♦︎</Text> {data.p51Status1}{" "}
               <Text style={styles.graphPercent}> /21.5%/</Text>
             </Text>
             <Text style={styles.graphText}>
-              <Text style={{ color: "#55b8ae" }}> ♦︎</Text> Administrative{" "}
+              <Text style={{ color: "#55b8ae" }}> ♦︎</Text> {data.p51Status2}{" "}
               <Text style={styles.graphPercent}> /2.3%/</Text>
             </Text>
             <Text style={styles.graphText}>
-              <Text style={{ color: "#0066a6" }}> ♦︎</Text> Technology{" "}
+              <Text style={{ color: "#0066a6" }}> ♦︎</Text> {data.p51Status3}{" "}
               <Text style={styles.graphPercent}> /40.7%/</Text>
             </Text>
             <Text style={styles.graphText}>
-              <Text style={{ color: "#00aeef" }}> ♦︎</Text> Retail{" "}
+              <Text style={{ color: "#00aeef" }}> ♦︎</Text> {data.p51Status4}{" "}
               <Text style={styles.graphPercent}>/1.1%/</Text>
             </Text>
             <Text style={styles.graphText}>
-              <Text style={{ color: "#97daf8" }}> ♦︎</Text> Finance{" "}
+              <Text style={{ color: "#97daf8" }}> ♦︎</Text> {data.p51Status5}{" "}
               <Text style={styles.graphPercent}>/7.3%/</Text>
             </Text>
           </View>
           <View style={{ marginLeft: 5 }}>
             <Text style={styles.graphText}>
-              <Text style={{ color: "#7b95cc" }}> ♦︎</Text> Creative{" "}
+              <Text style={{ color: "#7b95cc" }}> ♦︎</Text> {data.p51Status6}{" "}
               <Text style={styles.graphPercent}> /2.9%/</Text>
             </Text>
             <Text style={styles.graphText}>
-              <Text style={{ color: "#746c9b" }}> ♦︎</Text> HR{" "}
+              <Text style={{ color: "#746c9b" }}> ♦︎</Text> {data.p51Status7}{" "}
               <Text style={styles.graphPercent}> /3.9%/</Text>
             </Text>
             <Text style={styles.graphText}>
-              <Text style={{ color: "#784785" }}> ♦︎</Text> Support{" "}
+              <Text style={{ color: "#784785" }}> ♦︎</Text> {data.p51Status8}{" "}
               <Text style={styles.graphPercent}> /6.1%/</Text>
             </Text>
 
             <Text style={styles.graphText}>
-              <Text style={{ color: "#a93b91" }}> ♦︎</Text> Legal{" "}
+              <Text style={{ color: "#a93b91" }}> ♦︎</Text> {data.p51Status9}{" "}
               <Text style={styles.graphPercent}> /1%/</Text>
             </Text>
             <Text style={styles.graphText}>
-              <Text style={{ color: "#ef58a0" }}> ♦︎</Text> Marketing & PR{" "}
+              <Text style={{ color: "#ef58a0" }}> ♦︎</Text> {data.p51Status10}{" "}
               <Text style={styles.graphPercent}> /6.4%/</Text>
             </Text>
           </View>
         </View>
-        <Text style={styles.binanceTitle}>Нийтлэг шаардлага:</Text>
-        <Text style={styles.binanceStatus}>
-          3-8 жилийн ажлын туршлагатай (Тухайн ажлын байраас шалтгаалж ажлын
-          туршлагын хугацаа хэлбэлздэг)
-        </Text>
-        <Text style={styles.binanceStatus}>
-          Ярих, илтгэх, мэтгэлцэх болон харилцааны бусад ур чадвар өндөр байх
-        </Text>
-        <Text style={styles.binanceStatus}>
-          Криптовалютын салбарт ажиллаж байсан бол давуу тал
-        </Text>
-        <Text style={styles.binanceStatus}>
-          Бие даан ажиллах өндөр чадвартай
-        </Text>
-        <Text style={styles.binanceStatus}>
-          Ажлыг сайн төлөвлөж хийхээс гадна хурдтай ажилладаг
-        </Text>
-        <Text style={styles.binanceStatus}>Багаар ажиллах чадвар өндөр</Text>
-        <Text style={styles.binanceStatus}>
-          Мэргэжлийн бусад ур чадварууд (мэргэжил бүрээс хамаарч шаардлагатай ур
-          чадваруудыг тодорхойлдог)
-        </Text>
-        <Text style={styles.binanceStatus}>
-          Ямар улс орон, ямар байгууллага байгаагаас үйл хамааран ажил олгогчдын
-          ажилчдад тавьдаг шаардлагуудад ажиглагддаг нийтлэг талууд Binance-ийн
-          хүний нөөцийн бодлогод ч ижил байдаг аж. Эдгээр нийтлэг чадваруудаас
-          гадна мэргэжлийн ур чадвараа онцгой хөгжүүлж чадвал дэлхийн хаана,
-          ямар цалинтай ажиллах нь хэн бүхэнд нээлттэй ажээ.
-        </Text>
-        <Text style={styles.binanceTitle}>ЦАЛИНГИЙН ХЭМЖЭЭ / Төгрөгөөр / </Text>
+        <Text style={styles.binanceTitle}>{data.p51ReqTitle}</Text>
+        <Text style={styles.binanceStatus}>{data.p51Req}</Text>
+        <Text style={styles.binanceStatus}>{data.p51Req1}</Text>
+        <Text style={styles.binanceStatus}>{data.p51Req2}</Text>
+        <Text style={styles.binanceStatus}>{data.p51Req3}</Text>
+        <Text style={styles.binanceStatus}>{data.p51Req4}</Text>
+        <Text style={styles.binanceStatus}> {data.p51Req5}</Text>
+        <Text style={styles.binanceStatus}>{data.p51Req6}</Text>
+        <Text style={styles.binanceStatus}>{data.p51ReqText}</Text>
+        <Text style={styles.binanceTitle}>{data.p51SalaryTitle} </Text>
       </View>
       {/* tsalingiin hemjee */}
       {/* 1 */}
@@ -963,8 +831,11 @@ const Page10 = () => {
               marginLeft: 20,
             }}
           >
-            Стратеги үйл ажиллагаа хариуцсан захирал{" "}
-            <Text style={{ fontFamily: "Montserrat-regular" }}> (жилд)</Text>
+            {data.p51SalaryPosition}{" "}
+            <Text style={{ fontFamily: "Montserrat-regular" }}>
+              {" "}
+              {data.p51Date}
+            </Text>
           </Text>
           <Text
             style={{
@@ -976,7 +847,7 @@ const Page10 = () => {
               marginRight: 20,
             }}
           >
-            605,225,924
+            {data.p51Salary}
           </Text>
         </View>
       </View>
@@ -999,8 +870,11 @@ const Page10 = () => {
               marginLeft: 20,
             }}
           >
-            Software инженер
-            <Text style={{ fontFamily: "Montserrat-regular" }}> (жилд)</Text>
+            {data.p51SalaryPosition1}
+            <Text style={{ fontFamily: "Montserrat-regular" }}>
+              {" "}
+              {data.p51Date}
+            </Text>
           </Text>
           <Text
             style={{
@@ -1012,7 +886,7 @@ const Page10 = () => {
               marginRight: 20,
             }}
           >
-            427,429,500
+            {data.p51Salary1}
           </Text>
         </View>
       </View>
@@ -1035,8 +909,11 @@ const Page10 = () => {
               marginLeft: 20,
             }}
           >
-            Хөгжүүлэгч
-            <Text style={{ fontFamily: "Montserrat-regular" }}> (жилд)</Text>
+            {data.p51SalaryPosition2}
+            <Text style={{ fontFamily: "Montserrat-regular" }}>
+              {" "}
+              {data.p51Date}
+            </Text>
           </Text>
           <Text
             style={{
@@ -1048,7 +925,7 @@ const Page10 = () => {
               marginRight: 20,
             }}
           >
-            341,943,600
+            {data.p51Salary2}
           </Text>
         </View>
       </View>
@@ -1248,26 +1125,9 @@ const Page10 = () => {
         </View>
       </View>
       <View style={{ backgroundColor: "white", padding: 20 }}>
-        <Text style={styles.binanceStatus}>
-          Ковид-19 цар тахал дэлхийн даяар тархаж түүхэнд анх удаа дэлхий бүх
-          улс орны засгийн газар төдийгүй иргэд, албан байгууллага нэг асуудал
-          дээр шийдвэр гаргах хүндхэн сорилттой тулсан билээ. Тэгвэл энэхүү
-          нөхцөл байдлыг Binance хэрхэн даван туулсантай танилцая.
-        </Text>
-        <Text style={styles.binanceStatus}>
-          Binance-ийн хувьд дэлхийн 50 гаруй орноос 800 гаруй багийг алсын
-          зайнаас ажиллуулах нь байгууллагын нэгэн чухал соёл байсаар ирсэн.
-          Өөрөөр хэлбэл ажилчид хүссэн цагтаа, боломжтой байршлаасаа ажлаа
-          гүйцэтгэх нь энэхүү байгууллагад цар тахлаас өмнө тогтсон хэв маяг
-          ажээ.
-        </Text>
-        <Text style={styles.binanceStatus}>
-          Энэхүү соёл нь Binance-ийн үйл ажиллагааг дэлхий даяар хурдацтай
-          өргөжүүлэх боломжийг олгосон боловч нөгөө талаар сорилтуудыг
-          дагуулдаг. Жишээлбэл, дэлхий даяар тархсан багийн уулзалтын цагийг хэн
-          бүхэнд тохируулахад хүндрэлтэй байдаг тул ажилчид нь шөнийн цагаар
-          ажиллаж, өдрийн цагаар амрах шаардлагатай нүүр тулах үе ч байх нь бий.
-        </Text>
+        <Text style={styles.binanceStatus}>{data.p52Text}</Text>
+        <Text style={styles.binanceStatus}>{data.p52Text1}</Text>
+        <Text style={styles.binanceStatus}>{data.p52Text2}</Text>
         <Text style={styles.binanceTitle}>
           Аль хэдийн гэрээсээ ажиллаж хэвшсэн Бинансчууд гэрээр ажиллаж буй
           хүмүүст дараах зөвлөгөөг өгчээ.
@@ -1424,6 +1284,17 @@ const Page10 = () => {
             </Text>
           </Text>
         </View>
+        <Text
+          style={{
+            fontSize: 14,
+            fontFamily: "Montserrat-bold",
+            marginHorizontal: 20,
+            marginVertical: 30,
+            textAlign: "right",
+          }}
+        >
+          2022/03 САР
+        </Text>
       </View>
     </ScrollView>
   );
@@ -1442,6 +1313,7 @@ const styles = StyleSheet.create({
     fontFamily: "Montserrat-regular",
     marginVertical: 20,
     marginHorizontal: 10,
+    textAlign: "center",
   },
   surgaltTitle: {
     fontFamily: "Oswald-medium",

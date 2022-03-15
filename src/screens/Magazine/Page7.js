@@ -10,7 +10,12 @@ import { Fontisto } from "@expo/vector-icons";
 import React from "react";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
-const Page7 = () => {
+import { AntDesign } from "@expo/vector-icons";
+import { api } from "../../../Constants";
+import { useNavigation } from "@react-navigation/native";
+const Page7 = ({ data }) => {
+  const navigation = useNavigation();
+
   return (
     <ScrollView
       style={{ width: windowWidth, backgroundColor: "#000000" }}
@@ -28,6 +33,7 @@ const Page7 = () => {
           CAREER DEVELOPER
         </Text>
       </View>
+
       <View
         style={{
           borderWidth: 1,
@@ -37,8 +43,19 @@ const Page7 = () => {
           marginVertical: 10,
         }}
       />
-
-      <View>
+      <AntDesign
+        name="arrowleft"
+        size={30}
+        color="white"
+        style={{
+          position: "absolute",
+          top: 85,
+          left: 20,
+          zIndex: 2,
+        }}
+        onPress={() => navigation.goBack()}
+      />
+      <View style={{ marginTop: 29 }}>
         <Fontisto
           name="quote-a-right"
           size={32}
@@ -53,7 +70,7 @@ const Page7 = () => {
             fontSize: 80,
           }}
         >
-          ТОP 10
+          {data.p30Top}
         </Text>
         <View
           style={{
@@ -70,9 +87,10 @@ const Page7 = () => {
             color: "white",
             textAlign: "center",
             fontSize: 30,
+            marginHorizontal: 20,
           }}
         >
-          Гүйцэтгэх захирлуудын зөвлөгөө
+          {data.p30Title}
         </Text>
         <Fontisto
           name="quote-a-left"
@@ -94,7 +112,7 @@ const Page7 = () => {
           }}
         >
           <Image
-            source={require("../../../assets/mag1/1.png")}
+            source={{ uri: api + "/upload/" + data.p7Ceo1 }}
             style={{
               width: 150,
               height: 150,
@@ -102,16 +120,10 @@ const Page7 = () => {
               alignSelf: "center",
             }}
           />
-          <Text style={styles.textStatus}>
-            Лхагва гарагт бид ямар нэгэн хурал, уулзалт хийдэггүй. Хурал,
-            уулзалтуудын хооронд цагаа үрэлгүй, өмнөх ажилдаа төвлөрөх
-            хангалттай цаг гаргахын тулд энэ аргыг ашигладаг. Манай компанийн
-            соёлын магадгүй хамгийн үнэ цэнтэй арга барил нь энэ болов уу. Бусад
-            компани ч мөн адил энэ аргыг ашиглаасай гэж би хүсдэг.
-          </Text>
+          <Text style={styles.textStatus}>{data.p7Ceo1Text}</Text>
         </View>
-        <Text style={styles.ceoName}>- ДАСТИН МОСКОВИЦ - </Text>
-        <Text style={styles.workName}>Asan - CEO</Text>
+        <Text style={styles.ceoName}>{data.p7Ceo1Name}</Text>
+        <Text style={styles.workName}>{data.p7Ceo1Work}</Text>
       </View>
       {/* 2 */}
       <View
@@ -125,7 +137,7 @@ const Page7 = () => {
           }}
         >
           <Image
-            source={require("../../../assets/mag1/2.png")}
+            source={{ uri: api + "/upload/" + data.p7Ceo2 }}
             style={{
               width: 150,
               height: 150,
@@ -133,14 +145,10 @@ const Page7 = () => {
               alignSelf: "center",
             }}
           />
-          <Text style={styles.textStatus}>
-            Би үргэлж өөрөө бэлэн биш зүйлийг хийдэг. Ингэж л хүн өсөж хөгждөг.
-            Толгойд нь эргэлзээ төрж буй тэр цаг мөчид өөрийгөө шахаж байж
-            амжилтад хүрнэ.
-          </Text>
+          <Text style={styles.textStatus}>{data.p7Ceo2Text}</Text>
         </View>
-        <Text style={styles.ceoName}>- МАРИСА МАЙЕР - </Text>
-        <Text style={styles.workName}>Yahoo - Former CEO</Text>
+        <Text style={styles.ceoName}>{data.p7Ceo2Name}</Text>
+        <Text style={styles.workName}>{data.p7Ceo2Work}</Text>
       </View>
       {/* 3 */}
       <View
@@ -154,7 +162,7 @@ const Page7 = () => {
           }}
         >
           <Image
-            source={require("../../../assets/mag1/3.png")}
+            source={{ uri: api + "/upload/" + data.p7Ceo3 }}
             style={{
               width: 150,
               height: 150,
@@ -162,13 +170,10 @@ const Page7 = () => {
               alignSelf: "center",
             }}
           />
-          <Text style={styles.textStatus}>
-            Бүтэлгүйтэл бол сонголт. Хэрвээ чи бүтэлгүйтэхгүй л байвал
-            хангалттай хэмжээний инновац хийхгүй байна гэсэн үг.
-          </Text>
+          <Text style={styles.textStatus}>{data.p7Ceo3Text}</Text>
         </View>
-        <Text style={styles.ceoName}>- ИЛОН МАСК -</Text>
-        <Text style={styles.workName}>Tesla, Paypal & SpaceX - Founder</Text>
+        <Text style={styles.ceoName}>{data.p7Ceo3Name}</Text>
+        <Text style={styles.workName}>{data.p7Ceo3Work}</Text>
       </View>
       {/* 4 */}
       <View
@@ -182,7 +187,7 @@ const Page7 = () => {
           }}
         >
           <Image
-            source={require("../../../assets/mag1/4.png")}
+            source={{ uri: api + "/upload/" + data.p7Ceo4 }}
             style={{
               width: 150,
               height: 150,
@@ -190,14 +195,10 @@ const Page7 = () => {
               alignSelf: "center",
             }}
           />
-          <Text style={styles.textStatus}>
-            Өөрийнхөө итгэж буй тэр зүйлийг хийх зориг зүрхтэй бай” гэж ээж минь
-            надад нэг удаа зөвлөж байсан юм. Ихэнх хүн аливааг олж харж чаддаг ч
-            түүнийгээ хийх, турших зориггүй байдаг.
-          </Text>
+          <Text style={styles.textStatus}>{data.p7Ceo4Text}</Text>
         </View>
-        <Text style={styles.ceoName}>- УОЛТЕР РОББ -</Text>
-        <Text style={styles.workName}>Whole Foods Market - CEO</Text>
+        <Text style={styles.ceoName}>{data.p7Ceo4Name}</Text>
+        <Text style={styles.workName}>{data.p7Ceo4Work}</Text>
       </View>
       {/* 5 */}
       <View
@@ -211,7 +212,7 @@ const Page7 = () => {
           }}
         >
           <Image
-            source={require("../../../assets/mag1/5.png")}
+            source={{ uri: api + "/upload/" + data.p7Ceo5 }}
             style={{
               width: 150,
               height: 150,
@@ -219,13 +220,10 @@ const Page7 = () => {
               alignSelf: "center",
             }}
           />
-          <Text style={styles.textStatus}>
-            Үргэлж өөрийгөө сорьж бай. Бэлэн эсэхдээ эргэлзэж байсан ч өөрийгөө
-            сориод үз.
-          </Text>
+          <Text style={styles.textStatus}>{data.p7Ceo5Name}</Text>
         </View>
-        <Text style={styles.ceoName}>- ШЕРИЛ СЕНДБЕРГ -</Text>
-        <Text style={styles.workName}>Facebook - COO</Text>
+        <Text style={styles.ceoName}>{data.p7Ceo5Work}</Text>
+        <Text style={styles.workName}>{data.p7Ceo5Text}</Text>
       </View>
       {/* 6 */}
       <View
@@ -239,7 +237,7 @@ const Page7 = () => {
           }}
         >
           <Image
-            source={require("../../../assets/mag1/6.png")}
+            source={{ uri: api + "/upload/" + data.p7Ceo6 }}
             style={{
               width: 150,
               height: 150,
@@ -247,14 +245,10 @@ const Page7 = () => {
               alignSelf: "center",
             }}
           />
-          <Text style={styles.textStatus}>
-            Зөв чигтээ алхаж буйгаа ойлгох үед ажил чиний хувьд огт өөр зүйлийг
-            илэрхийлэх болно. Харин бусад тохиолдолд зүгээр л ажил. Амьдрал үүнд
-            хэтэрхий богинодоно.
-          </Text>
+          <Text style={styles.textStatus}>{data.p7Ceo6Text}</Text>
         </View>
-        <Text style={styles.ceoName}>- ТИМ КҮҮК -</Text>
-        <Text style={styles.workName}>Apple Inc - CEO</Text>
+        <Text style={styles.ceoName}>{data.p7Ceo6Work}</Text>
+        <Text style={styles.workName}>{data.p7Ceo6Name}</Text>
       </View>
       {/* 7 */}
       <View
@@ -268,7 +262,7 @@ const Page7 = () => {
           }}
         >
           <Image
-            source={require("../../../assets/mag1/7.png")}
+            source={{ uri: api + "/upload/" + data.p7Ceo7 }}
             style={{
               width: 150,
               height: 150,
@@ -276,14 +270,10 @@ const Page7 = () => {
               alignSelf: "center",
             }}
           />
-          <Text style={styles.textStatus}>
-            Зүгээр л боломжийг атга. Эрчүүд нүдээ аниад орж, аливааг хийнгээ
-            суралцдаг байхад эмэгтэйчүүд өөртөө итгэх итгэл дутмаг байдаг.
-            Зүгээр л боломжийг атга.
-          </Text>
+          <Text style={styles.textStatus}>{data.p7Ceo7Text}</Text>
         </View>
-        <Text style={styles.ceoName}>- КЕТЛИН МЕРФИ -</Text>
-        <Text style={styles.workName}>Fidelity Investment - President</Text>
+        <Text style={styles.ceoName}>{data.p7Ceo7Name}</Text>
+        <Text style={styles.workName}>{data.p7Ceo7Work}</Text>
       </View>
       {/* 8 */}
       <View
@@ -297,7 +287,7 @@ const Page7 = () => {
           }}
         >
           <Image
-            source={require("../../../assets/mag1/8.png")}
+            source={{ uri: api + "/upload/" + data.p7Ceo8 }}
             style={{
               width: 150,
               height: 150,
@@ -305,14 +295,10 @@ const Page7 = () => {
               alignSelf: "center",
             }}
           />
-          <Text style={styles.textStatus}>
-            Номер нэг, номер хоёрын хоорондох зай үргэлж тогтмол байдаг. Хэрвээ
-            чи байгууллагаа сайжруулахыг хүсвэл өөрийгөө эхлээд хөгжүүл.
-            Байгууллага чинь, компани чинь чамтай хамт ахиж дээшлэх болно.
-          </Text>
+          <Text style={styles.textStatus}>{data.p7Ceo8Text}</Text>
         </View>
-        <Text style={styles.ceoName}>- ИНДРА НУЙМ -</Text>
-        <Text style={styles.workName}>PepsiCo - CEO</Text>
+        <Text style={styles.ceoName}>{data.p7Ceo8Name}</Text>
+        <Text style={styles.workName}>{data.p7Ceo8Work}</Text>
       </View>
       {/* 9 */}
       <View
@@ -326,7 +312,7 @@ const Page7 = () => {
           }}
         >
           <Image
-            source={require("../../../assets/mag1/9.png")}
+            source={{ uri: api + "/upload/" + data.p7Ceo9 }}
             style={{
               width: 150,
               height: 150,
@@ -334,14 +320,10 @@ const Page7 = () => {
               alignSelf: "center",
             }}
           />
-          <Text style={styles.textStatus}>
-            Үргэлж зөв шийдвэр гаргахгүй гэдгээ бид хүлээн зөвшөөрөх хэрэгтэй.
-            Бүтэлгүйтэл бол амжилтын эсрэг тал гэж харахаас илүүтэй, энэ бол
-            амжилтын нэг хэсэг гэж үзэх нь зүйтэй.
-          </Text>
+          <Text style={styles.textStatus}>{data.p7Ceo9Text}</Text>
         </View>
-        <Text style={styles.ceoName}>- АРИАНА ХАФФИНГТОН -</Text>
-        <Text style={styles.workName}>The Huffington Post - Founder</Text>
+        <Text style={styles.ceoName}>{data.p7Ceo9Name}</Text>
+        <Text style={styles.workName}>{data.p7Ceo9Work}</Text>
       </View>
       {/* 10 */}
       <View
@@ -355,7 +337,7 @@ const Page7 = () => {
           }}
         >
           <Image
-            source={require("../../../assets/mag1/10.png")}
+            source={{ uri: api + "/upload/" + data.p7Ceo10 }}
             style={{
               width: 150,
               height: 150,
@@ -363,18 +345,24 @@ const Page7 = () => {
               alignSelf: "center",
             }}
           />
-          <Text style={styles.textStatus}>
-            Амьдрал ямагт төгс цаг хугацаандаа төгс боломжийг чамд бэлэглэхгүй.
-            Амьдралд хааяа чиний санаанд огт оромгүй үед, бэлэн биш байх үед
-            чинь боломж гарч ирдэг. Сайхан боломжууд замбараагүй, эргэлзмээр,
-            олж харахад, танихад хэцүү байдаг. Боломж эрсдэлтэй. Боломж чамайг
-            сорих болно.
-          </Text>
+          <Text style={styles.textStatus}>{data.p7Ceo10Text}</Text>
         </View>
-        <Text style={styles.ceoName}>- СьЮЗАН ВОЖИЦКИ -</Text>
-        <Text style={styles.workName}>YouTube - CEO</Text>
+        <Text style={styles.ceoName}>{data.p7Ceo10Name}</Text>
+        <Text style={styles.workName}>{data.p7Ceo10Work}</Text>
       </View>
-      <View style={{ marginVertical: 20 }} />
+
+      <Text
+        style={{
+          fontSize: 14,
+          fontFamily: "Montserrat-bold",
+          marginHorizontal: 20,
+          marginVertical: 30,
+          textAlign: "right",
+          color: "white",
+        }}
+      >
+        2022/03 САР
+      </Text>
     </ScrollView>
   );
 };

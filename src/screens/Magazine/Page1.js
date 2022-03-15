@@ -9,29 +9,15 @@ import {
   Image,
 } from "react-native";
 import * as Animatable from "react-native-animatable";
-import { useNavigation } from "@react-navigation/native";
-import { AntDesign } from "@expo/vector-icons";
 const windowWidth = Dimensions.get("window").width;
-const windowHeight = Dimensions.get("window").height;
-const Page1 = () => {
-  const navigation = useNavigation();
+import { AntDesign } from "@expo/vector-icons";
+import { api } from "../../../Constants";
+const Page1 = ({ data }) => {
   return (
     <ScrollView
       style={{ width: windowWidth }}
       showsVerticalScrollIndicator={false}
     >
-      {/* <AntDesign
-        name="arrowleft"
-        size={30}
-        color="black"
-        style={{
-          position: "absolute",
-          top: 50,
-          left: 20,
-          zIndex: 2,
-        }}
-        onPress={() => navigation.goBack()}
-      /> */}
       <View
         style={{ flexDirection: "row", marginTop: 50, marginHorizontal: 20 }}
       >
@@ -68,7 +54,7 @@ const Page1 = () => {
       </Animatable.Text>
       {/* bayka */}
       <ImageBackground
-        source={require("../../../assets/mag1/baykapage4.png")}
+        source={{ uri: api + "/upload/" + data.p1Bayka }}
         style={{
           width: windowWidth / 1.1,
           alignSelf: "center",
@@ -89,7 +75,7 @@ const Page1 = () => {
               padding: 20,
             }}
           >
-            ОНЦЛОХ ЗОЧИН
+            {data.baykaSpecial}
           </Text>
           <Text
             style={{
@@ -110,7 +96,7 @@ const Page1 = () => {
               elevation: 24,
             }}
           >
-            TomYo Edtech технологийн компанийг үүсгэн байгуулагч, захирал
+            {data.baykaWork}
           </Text>
           <Text
             style={{
@@ -129,7 +115,7 @@ const Page1 = () => {
               elevation: 24,
             }}
           >
-            В.Баярсайхан
+            {data.baykaName}
           </Text>
         </View>
 
@@ -158,14 +144,13 @@ const Page1 = () => {
               marginTop: 58,
             }}
           >
-            8.
+            {data.baykaNumber}
           </Text>
           <Text
             style={{
               flex: 0.8,
               fontFamily: "Montserrat-bold",
               fontSize: 30,
-              top: 20,
               color: "white",
               shadowColor: "#000",
               shadowOffset: {
@@ -178,13 +163,13 @@ const Page1 = () => {
               elevation: 24,
             }}
           >
-            Залуус олдож буй боломжоо тултал ашиглаасай
+            {data.baykaText}
           </Text>
         </View>
       </ImageBackground>
       {/*ariunzaya */}
       <ImageBackground
-        source={require("../../../assets/mag1/ariunzayapage4.jpg")}
+        source={{ uri: api + "/upload/" + data.p1Ariuka }}
         style={{
           width: windowWidth / 1.1,
           alignSelf: "center",
@@ -223,7 +208,7 @@ const Page1 = () => {
               elevation: 24,
             }}
           >
-            16.
+            {data.ariukaNumber}
           </Text>
           <View>
             <Text
@@ -243,7 +228,7 @@ const Page1 = () => {
               }}
             >
               {" "}
-              ХНХ-ЫН САЙД
+              {data.ariukaWork}
             </Text>
             <Text
               style={{
@@ -253,7 +238,7 @@ const Page1 = () => {
               }}
             >
               {" "}
-              А.АРИУНЗАЯА
+              {data.ariukaName}
             </Text>
           </View>
         </View>
@@ -269,18 +254,13 @@ const Page1 = () => {
           fontSize: 15,
         }}
       >
-        ОНЦЛОХ ЗОЧИН
+        {data.ariukaSpecial}
       </Text>
-      <Text style={styles.textTitle}>
-        Эрэлт нь ханасан мэргэжлээр олон залуучууд бэлтгэгдэж байна
-      </Text>
-      <Text style={styles.textStatus}>
-        "Ажил олгогч, ажилтан хоёр хүсэл сонирхол тэнцвэрт цэг дээр очвол тэнд
-        хэн хэндээ ашигтай, хамгийн боломжит нөхцөл бий болно."
-      </Text>
+      <Text style={styles.textTitle}>{data.ariukaTitle}</Text>
+      <Text style={styles.textStatus}>{data.ariukaText}</Text>
       {/* bolorerdene */}
       <ImageBackground
-        source={require("../../../assets/mag1/bolorerdenep4.jpg")}
+        source={{ uri: api + "/upload/" + data.p1Bolor }}
         style={{
           width: windowWidth / 1.1,
           alignSelf: "center",
@@ -320,7 +300,7 @@ const Page1 = () => {
               elevation: 24,
             }}
           >
-            23.
+            {data.bolorNumber}
           </Text>
           <View>
             <Text
@@ -339,7 +319,8 @@ const Page1 = () => {
                 elevation: 24,
               }}
             >
-              ХХМТГ-ын дарга
+              {" "}
+              {data.bolorWork}
             </Text>
             <Text
               style={{
@@ -348,7 +329,8 @@ const Page1 = () => {
                 color: "white",
               }}
             >
-              Б.БОЛОРЭРДЭНЭ
+              {" "}
+              {data.bolorName}
             </Text>
           </View>
         </View>
@@ -364,15 +346,10 @@ const Page1 = () => {
           fontSize: 15,
         }}
       >
-        МАНЛАЙЛАГЧ
+        {data.bolorSpecial}
       </Text>
-      <Text style={styles.textTitle}>
-        Чадварлаг залуус олон улсад хүч сориосой гэж хүсдэг
-      </Text>
-      <Text style={styles.textStatus}>
-        "Чин сэтгэлээсээ хүсэж буйгаа мэдсэн учраас түүнийхээ төлөө тууштай
-        хөдөлмөрлөсөн."
-      </Text>
+      <Text style={styles.textTitle}>{data.bolorTitle}</Text>
+      <Text style={styles.textStatus}>{data.bolorText}</Text>
       {/* 28 career hogjil */}
       <View
         style={{
@@ -382,16 +359,14 @@ const Page1 = () => {
           marginTop: 10,
         }}
       >
-        <Text style={styles.textNumber}>28.</Text>
+        <Text style={styles.textNumber}>{data.p1Number}</Text>
         <View style={{ flex: 0.8 }}>
           <Text style={{ fontFamily: "Montserrat-bold", fontSize: 16 }}>
-            Карьер төлөвлөлтийн тухай топ CEO зөвлөгөө
+            {data.p1Title}
           </Text>
 
           <Text style={{ fontFamily: "Montserrat-regular", fontSize: 14 }}>
-            Тэрбум ам.долларын үнэлгээнд хүрсэн старт ап компанийг Америкт "ганц
-            эвэрт" хэмээн нэрийддэг. Гараанаас гараад үсрэнгүй хөгжсөн компанийг
-            олох нь яг л Ганц эвэртийн эрэлд гарахтай ижил хэмээн зүйрлэжээ.
+            {data.p1Text}
           </Text>
         </View>
       </View>
@@ -404,10 +379,10 @@ const Page1 = () => {
           marginVertical: 20,
         }}
       >
-        <Text style={styles.textNumber}>30.</Text>
+        <Text style={styles.textNumber}>{data.p1Number1}</Text>
         <View style={{ flex: 0.8 }}>
           <Text style={{ fontFamily: "Montserrat-bold", fontSize: 16 }}>
-            TOP 10 гүйцэтгэх захирлуудын зөвлөгөө
+            {data.p1Title1}
           </Text>
 
           <Text
@@ -417,9 +392,7 @@ const Page1 = () => {
               marginVertical: 10,
             }}
           >
-            Дэлхийн бизнес, эдийн засгийн хөгжлийг тодорхойлж буй олон улсын
-            үндэстэн дамнасан компаниудын гүйцэтгэх захирлууд карьерынхаа ТОП
-            зөвлөгөөг хуваалцаж байна.
+            {data.p1Text1}
           </Text>
         </View>
       </View>
@@ -432,10 +405,10 @@ const Page1 = () => {
           marginVertical: 20,
         }}
       >
-        <Text style={styles.textNumber}>32.</Text>
+        <Text style={styles.textNumber}>{data.p1Number2}</Text>
         <View style={{ flex: 0.8 }}>
           <Text style={{ fontFamily: "Montserrat-bold", fontSize: 16 }}>
-            карьераа хөгжүүлэx төлөвлөгөө гаргах 7 энгийн арга
+            {data.p1Title2}
           </Text>
 
           <Text
@@ -445,10 +418,7 @@ const Page1 = () => {
               marginVertical: 10,
             }}
           >
-            Та ирээдүйд чухал албан тушаал хаших нэгэн болно гэж өөрийгөө
-            төсөөлдөг үү? Хэрэв тийм төсөөлөл бодлын тань хаа нэгтээ байгаа бол
-            бодлуудаа цэгцэлж, карьер хөгжлийн төлөвлөгөөгөө эхлүүлэхгүй бол
-            эдгээр төсөөллүүд тань хүсэл төдий болж замхарна.
+            {data.p1Text2}
           </Text>
         </View>
       </View>
@@ -474,7 +444,7 @@ const Page1 = () => {
                 textAlign: "center",
               }}
             >
-              ОНЦЛОХ МЕНЕЖЕР
+              {data.odBaysalSpecial}
             </Text>
             <Text
               style={{
@@ -483,10 +453,10 @@ const Page1 = () => {
                 marginVertical: 15,
               }}
             >
-              ХҮЛЭЭЛТЭЭС ДАВЖ АЖИЛЛАЖ ЧАДДАГ ХҮНД КАРЬЕР АХИУЛАХ ХЭЦҮҮ БИШ
+              {data.odBaysalTitle}
             </Text>
             <Text style={{ fontFamily: "Montserrat-medium", fontSize: 12 }}>
-              Төрийн банкны Бүтээгдэхүүн хөгжүүлэлт, судалгааны хэлтсийн захирал
+              {data.odBaysalText}
             </Text>
             <Text
               style={{
@@ -495,12 +465,12 @@ const Page1 = () => {
                 marginVertical: 15,
               }}
             >
-              Б.Одбаясал
+              {data.odBaysalName}
             </Text>
           </View>
           <View style={{ flex: 0.5 }}>
             <Image
-              source={require("../../../assets/mag1/odbaysal.jpeg")}
+              source={{ uri: api + "/upload/" + data.p1OdBaysal }}
               style={{ width: windowWidth / 3, height: 320 }}
             />
           </View>
@@ -517,10 +487,10 @@ const Page1 = () => {
           fontSize: 22,
         }}
       >
-        ОНЦЛОХ КОМПАНИ
+        {data.binanceSpecial}
       </Text>
       <ImageBackground
-        source={require("../../../assets/mag1/bitcoin.jpg")}
+        source={{ uri: api + "/upload/" + data.p1BinanceBg }}
         style={{
           marginHorizontal: 20,
           flexDirection: "row",
@@ -537,11 +507,11 @@ const Page1 = () => {
               color: "white",
             }}
           >
-            180 ХОНОГИЙН ДОТОР ДЭЛХИЙД ХҮЛЭЭН ЗӨВШӨӨРӨГДСӨН
+            {data.binanceTitle}
           </Text>
 
           <Image
-            source={require("../../../assets/mag1/BinanceLogo.png")}
+            source={require("../../../assets/faceLogo2.png")}
             style={{ width: 200, height: 110, marginVertical: 40 }}
           />
 
@@ -553,11 +523,7 @@ const Page1 = () => {
               color: "white",
             }}
           >
-            Дэлхийн тэрбумтнуудын жагсаалтыг шинэ онтой зэрэгцэн нэгэн эрхэм
-            өнгөлсөн нь дэлхийн криптовалютын хамгийн том биржийн үүсгэн
-            байгуулагч, гүйцэтгэх захирал, олноо “CZ” хэмээн алдаршсан Чанпэн
-            Жао юм. Түүний цэвэр хөрөнгө 96 тэрбум ам.долларт хүрч дэлхийн
-            хамгийн чинээлэг эрхмүүдийн жагсаалтын арваннэгдүгээрт бичигдэв.
+            {data.binanceText}
           </Text>
           <Text
             style={{
@@ -567,9 +533,9 @@ const Page1 = () => {
               color: "white",
             }}
           >
-            <Text style={{ color: "white" }}>♦︎</Text> The Binance Ecosystem{" "}
+            <Text style={{ color: "white" }}>♦︎</Text> {data.binanceStatus}{" "}
             <Text style={{ fontFamily: "Montserrat-bold", color: "#ffc20e" }}>
-              /46
+              {data.binanceStatusBold}
             </Text>
           </Text>
           <Text
@@ -580,10 +546,9 @@ const Page1 = () => {
               color: "white",
             }}
           >
-            <Text style={{ color: "white" }}>♦︎</Text> Дэлхийн крипто арилжааны
-            хамгийн том бирж{" "}
+            <Text style={{ color: "white" }}>♦︎</Text> {data.binanceStatus1}{" "}
             <Text style={{ fontFamily: "Montserrat-bold", color: "#ffc20e" }}>
-              /48
+              {data.binanceStatus1Bold}
             </Text>
           </Text>
           <Text
@@ -594,10 +559,9 @@ const Page1 = () => {
               color: "white",
             }}
           >
-            <Text style={{ color: "white" }}>♦︎</Text> Компанийн соёлд тулгарч
-            буй сорилт{" "}
+            <Text style={{ color: "white" }}>♦︎</Text> {data.binanceStatus2}{" "}
             <Text style={{ fontFamily: "Montserrat-bold", color: "#ffc20e" }}>
-              /50
+              {data.binanceStatus2Bold}
             </Text>
           </Text>
           <Text
@@ -609,15 +573,15 @@ const Page1 = () => {
               paddingBottom: 20,
             }}
           >
-            <Text style={{ color: "white" }}>♦︎</Text> Тэд хэнийг ажилд авдаг вэ{" "}
+            <Text style={{ color: "white" }}>♦︎</Text> {data.binanceStatus3}{" "}
             <Text style={{ fontFamily: "Montserrat-bold", color: "#ffc20e" }}>
-              /51
+              {data.binanceStatus3Bold}
             </Text>
           </Text>
         </View>
       </ImageBackground>
       <Image
-        source={require("../../../assets/mag1/binanceTeam.jpg")}
+        source={{ uri: api + "/upload/" + data.p1BinanceTeam }}
         style={{
           width: windowWidth / 1.11,
           height: 300,
@@ -634,11 +598,11 @@ const Page1 = () => {
           marginVertical: 20,
         }}
       >
-        <Text style={styles.textNumber}>54.</Text>
+        <Text style={styles.textNumber}>{data.deNumber}</Text>
         <View style={{ flex: 0.8 }}>
           <View style={{ flexDirection: "row", flex: 1 }}>
             <Image
-              source={require("../../../assets/mag1/delgermend.jpeg")}
+              source={{ uri: api + "/upload/" + data.p1Delgermend }}
               style={{
                 width: 150,
                 height: 150,
@@ -657,7 +621,7 @@ const Page1 = () => {
                   marginLeft: 10,
                 }}
               >
-                Ажилтан бүрийнхээ ажлаа хийдэг шалтгааныг сонирхоорой
+                {data.deTitle}
               </Text>
               <Text
                 style={{
@@ -666,10 +630,10 @@ const Page1 = () => {
                   marginLeft: 5,
                 }}
               >
-                Сэтгэл зүйч
+                {data.deWork}
               </Text>
               <Text style={{ fontFamily: "Montserrat-bold", marginLeft: 5 }}>
-                Ц.Дэлгэрмэнд
+                {data.deName}
               </Text>
             </View>
           </View>
@@ -683,9 +647,7 @@ const Page1 = () => {
           color: "#0066a6",
         }}
       >
-        "Юуны төлөө ажиллаж, хөдөлмөрлөх вэ, юуг хийчихсэн байвал таны сэтгэлд
-        аз жаргал авчрах вэ гэдэг шинэ зорилгоо олж чадвал Та халшралаас
-        өөрийгөө эмчилж чадлаа гэсэн үг юм."
+        {data.deText}
       </Text>
       {/* 58 */}
       <View
@@ -696,11 +658,11 @@ const Page1 = () => {
           marginVertical: 20,
         }}
       >
-        <Text style={styles.textNumber}>58.</Text>
+        <Text style={styles.textNumber}>{data.batNumber}</Text>
         <View style={{ flex: 0.8 }}>
           <View style={{ flexDirection: "row", flex: 1 }}>
             <Image
-              source={require("../../../assets/mag1/batdavaa.jpg")}
+              source={{ uri: api + "/upload/" + data.p1Batdavaa }}
               style={{
                 width: 150,
                 height: 150,
@@ -719,7 +681,7 @@ const Page1 = () => {
                   marginLeft: 10,
                 }}
               >
-                ӨРХИЙН ОРЛОГО БУУРСНЫГ ХАЛАМЖ ОРЛОЖ БАЙНА
+                {data.batTitle}
               </Text>
               <Text
                 style={{
@@ -728,10 +690,10 @@ const Page1 = () => {
                   marginLeft: 5,
                 }}
               >
-                Үндэсний статистикийн хорооны дарга
+                {data.batWork}
               </Text>
               <Text style={{ fontFamily: "Montserrat-bold", marginLeft: 5 }}>
-                Б.БАТДАВАА
+                {data.batName}
               </Text>
             </View>
           </View>
@@ -745,8 +707,7 @@ const Page1 = () => {
           color: "#0066a6",
         }}
       >
-        "Цар тахлын үед ажилгүй болсон 80 гаруй мянган хүний дийлэнх нь
-        үйлчилгээний салбарынхан. Түүнээс худалдааны салбарынх 23 мянга орчим."
+        {data.batText}
       </Text>
       {/* 63 */}
       <View
@@ -757,10 +718,10 @@ const Page1 = () => {
           marginTop: 20,
         }}
       >
-        <Text style={styles.textNumber}>63.</Text>
+        <Text style={styles.textNumber}>{data.techNumber}</Text>
         <View style={{ flex: 0.8 }}>
           <Text style={{ fontFamily: "Montserrat-bold", fontSize: 16 }}>
-            2022 онд шинээр гарч ирж буй шилдэг 10 технологи
+            {data.techTitle}
           </Text>
 
           <Text
@@ -770,13 +731,12 @@ const Page1 = () => {
               marginVertical: 10,
             }}
           >
-            Дэлхийн Эдийн Засгийн Форумаас оны шилдэг, шинэ технологиудыг 10
-            дахь жилдээ танилцуулж байна.
+            {data.techText}
           </Text>
         </View>
       </View>
       <Image
-        source={require("../../../assets/mag1/technol.png")}
+        source={{ uri: api + "/upload/" + data.p1Tech }}
         style={{
           width: windowWidth / 1.35,
           height: 200,
@@ -793,10 +753,10 @@ const Page1 = () => {
           marginTop: 20,
         }}
       >
-        <Text style={styles.textNumber}>67.</Text>
+        <Text style={styles.textNumber}>{data.p1Number3}</Text>
         <View style={{ flex: 0.8 }}>
           <Text style={{ fontFamily: "Montserrat-bold", fontSize: 16 }}>
-            Зах зээлд тэргүүлж буй топ койнууд
+            {data.p1Title3}
           </Text>
 
           <Text
@@ -806,22 +766,10 @@ const Page1 = () => {
               marginVertical: 10,
             }}
           >
-            Улам бүр хүчээ аван хөгжиж буй дижитал хөрөнгийн зах зээлийг
-            тодорхойлж буй топ койнуудыг "Carer Developer" тоймлож байна.
+            {data.p1Text3}
           </Text>
         </View>
       </View>
-      <Text
-        style={{
-          fontSize: 14,
-          fontFamily: "Montserrat-bold",
-          marginHorizontal: 20,
-          marginVertical: 30,
-          textAlign: "right",
-        }}
-      >
-        2022/03 САР
-      </Text>
     </ScrollView>
   );
 };
