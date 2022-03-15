@@ -14,7 +14,7 @@
     "slug": "career-developer",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/logo.png",
+    "icon": "./assets/images/logoios.png",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
