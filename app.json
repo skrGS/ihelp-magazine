@@ -12,7 +12,7 @@
     "name": "Career developer",
     "description": "Career developer magazine",
     "slug": "career-developer",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
@@ -29,7 +29,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "mn.ihelp.career.developer",
-      "buildNumber": "1.0.1"
+      "buildNumber": "1.0.2"
     },
     "android": {
       "googleServicesFile": "./google-services.json",
