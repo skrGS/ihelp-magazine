@@ -22,6 +22,7 @@ import Ads3 from "./Ads3";
 import Ads4 from "./Ads4";
 import Ads5 from "./Ads5";
 import Ads6 from "./Ads6";
+import Ads7 from "./Ads7.js";
 import Ads8 from "./Ads8";
 import Ads9 from "./Ads9";
 import Ads10 from "./Ads10";
@@ -48,39 +49,39 @@ const MainPage = (props) => {
         <Loading />
       ) : (
         <>
-          <Page data={magazine.face} />
-
-          <Ads1 data={magazine.ads} />
+          <Page data={magazine.face} loading={loading} />
           <Page1 data={magazine.page1} />
-          <Ads2 data={magazine.ads} />
           <Page2 data={magazine.page2} />
-          <Ads11 data={magazine.ads} />
+          <Ads2 data={magazine.ads} />
           <Page3 data={magazine.page3} />
+          <Ads11 data={magazine.ads} />
           <Ads3 data={magazine.ads} />
           <Page4 data={magazine.page4} />
           <Ads4 data={magazine.ads} />
 
+          <Ads1 data={magazine.ads} />
           <Page5 data={magazine.page5} />
-          <Ads5 data={magazine.ads} />
 
           <Page6 data={magazine.page6} />
-          <Ads6 data={magazine.ads} />
 
           <Page7 data={magazine.page7} />
-          <Ads8 data={magazine.ads} />
+          <Ads5 data={magazine.ads} />
 
           <Page8 data={magazine.page8} />
           <Ads9 data={magazine.ads} />
+          <Ads6 data={magazine.ads} />
 
           <Page9 data={magazine.page9} />
 
           <Page10 data={magazine.page10} />
-
+          <Ads7 data={magazine.ads} />
           <Page11 data={magazine.page11} />
+          <Ads8 data={magazine.ads} />
+
           <Page12 data={magazine.page12} />
           <Page13 data={magazine.page13} />
-          <Ads12 data={magazine.ads} />
           <Page14 data={magazine.page14} />
+          <Ads12 data={magazine.ads} />
           <Ads10 data={magazine.ads} />
         </>
       )}

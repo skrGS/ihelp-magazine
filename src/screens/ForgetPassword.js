@@ -14,8 +14,8 @@ import { Button } from "react-native-elements";
 import * as Animatable from "react-native-animatable";
 import { AntDesign } from "@expo/vector-icons";
 import axios from "axios";
-import Spinner2 from "../components/Spinner2";
 import { api } from "../../Constants";
+import Loading from "../components/Loading";
 
 const ForgetPassword = () => {
   const navigation = useNavigation();
@@ -83,7 +83,7 @@ const ForgetPassword = () => {
         </View>
       </ImageBackground>
       {loading === true ? (
-        <Spinner2 />
+        <Loading />
       ) : (
         <Animatable.View
           animation="fadeInUpBig"

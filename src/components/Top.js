@@ -9,7 +9,6 @@ import {
 import { Fontisto } from "@expo/vector-icons";
 import React from "react";
 const windowWidth = Dimensions.get("window").width;
-const windowHeight = Dimensions.get("window").height;
 import { AntDesign } from "@expo/vector-icons";
 import { api } from "../../Constants";
 import { useNavigation } from "@react-navigation/native";

@@ -41,7 +41,7 @@ const Page4 = ({ data }) => {
           style={{
             backgroundColor: "#55b8ae",
             // marginBottom: 0,
-            flex: 0.35,
+            flex: 0.4,
             paddingHorizontal: 20,
             width: windowWidth / 1.5,
           }}

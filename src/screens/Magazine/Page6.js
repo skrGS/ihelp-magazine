@@ -61,7 +61,7 @@ const Page6 = ({ data }) => {
         <View
           style={{
             alignSelf: "flex-end",
-            marginVertical: 50,
+            marginVertical: 10,
             marginHorizontal: 10,
           }}
         >

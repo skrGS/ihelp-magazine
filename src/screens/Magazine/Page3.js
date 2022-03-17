@@ -7,15 +7,19 @@ import {
   Dimensions,
   Image,
 } from "react-native";
-import React from "react";
+import React, { createRef, useEffect } from "react";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { api } from "../../../Constants";
+import LottieView from "lottie-react-native";
 const Page3 = ({ data }) => {
   const navigation = useNavigation();
-
+  let animation = createRef();
+  useEffect(() => {
+    animation.current.play();
+  }, []);
   return (
     <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
       {/* Bayarsaihanii zurag */}
@@ -41,9 +45,10 @@ const Page3 = ({ data }) => {
           style={{
             backgroundColor: "#fec214",
             // marginBottom: 0,
-            flex: 0.3,
+            flex: 0.35,
             paddingLeft: 20,
             alignSelf: "flex-start",
+            top: 80,
           }}
         >
           <Text
@@ -66,6 +71,12 @@ const Page3 = ({ data }) => {
             {data.p3YellowText}
           </Text>
         </View>
+        <LottieView
+          source={require("../../../assets/down.json")}
+          ref={animation}
+          loop={true}
+          style={{ width: 50, height: 50, alignSelf: "flex-end", top: 30 }}
+        />
       </ImageBackground>
       <View
         style={{ width: windowWidth / 1.1, alignSelf: "center", marginTop: 15 }}

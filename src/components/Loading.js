@@ -1,35 +1,36 @@
-import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  ActivityIndicator,
-  Dimensions,
-} from "react-native";
+import React, { createRef, useEffect } from "react";
+import { StyleSheet, View, Dimensions } from "react-native";
+import LottieView from "lottie-react-native";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 const Loading = ({ showText = true }) => {
+  let animation = createRef();
+  let animation1 = createRef();
+  useEffect(() => {
+    animation.current.play();
+    animation1.current.play();
+  }, []);
   return (
     <View
       style={{
-        alignItems: "center",
-        marginVertical: 10,
-        backgroundColor: "#041C32",
+        flex: 1,
         width: windowWidth,
         height: windowHeight,
-        paddingTop: 100,
+        backgroundColor: "#041C32",
       }}
     >
-      <ActivityIndicator
-        size="large"
-        color="#99AAAB"
-        style={{ alignSelf: "center", justifyContent: "center" }}
+      <LottieView
+        source={require("../../assets/96939-files.json")}
+        ref={animation}
+        loop={true}
+        style={{ height: 400, alignSelf: "center", marginTop: 20 }}
       />
-      {showText && (
-        <Text style={{ top: 10, fontWeight: "bold", fontSize: 18 }}>
-          Түр хүлээнэ үү...
-        </Text>
-      )}
+      <LottieView
+        source={require("../../assets/good.json")}
+        ref={animation1}
+        loop={true}
+        style={{ height: 250, alignSelf: "center" }}
+      />
     </View>
   );
 };

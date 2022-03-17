@@ -49,7 +49,9 @@ const Page8 = ({ data }) => {
         }}
       />
       <View>
-        <Text style={styles.textTitle}>{data.p8Title1} </Text>
+        <Text style={[styles.textTitle, { marginTop: 30 }]}>
+          {data.p8Title1}{" "}
+        </Text>
       </View>
       <Text style={styles.textTitle}>{data.p8Title2} </Text>
       <Image

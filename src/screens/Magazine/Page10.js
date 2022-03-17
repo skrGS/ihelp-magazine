@@ -51,7 +51,7 @@ const Page10 = ({ data }) => {
             paddingLeft: 15,
             paddingRight: 10,
             paddingVertical: 10,
-            marginTop: 100,
+            top: 100,
           }}
         >
           {data.p10Special}
@@ -265,76 +265,38 @@ const Page10 = ({ data }) => {
         <Image
           source={{ uri: api + "/upload/" + data.p10BiEco }}
           style={{
-            width: windowWidth,
-            height: windowHeight / 2.5,
-            marginVertical: 100,
+            width: windowWidth / 1.5,
+            height: windowHeight / 3,
+            alignSelf: "center",
+            marginVertical: 20,
           }}
+          resizeMode="contain"
         />
       </View>
       <View
         style={{
           width: windowWidth,
-          height: windowHeight,
           backgroundColor: "#ffc20e",
         }}
       >
-        <View style={{ flexDirection: "row", flex: 1 }}>
-          <View style={{ flex: 0.5 }}>
-            <Text style={styles.surgaltTitle}>{data.p47Title}</Text>
-            <Text style={styles.surgalt}>{data.p47Text}</Text>
-          </View>
-          <View style={{ borderWidth: 1, borderColor: "white" }} />
-          <View style={{ flex: 0.5 }}>
-            <Text style={styles.surgaltTitle}>{data.p47Title1}</Text>
-            <Text style={styles.surgalt}>{data.p47Text1}</Text>
-          </View>
-        </View>
-        <View style={{ flexDirection: "row", flex: 1 }}>
-          <View style={{ flex: 0.5 }}>
-            <Text style={[styles.surgaltTitle, { marginTop: 20 }]}>
-              {data.p47Title2}
-            </Text>
-            <Text style={styles.surgalt}>{data.p47Text2}</Text>
-          </View>
-          <View style={{ borderWidth: 1, borderColor: "white" }} />
-          <View style={{ flex: 0.5 }}>
-            <Text style={[styles.surgaltTitle, { marginTop: 20 }]}>
-              {data.p47Title3}
-            </Text>
-            <Text style={styles.surgalt}>{data.p47Text3}</Text>
-          </View>
-        </View>
-        <View style={{ flexDirection: "row", flex: 1 }}>
-          <View style={{ flex: 0.5 }}>
-            <Text style={styles.surgaltTitle}>{data.p47Title4}</Text>
-            <Text style={[styles.surgalt, { marginLeft: 5 }]}>
-              {data.p47Text4}
-            </Text>
-          </View>
-          <View style={{ borderWidth: 1, borderColor: "white" }} />
-          <View style={{ flex: 0.5 }}>
-            <Text style={styles.surgaltTitle}>{data.p47Title5}</Text>
-            <Text style={[styles.surgalt, { marginLeft: 5 }]}>
-              {data.p47Text5}
-            </Text>
-          </View>
-        </View>
-
-        <View style={{ flexDirection: "row", flex: 1 }}>
-          <View style={{ flex: 0.5 }}>
-            <Text style={[styles.surgaltTitle, { marginTop: 20 }]}>
-              {data.p47Title6}
-            </Text>
-            <Text style={styles.surgalt}>{data.p47Text6}</Text>
-          </View>
-          <View style={{ borderWidth: 1, borderColor: "white" }} />
-          <View style={{ flex: 0.5 }}>
-            <Text style={[styles.surgaltTitle, { marginTop: 20 }]}>
-              {data.p47Title7}
-            </Text>
-            <Text style={styles.surgalt}>{data.p47Text7}</Text>
-          </View>
-        </View>
+        <Text style={styles.surgaltTitle}>{data.p47Title1}</Text>
+        <Text style={styles.surgalt}>{data.p47Text1}</Text>
+        <Text style={styles.surgaltTitle}>{data.p47Title4}</Text>
+        <Text style={styles.surgalt}>{data.p47Text4}</Text>
+        <Text style={styles.surgaltTitle}>{data.p47Title6}</Text>
+        <Text style={styles.surgalt}>{data.p47Text6}</Text>
+        <Text style={styles.surgaltTitle}>{data.p47Title2}</Text>
+        <Text style={styles.surgalt}>{data.p47Text2}</Text>
+        <Text style={styles.surgaltTitle}>{data.p47Title}</Text>
+        <Text style={styles.surgalt}>{data.p47Text}</Text>
+        <Text style={styles.surgaltTitle}>{data.p47Title7}</Text>
+        <Text style={styles.surgalt}>{data.p47Text7}</Text>
+        <Text style={styles.surgaltTitle}>{data.p47Title5}</Text>
+        <Text style={styles.surgalt}>{data.p47Text5}</Text>
+        <Text style={styles.surgaltTitle}>{data.p47Title3}</Text>
+        <Text style={[styles.surgalt, { marginBottom: 20 }]}>
+          {data.p47Text3}
+        </Text>
       </View>
       {/* Binance graph */}
       <View
@@ -737,8 +699,8 @@ const Page10 = ({ data }) => {
         <Image
           source={{ uri: api + "/upload/" + data.p10BiGraph1 }}
           style={{
-            width: windowWidth / 1.5,
-            height: 300,
+            width: windowWidth,
+            height: 350,
             alignSelf: "center",
             marginVertical: 20,
           }}
@@ -952,13 +914,15 @@ const Page10 = ({ data }) => {
       <View
         style={{
           backgroundColor: "white",
-          padding: 20,
           flexDirection: "row",
           flex: 1,
-          justifyContent: "space-around",
         }}
       >
-        <View style={{ flex: 0.33 }}>
+        <View
+          style={{
+            flex: 0.5,
+          }}
+        >
           <Text
             style={{
               textAlign: "center",
@@ -968,7 +932,13 @@ const Page10 = ({ data }) => {
           >
             4.0
           </Text>
-          <View style={{ flexDirection: "row", marginVertical: 10 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              marginVertical: 10,
+              alignSelf: "center",
+            }}
+          >
             <FontAwesome name="star" size={24} color="#ffc20e" />
             <FontAwesome name="star" size={24} color="#ffc20e" />
             <FontAwesome name="star" size={24} color="#ffc20e" />
@@ -985,7 +955,11 @@ const Page10 = ({ data }) => {
             Карьерийн өсөлт
           </Text>
         </View>
-        <View style={{ flex: 0.33 }}>
+        <View
+          style={{
+            flex: 0.5,
+          }}
+        >
           <Text
             style={{
               textAlign: "center",
@@ -995,7 +969,13 @@ const Page10 = ({ data }) => {
           >
             2.6
           </Text>
-          <View style={{ flexDirection: "row", marginVertical: 10 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              marginVertical: 10,
+              alignSelf: "center",
+            }}
+          >
             <FontAwesome name="star" size={24} color="#ffc20e" />
             <FontAwesome name="star" size={24} color="#ffc20e" />
             <FontAwesome name="star-half-empty" size={24} color="#ffc20e" />
@@ -1011,33 +991,6 @@ const Page10 = ({ data }) => {
             }}
           >
             Ажил, амьдралын тэнцвэр
-          </Text>
-        </View>
-        <View style={{ flex: 0.33 }}>
-          <Text
-            style={{
-              textAlign: "center",
-              fontFamily: "Montserrat-bold",
-              fontSize: 20,
-            }}
-          >
-            4.0
-          </Text>
-          <View style={{ flexDirection: "row", marginVertical: 10 }}>
-            <FontAwesome name="star" size={24} color="#ffc20e" />
-            <FontAwesome name="star" size={24} color="#ffc20e" />
-            <FontAwesome name="star" size={24} color="#ffc20e" />
-            <FontAwesome name="star" size={24} color="#ffc20e" />
-            <FontAwesome name="star-o" size={24} color="#ffc20e" />
-          </View>
-          <Text
-            style={{
-              textAlign: "center",
-              fontFamily: "Montserrat-semibold",
-              fontSize: 16,
-            }}
-          >
-            Карьерийн өсөлт
           </Text>
         </View>
       </View>
@@ -1061,7 +1014,7 @@ const Page10 = ({ data }) => {
               fontSize: 20,
             }}
           >
-            4.0
+            3.6
           </Text>
           <View
             style={{
@@ -1073,7 +1026,7 @@ const Page10 = ({ data }) => {
             <FontAwesome name="star" size={24} color="#ffc20e" />
             <FontAwesome name="star" size={24} color="#ffc20e" />
             <FontAwesome name="star" size={24} color="#ffc20e" />
-            <FontAwesome name="star" size={24} color="#ffc20e" />
+            <FontAwesome name="star-half-empty" size={24} color="#ffc20e" />
             <FontAwesome name="star-o" size={24} color="#ffc20e" />
           </View>
           <Text
@@ -1083,7 +1036,7 @@ const Page10 = ({ data }) => {
               fontSize: 16,
             }}
           >
-            Карьерийн өсөлт
+            УРАМШУУЛАЛ, НӨХӨН ОЛГОВОР ӨГӨХ БАЙДАЛ
           </Text>
         </View>
         <View
@@ -1098,7 +1051,7 @@ const Page10 = ({ data }) => {
               fontSize: 20,
             }}
           >
-            4.0
+            2.8
           </Text>
           <View
             style={{
@@ -1109,8 +1062,9 @@ const Page10 = ({ data }) => {
           >
             <FontAwesome name="star" size={24} color="#ffc20e" />
             <FontAwesome name="star" size={24} color="#ffc20e" />
-            <FontAwesome name="star" size={24} color="#ffc20e" />
-            <FontAwesome name="star" size={24} color="#ffc20e" />
+            <FontAwesome name="star-half-empty" size={24} color="#ffc20e" />
+
+            <FontAwesome name="star-o" size={24} color="#ffc20e" />
             <FontAwesome name="star-o" size={24} color="#ffc20e" />
           </View>
           <Text
@@ -1120,7 +1074,46 @@ const Page10 = ({ data }) => {
               fontSize: 16,
             }}
           >
-            Карьерийн өсөлт
+            Ажил, амьдралын тэнцвэр
+          </Text>
+        </View>
+      </View>
+      {/* Binance rating 1 */}
+      <View
+        style={{
+          backgroundColor: "white",
+          padding: 20,
+          flexDirection: "row",
+          flex: 1,
+          justifyContent: "space-around",
+        }}
+      >
+        <View style={{ flex: 0.33 }}>
+          <Text
+            style={{
+              textAlign: "center",
+              fontFamily: "Montserrat-bold",
+              fontSize: 20,
+            }}
+          >
+            4.0
+          </Text>
+          <View style={{ flexDirection: "row", marginVertical: 10 }}>
+            <FontAwesome name="star" size={24} color="#ffc20e" />
+            <FontAwesome name="star" size={24} color="#ffc20e" />
+            <FontAwesome name="star-half-empty" size={24} color="#ffc20e" />
+
+            <FontAwesome name="star-o" size={24} color="#ffc20e" />
+            <FontAwesome name="star-o" size={24} color="#ffc20e" />
+          </View>
+          <Text
+            style={{
+              textAlign: "center",
+              fontFamily: "Montserrat-semibold",
+              fontSize: 16,
+            }}
+          >
+            МЕНЕЖМЕНТ
           </Text>
         </View>
       </View>
@@ -1311,15 +1304,16 @@ const styles = StyleSheet.create({
   },
   surgalt: {
     fontFamily: "Montserrat-regular",
-    marginVertical: 20,
-    marginHorizontal: 10,
     textAlign: "center",
+    paddingHorizontal: 10,
   },
   surgaltTitle: {
     fontFamily: "Oswald-medium",
     fontSize: 25,
     textAlign: "center",
     color: "white",
+    marginTop: 20,
+    marginBottom: 10,
   },
   binanceTitle: {
     fontFamily: "Montserrat-bold",

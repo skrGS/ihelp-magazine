@@ -10,14 +10,28 @@ import {
 } from "react-native";
 import * as Animatable from "react-native-animatable";
 const windowWidth = Dimensions.get("window").width;
-import { AntDesign } from "@expo/vector-icons";
 import { api } from "../../../Constants";
+import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 const Page1 = ({ data }) => {
+  const navigation = useNavigation();
   return (
     <ScrollView
       style={{ width: windowWidth }}
       showsVerticalScrollIndicator={false}
     >
+      <AntDesign
+        name="arrowleft"
+        size={30}
+        color="black"
+        style={{
+          position: "absolute",
+          top: 80,
+          left: 10,
+          zIndex: 2,
+        }}
+        onPress={() => navigation.goBack()}
+      />
       <View
         style={{ flexDirection: "row", marginTop: 50, marginHorizontal: 20 }}
       >

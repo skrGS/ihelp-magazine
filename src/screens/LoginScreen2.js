@@ -50,10 +50,10 @@ const LoginScreen2 = () => {
               easing="ease-out"
               iterationCount="infinite"
               direction="alternate"
-              source={require("../../assets/2smal.png")}
+              source={require("../../assets/faceLogo.png")}
               style={{
-                width: 250,
-                height: 118,
+                width: 350,
+                height: 65,
                 alignSelf: "center",
                 justifyContent: "center",
               }}

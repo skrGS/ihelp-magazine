@@ -222,13 +222,11 @@ const Page5 = ({ data }) => {
         <Text style={styles.textStatus}>{data.p26Text6}</Text>
         <Text style={styles.textTitle}>{data.p27Title}</Text>
         <Text style={styles.textStatus}>{data.p27Text}</Text>
-        <Text style={styles.textTitle}>
-          Залуучуудын хувьд Монгол болон олон улсын аль талбарт амжилт гаргахад
-          боломж өндөр байна вэ?
-        </Text>
-        <Text style={styles.textStatus}>{data.p27Title1}</Text>
-        <Text style={styles.textTitle}>{data.p27Text1}</Text>
-        <Text style={styles.textStatus}>{data.p27Title2}</Text>
+
+        <Text style={styles.textTitle}>{data.p27Title1}</Text>
+        <Text style={styles.textStatus}>{data.p27Text1}</Text>
+        <Text style={styles.textTitle}>{data.p27Title2}</Text>
+        <Text style={styles.textStatus}>{data.p27Text2}</Text>
         <Image
           source={{ uri: api + "/upload/" + data.p5Bo4 }}
           style={{ width: windowWidth / 1.1, height: 200 }}
@@ -253,7 +251,7 @@ const Page5 = ({ data }) => {
           style={{
             width: 14,
             height: 14,
-            bottom: 25,
+            bottom: 5,
             right: 45,
             alignSelf: "center",
           }}

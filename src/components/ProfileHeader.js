@@ -15,7 +15,7 @@ const ProfileHeader = () => {
         width: windowWidth,
         justifyContent: "space-between",
         backgroundColor: "#041C32",
-        paddingVertical: 25,
+        paddingVertical: 35,
       }}
     >
       <View>
@@ -23,37 +23,21 @@ const ProfileHeader = () => {
           name="arrowleft"
           size={32}
           color="#fff"
-          style={{ left: 22, top: 30 }}
+          style={{ left: 15, top: 15 }}
           onPress={() => navigation.goBack()}
         />
       </View>
       <View style={{ top: 20, right: 2 }}>
-        <Text
-          style={{
-            color: "white",
-            fontWeight: "bold",
-            fontSize: 30,
-          }}
-        >
-          Career
-        </Text>
-        <Text
-          style={{
-            color: "white",
-            fontWeight: "bold",
-            fontSize: 21,
-            fontWeight: "500",
-            bottom: 8,
-          }}
-        >
-          developer
-        </Text>
+        <Image
+          source={require("../../assets/faceLogo.png")}
+          style={{ width: 150, height: 28 }}
+        />
       </View>
       <View
         style={{
           flexDirection: "column",
-          top: 30,
-          right: 31,
+          top: 15,
+          right: 15,
         }}
       >
         <MaterialIcons

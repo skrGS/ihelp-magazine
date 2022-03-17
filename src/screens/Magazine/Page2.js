@@ -10,13 +10,27 @@ import {
 const windowWidth = Dimensions.get("window").width;
 import * as Animatable from "react-native-animatable";
 import { api } from "../../../Constants";
-
+import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 const Page2 = ({ data }) => {
+  const navigation = useNavigation();
   return (
     <ScrollView
       style={{ width: windowWidth }}
       showsVerticalScrollIndicator={false}
     >
+      <AntDesign
+        name="arrowleft"
+        size={30}
+        color="black"
+        style={{
+          position: "absolute",
+          top: 80,
+          left: 10,
+          zIndex: 2,
+        }}
+        onPress={() => navigation.goBack()}
+      />
       <View
         style={{ flexDirection: "row", marginTop: 50, marginHorizontal: 20 }}
       >
@@ -42,7 +56,7 @@ const Page2 = ({ data }) => {
             marginHorizontal: 20,
             color: "#0066a6",
             fontSize: 20,
-            marginTop: 10,
+            marginTop: 20,
           }}
         >
           {data.p2BlueTitle}
@@ -79,10 +93,8 @@ const Page2 = ({ data }) => {
           {data.p2NakiTitle1}
         </Text>
         <Text style={styles.text}>{data.p2NakiText1}</Text>
-        <Text style={[styles.text, { marginHorizontal: 8 }]}>
-          {data.p2NakiText2}
-        </Text>
-        <Text style={[styles.text, { marginHorizontal: 8 }]}>
+        <Text style={[styles.text, { margin: 20 }]}>{data.p2NakiText2}</Text>
+        <Text style={[styles.text, { marginHorizontal: 20 }]}>
           {data.p2NakiText3}
         </Text>
       </View>

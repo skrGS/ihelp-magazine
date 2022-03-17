@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "502079120857",
-    "project_id": "novelist-magazine-android",
-    "storage_bucket": "novelist-magazine-android.appspot.com"
+    "project_number": "471894915273",
+    "project_id": "career-developer",
+    "storage_bucket": "career-developer.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:502079120857:android:3e4eeb5d7804e505bfa5c8",
+        "mobilesdk_app_id": "1:471894915273:android:2bf4ab199c1c9877a4b518",
         "android_client_info": {
-          "package_name": "mn.ihelp.novelist"
+          "package_name": "mn.ihelp.career.developer"
         }
       },
       "oauth_client": [
         {
-          "client_id": "502079120857-20pbfqq4dj249e5jufp1gli0o239b070.apps.googleusercontent.com",
+          "client_id": "471894915273-2pahr5mduhvvs2q8ok8k58e2mj00nk8p.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD3IiXv6IuaEEe_TVyKid2VBJSgW8R-BMc"
+          "current_key": "AIzaSyCeDNSGnlWQW0sE-mM0729kwMqecioeGGM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "502079120857-20pbfqq4dj249e5jufp1gli0o239b070.apps.googleusercontent.com",
+              "client_id": "471894915273-2pahr5mduhvvs2q8ok8k58e2mj00nk8p.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

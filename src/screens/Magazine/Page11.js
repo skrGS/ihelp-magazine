@@ -73,29 +73,10 @@ const Page11 = ({ data }) => {
               color: "white",
               fontSize: 30,
               textAlign: "right",
-              width: windowWidth / 2.2,
-            }}
-          >
-            {data.p11DeBgTitle}
-          </Text>
-        </View>
-        <View
-          style={{
-            flex: 2.5,
-            alignSelf: "flex-end",
-            marginRight: 20,
-          }}
-        >
-          <Text
-            style={{
-              fontFamily: "Cambria-italic",
-              color: "white",
-              fontSize: 20,
-              textAlign: "right",
               width: windowWidth / 2,
             }}
           >
-            {data.p11DeBgText}
+            {data.p11DeBgTitle}
           </Text>
         </View>
       </ImageBackground>
@@ -115,6 +96,24 @@ const Page11 = ({ data }) => {
           </View>
         </View>
         <View style={{ borderWidth: 1, borderColor: "grey" }} />
+        <View
+          style={{
+            alignSelf: "flex-end",
+            marginRight: 20,
+          }}
+        >
+          <Text
+            style={{
+              fontFamily: "Cambria-italic",
+              color: "black",
+              fontSize: 20,
+              textAlign: "center",
+              margin: 20,
+            }}
+          >
+            {data.p11DeBgText}
+          </Text>
+        </View>
         <View
           style={{
             flexDirection: "row",

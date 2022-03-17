@@ -1,11 +1,8 @@
 import React, { useContext } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
-import HighlightDetail from "../screens/HighlightDetail";
 import WorkDetail from "../screens/WorkDetail";
 import MainPage from "../screens/Magazine/MainPage";
-import AnotherHighlightDetail from "../screens/AnotherHighlightDetail";
-import BestPersonDetail from "../screens/BestPersonDetail";
 import UserContext from "../contexts/UserContex";
 import ProfileScreen from "../screens/ProfileScreen";
 import LoginScreen2 from "../screens/LoginScreen2";
@@ -16,17 +13,6 @@ import ForgetPassword from "../screens/ForgetPassword";
 import ResetPassword from "../screens/ResetPassword";
 import SplashScreen from "../screens/SplashScreen";
 import NotificationDetailScreen from "../screens/NotificationDetailScreen";
-import Page3 from "../screens/Magazine/Page3";
-import Page4 from "../screens/Magazine/Page4";
-import Page10 from "../screens/Magazine/Page10";
-import Page9 from "../screens/Magazine/Page9";
-import Page5 from "../screens/Magazine/Page5";
-import Page7 from "../screens/Magazine/Page7";
-import Page11 from "../screens/Magazine/Page11";
-import Page12 from "../screens/Magazine/Page12";
-import Page13 from "../screens/Magazine/Page13";
-import Page14 from "../screens/Magazine/Page14";
-import useMagazine from "../hooks/useMagazine";
 import Ariunzaya from "../components/Ariunzaya";
 import Binance from "../components/Binance";
 import Odko from "../components/Odko";
@@ -54,15 +40,7 @@ const MyStackNavigator = () => {
             component={HomeScreen}
             options={{ headerShown: false }}
           />
-          <Stack.Screen
-            name="HighlightDetail"
-            component={HighlightDetail}
-            options={{ headerShown: false }}
-            sharedElementsConfig={(route, otherRoute, showing) => {
-              const { item } = route.params;
-              return [`item.${item.id}.photo`];
-            }}
-          />
+
           <Stack.Screen
             name="WorkDetail"
             component={WorkDetail}
@@ -73,16 +51,7 @@ const MyStackNavigator = () => {
             component={MainPage}
             options={{ headerShown: false }}
           />
-          <Stack.Screen
-            name="AnotherHighlightDetail"
-            component={AnotherHighlightDetail}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="BestPersonDetail"
-            component={BestPersonDetail}
-            options={{ headerShown: false }}
-          />
+
           <Stack.Screen
             name="ProfileScreen"
             component={ProfileScreen}
