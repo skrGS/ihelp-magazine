@@ -27,11 +27,11 @@ const Ads5 = ({ data }) => {
       <Image
         source={{ uri: api + "/upload/" + data.ads5 }}
         style={{
-          height: windowHeight / 1.1,
-          width: windowWidth * 1.5,
+          height: windowHeight / 1,
+          width: windowWidth * 1.3,
           alignSelf: "center",
         }}
-        resizeMode="center"
+        resizeMode="contain"
       />
     </ScrollView>
   );

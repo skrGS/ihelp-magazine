@@ -25,7 +25,7 @@ const Ads9 = ({ data }) => {
         source={{ uri: api + "/upload/" + data.ads9 }}
         style={{
           height: windowHeight / 1,
-          width: windowWidth * 1.55,
+          width: windowWidth * 1.45,
         }}
         resizeMode="cover"
       />

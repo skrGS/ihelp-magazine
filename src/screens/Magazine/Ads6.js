@@ -12,7 +12,7 @@ const Ads6 = ({ data }) => {
       <AntDesign
         name="arrowleft"
         size={30}
-        color="#ffffff"
+        color="black"
         style={{
           position: "absolute",
           top: 50,
@@ -24,8 +24,9 @@ const Ads6 = ({ data }) => {
       <Image
         source={{ uri: api + "/upload/" + data.ads6 }}
         style={{
-          height: windowHeight / 1,
-          width: windowWidth * 1.7,
+          height: windowHeight / 1.0,
+          width: windowWidth * 1.5,
+          alignSelf: "center",
         }}
         resizeMode="cover"
       />

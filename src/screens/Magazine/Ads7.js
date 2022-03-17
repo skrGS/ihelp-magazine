@@ -24,8 +24,9 @@ const Ads7 = ({ data }) => {
       <Image
         source={{ uri: api + "/upload/" + data.ads7 }}
         style={{
-          height: windowHeight / 1,
-          width: windowWidth * 1.7,
+          height: windowHeight / 1.0,
+          width: windowWidth * 1.3,
+          alignSelf: "center",
         }}
         resizeMode="cover"
       />
