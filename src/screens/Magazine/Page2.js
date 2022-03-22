@@ -16,7 +16,7 @@ const Page2 = ({ data }) => {
   const navigation = useNavigation();
   return (
     <ScrollView
-      style={{ width: windowWidth }}
+      style={{ width: windowWidth, backgroundColor: "white" }}
       showsVerticalScrollIndicator={false}
     >
       <AntDesign
@@ -76,6 +76,14 @@ const Page2 = ({ data }) => {
           style={{ width: windowWidth / 1.1, height: 400, alignSelf: "center" }}
           resizeMode="cover"
         />
+        <View style={{ marginRight: 30 }}>
+          <Text style={[styles.textWork, { textAlign: "right" }]}>
+            {data.p2Dircetor}
+          </Text>
+          <Text style={[styles.textName, { textAlign: "right" }]}>
+            {data.p2DirectorName}
+          </Text>
+        </View>
         <Text
           style={{
             marginHorizontal: 20,
@@ -104,7 +112,7 @@ const Page2 = ({ data }) => {
           animation="slideInRight"
           iterationCount={1}
           direction="alternate"
-          source={require("../../../assets/faceLogo.png")}
+          source={require("../../../assets/faceLogoBlack.png")}
           style={{ width: windowWidth / 1.1, height: 100, alignSelf: "center" }}
           resizeMode="contain"
         />

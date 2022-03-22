@@ -50,17 +50,18 @@ const MainPage = (props) => {
       ) : (
         <>
           <Page data={magazine.face} loading={loading} />
+          <Ads1 data={magazine.ads} />
+
           <Page1 data={magazine.page1} />
           <Page2 data={magazine.page2} />
           <Ads2 data={magazine.ads} />
           <Page3 data={magazine.page3} />
           <Ads11 data={magazine.ads} />
-          <Ads3 data={magazine.ads} />
           <Page4 data={magazine.page4} />
-          <Ads4 data={magazine.ads} />
+          <Ads3 data={magazine.ads} />
 
-          <Ads1 data={magazine.ads} />
           <Page5 data={magazine.page5} />
+          <Ads4 data={magazine.ads} />
 
           <Page6 data={magazine.page6} />
 
@@ -69,9 +70,9 @@ const MainPage = (props) => {
 
           <Page8 data={magazine.page8} />
           <Ads9 data={magazine.ads} />
-          <Ads6 data={magazine.ads} />
 
           <Page9 data={magazine.page9} />
+          <Ads6 data={magazine.ads} />
 
           <Page10 data={magazine.page10} />
           <Ads7 data={magazine.ads} />
@@ -80,8 +81,8 @@ const MainPage = (props) => {
 
           <Page12 data={magazine.page12} />
           <Page13 data={magazine.page13} />
-          <Page14 data={magazine.page14} />
           <Ads12 data={magazine.ads} />
+          <Page14 data={magazine.page14} />
           <Ads10 data={magazine.ads} />
         </>
       )}

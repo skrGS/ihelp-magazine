@@ -39,7 +39,7 @@ const Works = () => {
       >
         <Image
           style={styles.image}
-          source={require("../../assets/bgmagazine.png")}
+          source={require("../../assets/photo_2022-03-18_16-09-46.jpg")}
         />
 
         {works.map((e) => {
