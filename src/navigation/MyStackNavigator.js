@@ -8,11 +8,9 @@ import ProfileScreen from "../screens/ProfileScreen";
 import LoginScreen2 from "../screens/LoginScreen2";
 import RegisterScreen2 from "../screens/RegisterScreen2";
 import Terms from "../components/Terms";
-import Notification from "../screens/NotificationScreen";
 import ForgetPassword from "../screens/ForgetPassword";
 import ResetPassword from "../screens/ResetPassword";
 import SplashScreen from "../screens/SplashScreen";
-import NotificationDetailScreen from "../screens/NotificationDetailScreen";
 import Ariunzaya from "../components/Ariunzaya";
 import Binance from "../components/Binance";
 import Odko from "../components/Odko";
@@ -57,16 +55,7 @@ const MyStackNavigator = () => {
             component={ProfileScreen}
             options={{ headerShown: false }}
           />
-          <Stack.Screen
-            name="NotifacationScreen"
-            component={Notification}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen
-            name="NotificationDetailScreen"
-            component={NotificationDetailScreen}
-            options={{ headerShown: false }}
-          />
+
           <Stack.Screen
             name="Ariuk"
             component={Ariunzaya}

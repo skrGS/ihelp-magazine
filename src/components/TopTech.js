@@ -172,21 +172,7 @@ const TopTech = (props) => {
             {techno.p13TechFaceText}
           </Text>
         </View>
-        {/* <Text
-            style={{
-              fontSize: 18,
-              fontFamily: "Montserrat-regular",
-              marginHorizontal: 5,
-              bottom: 15,
-            }}
-          >
-            дахь жилдээ танилцуулж байна. өдгөө уур амьсгалын өөрчлөлтийг
-            шийдвэрлэх, эрчим хүчний хэрэглээг бууруулах, хүнсний тогтвортой
-            үйлдвэрлэл, хүн төрөлхтний эрүүл мэндийг дээшлүүлэх гэсэн томоохон
-            сорилтууд тулгараад байгаа билээ. Тиймээс ДЭЗЧ эдгээр том асуудлыг
-            шийдвэрлэхэд түлхэц болохуйц шилдэг 10 технологийг энэ удаа нэрлээд
-            буй юм.
-          </Text> */}
+
         <Text style={[styles.textTitle, { marginVertical: 20 }]}>
           {techno.p13Tech1Title}
         </Text>
@@ -278,28 +264,24 @@ const TopTech = (props) => {
         <Text style={styles.textStatus}>{techno.p13Tech10Text}</Text>
         <Text style={styles.textStatus}>{techno.p13Tech10Text1}</Text>
         <Text style={styles.textStatus}>{techno.p13Tech10Text2}</Text>
+      </View>
+      <View style={{ flexDirection: "row", alignSelf: "flex-end", margin: 30 }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontFamily: "Montserrat-bold",
+          }}
+        >
+          2022/03 САР
+        </Text>
         <Image
           source={require("../../assets/icon.png")}
           style={{
             width: 14,
             height: 14,
-            bottom: 32,
-            alignSelf: "center",
-            right: 28,
           }}
         />
       </View>
-      <Text
-        style={{
-          fontSize: 14,
-          fontFamily: "Montserrat-bold",
-          marginHorizontal: 20,
-          marginVertical: 30,
-          textAlign: "right",
-        }}
-      >
-        2022/03 САР
-      </Text>
     </ScrollView>
   );
 };

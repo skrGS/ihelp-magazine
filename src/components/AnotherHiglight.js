@@ -67,8 +67,7 @@ const AnotherHiglight = () => {
                   />
                   <Text style={styles.name}>{e.name}</Text>
                   <Text style={[styles.title, { width: windowWidth / 2.6 }]}>
-                    {" "}
-                    Гүйцэтгэх захирлуудын зөвлөгөө
+                    {e.p30Title}
                   </Text>
                 </TouchableOpacity>
               );
@@ -78,7 +77,9 @@ const AnotherHiglight = () => {
             {technos.map((e, index) => {
               return (
                 <TouchableOpacity
-                  onPress={() => navigation.navigate("Toptech", { id: e.id })}
+                  onPress={() =>
+                    navigation.navigate("Toptech", { id: e.id, index })
+                  }
                   key={index}
                 >
                   <Image

@@ -342,18 +342,43 @@ const Page8 = ({ data }) => {
           >
             {data.p8Career8Text2}
           </Text>
+          <Text
+            style={{
+              fontFamily: "Montserrat-regular",
+              textAlign: "right",
+              marginRight: 10,
+              fontSize: 16,
+            }}
+          >
+            {data.p8Career8Text3}
+          </Text>
         </View>
-        <Text
+        <View
           style={{
-            fontSize: 14,
-            fontFamily: "Montserrat-bold",
-            marginHorizontal: 20,
-            marginVertical: 30,
-            textAlign: "right",
+            flexDirection: "row",
+            alignSelf: "flex-end",
+            margin: 30,
+            position: "absolute",
+            bottom: 0,
+            right: 10,
           }}
         >
-          2022/03 САР
-        </Text>
+          <Text
+            style={{
+              fontSize: 14,
+              fontFamily: "Montserrat-bold",
+            }}
+          >
+            2022/03 САР
+          </Text>
+          <Image
+            source={require("../../../assets/icon.png")}
+            style={{
+              width: 14,
+              height: 14,
+            }}
+          />
+        </View>
       </ImageBackground>
     </ScrollView>
   );

@@ -7,7 +7,7 @@ import {
   Dimensions,
   Image,
 } from "react-native";
-import React from "react";
+import React, { createRef, useEffect } from "react";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 import { useNavigation } from "@react-navigation/native";
@@ -16,6 +16,7 @@ import { api } from "../../Constants";
 import useBayka from "../hooks/useBayka";
 const Bayka = (props) => {
   const navigation = useNavigation();
+
   const { id } = props.route.params;
   const [bayka, error] = useBayka(id);
   if (error) {
@@ -52,9 +53,11 @@ const Bayka = (props) => {
           style={{
             backgroundColor: "#fec214",
             // marginBottom: 0,
-            flex: 0.3,
+            flex: 0.35,
             paddingLeft: 20,
             alignSelf: "flex-start",
+            paddingBottom: 40,
+            top: 50,
           }}
         >
           <Text
@@ -183,12 +186,12 @@ const Bayka = (props) => {
           </Text>
         </View>
         {/* <Text
-            style={{ fontSize: 20, fontFamily: "Montserrat-bold", bottom: 20 }}
-          >
-            BizNetwork.mn-ийг анх та үүсгэн байгуулж байсан гэдэг. Үүнийг үүсгэн
-            байгуулах санаа танд хэрхэн төрсөн талаарх түүхээс ярилцлагаа
-            эхлүүлье.
-          </Text> */}
+        style={{ fontSize: 20, fontFamily: "Montserrat-bold", bottom: 20 }}
+      >
+        BizNetwork.mn-ийг анх та үүсгэн байгуулж байсан гэдэг. Үүнийг үүсгэн
+        байгуулах санаа танд хэрхэн төрсөн талаарх түүхээс ярилцлагаа
+        эхлүүлье.
+      </Text> */}
         <Text style={styles.textStatus}>{bayka.p3Text}</Text>
         <Text style={styles.textStatus}>{bayka.p3Text1}</Text>
         <Text style={styles.textStatus}>{bayka.p3Text2}</Text>
@@ -220,7 +223,6 @@ const Bayka = (props) => {
         <Text style={styles.textStatus}>{bayka.p3Text12}</Text>
         <Text style={styles.textTitle}>{bayka.p3Title3}</Text>
         <Text style={styles.textStatus}>{bayka.p3Text13}</Text>
-        <Text style={styles.textStatus}>{bayka.p3Text14}</Text>
         <Text style={styles.textStatus}>{bayka.p3Text14}</Text>
         <Text style={styles.textStatus}>{bayka.p3Text15}</Text>
         <Text style={styles.textStatus}>{bayka.p3Text16}</Text>
@@ -320,28 +322,24 @@ const Bayka = (props) => {
         <Text style={styles.textStatus}>{bayka.p3Text51}</Text>
         <Text style={styles.textStatus}>{bayka.p3Text52}</Text>
         <Text style={styles.textStatus}>{bayka.p3Text53}</Text>
+      </View>
+      <View style={{ flexDirection: "row", alignSelf: "flex-end", margin: 30 }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontFamily: "Montserrat-bold",
+          }}
+        >
+          2022/03 САР
+        </Text>
         <Image
           source={require("../../assets/icon.png")}
           style={{
             width: 14,
             height: 14,
-            alignSelf: "center",
-            bottom: 25,
-            left: 25,
           }}
         />
       </View>
-      <Text
-        style={{
-          fontSize: 14,
-          fontFamily: "Montserrat-bold",
-          marginHorizontal: 20,
-          marginVertical: 30,
-          textAlign: "right",
-        }}
-      >
-        2022/03 САР
-      </Text>
     </ScrollView>
   );
 };

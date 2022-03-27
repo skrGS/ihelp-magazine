@@ -37,10 +37,7 @@ const Works = () => {
         onPress={() => navigation.navigate("WorkDetail")}
         style={styles.container}
       >
-        <Image
-          style={styles.image}
-          source={require("../../assets/photo_2022-03-18_16-09-46.jpg")}
-        />
+        <Image style={styles.image} source={require("../../assets/work.png")} />
 
         {works.map((e) => {
           return (

@@ -42,8 +42,8 @@ export const UserStore = (props) => {
         );
       })
       .catch((err) => {
-        loginFailed(err.message);
-        let message = err.message;
+        loginFailed(err.response.data.error.message);
+        let message = err.response.data.error.message;
         if (message === "Request failed with status code 404")
           message = "Утасны дугаар нууц үг хоорондоо таарахгүй байна";
         else if (message === "Network Error")
@@ -70,14 +70,15 @@ export const UserStore = (props) => {
       })
       .catch((err) => {
         loginFailed(err.message);
-        let message = err.message;
+        let message = err.response.data.error.message;
         if (message === "Request failed with status code 404")
           message = "Утасны дугаар нууц үг хоорондоо таарахгүй байна";
         else if (message === "Network Error")
           message =
             "Сэрвэр ажиллахгүй байна. Та түр хүлээгээд дахин оролдоно уу..";
-        else if (message === "Request failed with status code 500")
-          message = "Та мэдээлэлээ бүрэн бөглөнө үү";
+        else if (message === "Энэ талбарын утгыг давхардуулж өгч болохгүй!")
+          message = "Бүртгэлтэй хэргэлэгч байна.";
+        console.log(message);
 
         Alert.alert(message);
       });

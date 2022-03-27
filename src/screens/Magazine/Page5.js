@@ -145,7 +145,7 @@ const Page5 = ({ data }) => {
           </Text>
           <Text
             style={{
-              fontSize: 20,
+              fontSize: 18,
               fontFamily: "Montserrat-bold",
               marginHorizontal: 5,
             }}
@@ -246,28 +246,24 @@ const Page5 = ({ data }) => {
         <Text style={styles.textStatus}>{data.p27Text3}</Text>
         <Text style={styles.textTitle}>{data.p27Title4}</Text>
         <Text style={styles.textStatus}>{data.p27Text4}</Text>
+      </View>
+      <View style={{ flexDirection: "row", alignSelf: "flex-end", margin: 30 }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontFamily: "Montserrat-bold",
+          }}
+        >
+          2022/03 САР
+        </Text>
         <Image
           source={require("../../../assets/icon.png")}
           style={{
             width: 14,
             height: 14,
-            bottom: 5,
-            right: 45,
-            alignSelf: "center",
           }}
         />
       </View>
-      <Text
-        style={{
-          fontSize: 14,
-          fontFamily: "Montserrat-bold",
-          marginHorizontal: 20,
-          marginVertical: 30,
-          textAlign: "right",
-        }}
-      >
-        2022/03 САР
-      </Text>
     </ScrollView>
   );
 };

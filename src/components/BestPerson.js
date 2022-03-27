@@ -63,7 +63,7 @@ const BestPerson = ({ data }) => {
                 onPress={() => navigation.navigate("Binance", { id: e.id })}
               >
                 <Image
-                  source={require("../../assets/273922260_113982294535396_3338672511585810819_n.jpg")}
+                  source={{ uri: api + "/upload/" + e.photo1 }}
                   style={{
                     width: 100,
                     height: 100,

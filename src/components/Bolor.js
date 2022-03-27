@@ -157,7 +157,7 @@ const Bolor = (props) => {
           </Text>
           <Text
             style={{
-              fontSize: 20,
+              fontSize: 18,
               fontFamily: "Montserrat-bold",
               marginHorizontal: 5,
             }}
@@ -234,13 +234,11 @@ const Bolor = (props) => {
         <Text style={styles.textStatus}>{bolor.p26Text6}</Text>
         <Text style={styles.textTitle}>{bolor.p27Title}</Text>
         <Text style={styles.textStatus}>{bolor.p27Text}</Text>
-        <Text style={styles.textTitle}>
-          Залуучуудын хувьд Монгол болон олон улсын аль талбарт амжилт гаргахад
-          боломж өндөр байна вэ?
-        </Text>
-        <Text style={styles.textStatus}>{bolor.p27Title1}</Text>
-        <Text style={styles.textTitle}>{bolor.p27Text1}</Text>
-        <Text style={styles.textStatus}>{bolor.p27Title2}</Text>
+
+        <Text style={styles.textTitle}>{bolor.p27Title1}</Text>
+        <Text style={styles.textStatus}>{bolor.p27Text1}</Text>
+        <Text style={styles.textTitle}>{bolor.p27Title2}</Text>
+        <Text style={styles.textStatus}>{bolor.p27Text2}</Text>
         <Image
           source={{ uri: api + "/upload/" + bolor.p5Bo4 }}
           style={{ width: windowWidth / 1.1, height: 200 }}
@@ -260,28 +258,24 @@ const Bolor = (props) => {
         <Text style={styles.textStatus}>{bolor.p27Text3}</Text>
         <Text style={styles.textTitle}>{bolor.p27Title4}</Text>
         <Text style={styles.textStatus}>{bolor.p27Text4}</Text>
+      </View>
+      <View style={{ flexDirection: "row", alignSelf: "flex-end", margin: 30 }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontFamily: "Montserrat-bold",
+          }}
+        >
+          2022/03 САР
+        </Text>
         <Image
           source={require("../../assets/icon.png")}
           style={{
             width: 14,
             height: 14,
-            bottom: 25,
-            right: 45,
-            alignSelf: "center",
           }}
         />
       </View>
-      <Text
-        style={{
-          fontSize: 14,
-          fontFamily: "Montserrat-bold",
-          marginHorizontal: 20,
-          marginVertical: 30,
-          textAlign: "right",
-        }}
-      >
-        2022/03 САР
-      </Text>
     </ScrollView>
   );
 };

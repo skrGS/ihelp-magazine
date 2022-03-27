@@ -361,18 +361,24 @@ const Top = (props) => {
         <Text style={styles.workName}>{top.p7Ceo10Work}</Text>
       </View>
 
-      <Text
-        style={{
-          fontSize: 14,
-          fontFamily: "Montserrat-bold",
-          marginHorizontal: 20,
-          marginVertical: 30,
-          textAlign: "right",
-          color: "white",
-        }}
-      >
-        2022/03 САР
-      </Text>
+      <View style={{ flexDirection: "row", alignSelf: "flex-end", margin: 30 }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontFamily: "Montserrat-bold",
+            color: "white",
+          }}
+        >
+          2022/03 САР
+        </Text>
+        <Image
+          source={require("../../assets/icon.png")}
+          style={{
+            width: 14,
+            height: 14,
+          }}
+        />
+      </View>
     </ScrollView>
   );
 };

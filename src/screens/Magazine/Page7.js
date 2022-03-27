@@ -350,19 +350,6 @@ const Page7 = ({ data }) => {
         <Text style={styles.ceoName}>{data.p7Ceo10Name}</Text>
         <Text style={styles.workName}>{data.p7Ceo10Work}</Text>
       </View>
-
-      <Text
-        style={{
-          fontSize: 14,
-          fontFamily: "Montserrat-bold",
-          marginHorizontal: 20,
-          marginVertical: 30,
-          textAlign: "right",
-          color: "white",
-        }}
-      >
-        2022/03 САР
-      </Text>
     </ScrollView>
   );
 };

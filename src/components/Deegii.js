@@ -85,29 +85,10 @@ const Deegii = (props) => {
               color: "white",
               fontSize: 30,
               textAlign: "right",
-              width: windowWidth / 2.2,
-            }}
-          >
-            {deegii.p11DeBgTitle}
-          </Text>
-        </View>
-        <View
-          style={{
-            flex: 2.5,
-            alignSelf: "flex-end",
-            marginRight: 20,
-          }}
-        >
-          <Text
-            style={{
-              fontFamily: "Cambria-italic",
-              color: "white",
-              fontSize: 20,
-              textAlign: "right",
               width: windowWidth / 2,
             }}
           >
-            {deegii.p11DeBgText}
+            {deegii.p11DeBgTitle}
           </Text>
         </View>
       </ImageBackground>
@@ -127,6 +108,24 @@ const Deegii = (props) => {
           </View>
         </View>
         <View style={{ borderWidth: 1, borderColor: "grey" }} />
+        <View
+          style={{
+            alignSelf: "flex-end",
+            marginRight: 20,
+          }}
+        >
+          <Text
+            style={{
+              fontFamily: "Cambria-italic",
+              color: "black",
+              fontSize: 20,
+              textAlign: "center",
+              margin: 20,
+            }}
+          >
+            {deegii.p11DeBgText}
+          </Text>
+        </View>
         <View
           style={{
             flexDirection: "row",
@@ -157,12 +156,12 @@ const Deegii = (props) => {
           </Text>
         </View>
         {/* <Text
-            style={{ fontSize: 16, fontFamily: "Montserrat-bold", bottom: 20 }}
-          >
-            талаар яригдах болжээ. Үүнээс өмнө хүн өмнөх ажлаа үг дуугүй л хийх
-            ёстой гэсэн ойлголт зонхилж байсан мэт. Ажлын байранд сэтгэл зүй
-            яагаад чухал байдаг вэ?
-          </Text> */}
+        style={{ fontSize: 16, fontFamily: "Montserrat-bold", bottom: 20 }}
+      >
+        талаар яригдах болжээ. Үүнээс өмнө хүн өмнөх ажлаа үг дуугүй л хийх
+        ёстой гэсэн ойлголт зонхилж байсан мэт. Ажлын байранд сэтгэл зүй
+        яагаад чухал байдаг вэ?
+      </Text> */}
         <Text style={styles.textStatus}>{deegii.p55Text}</Text>
         <Text style={styles.textStatus}>{deegii.p55Text1}</Text>
         <Text style={styles.textTitle}>{deegii.p55Title1}</Text>
@@ -233,28 +232,24 @@ const Deegii = (props) => {
         <Text style={styles.textStatus}>{deegii.p56Text4}</Text>
         <Text style={styles.textTitle}>{deegii.p56Title2}</Text>
         <Text style={styles.textStatus}>{deegii.p56Text5}</Text>
+      </View>
+      <View style={{ flexDirection: "row", alignSelf: "flex-end", margin: 30 }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontFamily: "Montserrat-bold",
+          }}
+        >
+          2022/03 САР
+        </Text>
         <Image
           source={require("../../assets/icon.png")}
           style={{
             width: 14,
             height: 14,
-            bottom: 32,
-            left: 10,
-            alignSelf: "flex-end",
           }}
         />
       </View>
-      <Text
-        style={{
-          fontSize: 14,
-          fontFamily: "Montserrat-bold",
-          marginHorizontal: 20,
-          marginVertical: 30,
-          textAlign: "right",
-        }}
-      >
-        2022/03 САР
-      </Text>
     </ScrollView>
   );
 };

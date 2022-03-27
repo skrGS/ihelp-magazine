@@ -28,21 +28,22 @@ const RegisterScreen2 = () => {
 
   const state = useContext(UserContext);
 
+  const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   const signupHandler = () => {
     setError(null);
-    if (email.length === 0) {
-      Alert.alert("Та и-мэйл хаягаа бичнэ үү");
+    if (reg.test(email) === false) {
+      Alert.alert("Email хаягаа хийнэ үү!");
       return;
     }
+
     if (phone.length < 6) {
       Alert.alert("Та утасны дугаараа бичнэ үү");
       return;
     }
-    if (password1 !== password1) {
+    if (password1 !== password2) {
       Alert.alert("Нууц үгнүүд хоорондоо таарахгүй байна");
       return;
     }
-
     if (password1.length < 4) {
       Alert.alert("Нууц үг хамгийн багадаа 4 оронтой байна");
       return;

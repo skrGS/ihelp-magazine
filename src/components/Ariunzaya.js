@@ -53,7 +53,7 @@ const Ariunzaya = (props) => {
           style={{
             backgroundColor: "#55b8ae",
             // marginBottom: 0,
-            flex: 0.35,
+            flex: 0.4,
             paddingHorizontal: 20,
             width: windowWidth / 1.5,
           }}
@@ -194,12 +194,12 @@ const Ariunzaya = (props) => {
           </Text>
         </View>
         {/* <Text
-            style={{ fontSize: 18, fontFamily: "Montserrat-bold", bottom: 20 }}
-          >
-            боловсролтой байгаа нь манай улсын хөдөлмөрийн зах зээл хэрхэн
-            гажуудсаныг илтгэж байгаа үзүүлэлт болов уу. Хөдөлмөрийн зах зээлийн
-            энэ том зааг үүссэн шалтгаан нь юу вэ?
-          </Text> */}
+        style={{ fontSize: 18, fontFamily: "Montserrat-bold", bottom: 20 }}
+      >
+        боловсролтой байгаа нь манай улсын хөдөлмөрийн зах зээл хэрхэн
+        гажуудсаныг илтгэж байгаа үзүүлэлт болов уу. Хөдөлмөрийн зах зээлийн
+        энэ том зааг үүссэн шалтгаан нь юу вэ?
+      </Text> */}
 
         <Text style={{ fontSize: 16, fontFamily: "Montserrat-regular" }}>
           {ariunzaya.p16Text}
@@ -309,27 +309,24 @@ const Ariunzaya = (props) => {
         <Text style={styles.textTitle}>{ariunzaya.p20Title1}</Text>
         <Text style={styles.textStatus}>{ariunzaya.p20Text1}</Text>
         <Text style={styles.textStatus}>{ariunzaya.p20Text2}</Text>
+      </View>
+      <View style={{ flexDirection: "row", alignSelf: "flex-end", margin: 30 }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontFamily: "Montserrat-bold",
+          }}
+        >
+          2022/03 САР
+        </Text>
         <Image
           source={require("../../assets/icon.png")}
           style={{
             width: 14,
             height: 14,
-            bottom: 25,
-            left: 95,
           }}
         />
       </View>
-      <Text
-        style={{
-          fontSize: 14,
-          fontFamily: "Montserrat-bold",
-          marginHorizontal: 20,
-          marginVertical: 30,
-          textAlign: "right",
-        }}
-      >
-        2022/03 САР
-      </Text>
     </ScrollView>
   );
 };

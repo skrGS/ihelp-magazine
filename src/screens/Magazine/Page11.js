@@ -220,28 +220,24 @@ const Page11 = ({ data }) => {
         <Text style={styles.textStatus}>{data.p56Text4}</Text>
         <Text style={styles.textTitle}>{data.p56Title2}</Text>
         <Text style={styles.textStatus}>{data.p56Text5}</Text>
+      </View>
+      <View style={{ flexDirection: "row", alignSelf: "flex-end", margin: 30 }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontFamily: "Montserrat-bold",
+          }}
+        >
+          2022/03 САР
+        </Text>
         <Image
           source={require("../../../assets/icon.png")}
           style={{
             width: 14,
             height: 14,
-            bottom: 32,
-            left: 10,
-            alignSelf: "flex-end",
           }}
         />
       </View>
-      <Text
-        style={{
-          fontSize: 14,
-          fontFamily: "Montserrat-bold",
-          marginHorizontal: 20,
-          marginVertical: 30,
-          textAlign: "right",
-        }}
-      >
-        2022/03 САР
-      </Text>
     </ScrollView>
   );
 };

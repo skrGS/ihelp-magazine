@@ -108,7 +108,7 @@ const Page = ({ data }) => {
                   marginBottom: 20,
                 }}
               >
-                {data.faceLogo2Text}
+                {data.faceLogo2Text}!
               </Text>
               <Image
                 source={{ uri: api + "/upload/" + data.faceLogo2 }}

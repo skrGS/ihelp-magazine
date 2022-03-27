@@ -57,18 +57,32 @@ const Bataa = (props) => {
             marginTop: 140,
             flex: 1.05,
             padding: 10,
+            paddingBottom: 30,
           }}
         >
           <Text
             style={{
               fontFamily: "Oswald-bold",
               color: "#f15623",
-              alignSelf: "flex-end",
+
               fontSize: 25,
               marginTop: 1,
+              textAlign: "right",
             }}
           >
-            {bataa.p12Ba1OrangeTitle}
+            ӨРХИЙН ОРЛОГО БУУРСНЫГ
+          </Text>
+          <Text
+            style={{
+              fontFamily: "Oswald-bold",
+              color: "#f15623",
+
+              fontSize: 25,
+              marginTop: 1,
+              textAlign: "right",
+            }}
+          >
+            ХАЛАМЖ ОРЛОЖ БАЙНА
           </Text>
         </View>
         <View style={{ flex: 2 }}>
@@ -583,10 +597,10 @@ const Bataa = (props) => {
             style={{
               fontSize: 16,
               fontFamily: "Montserrat-regular",
-              textAlign: "justify",
+              textAlign: "center",
             }}
           >
-            *Ажил хийх боломжтой ч хөдөлмөрийн зах зээлтэй холбоотой ажил
+            Ажил хийх боломжтой ч хөдөлмөрийн зах зээлтэй холбоотой ажил
             хайгаагүй байгаа, ажлын байр хайж олох найдвараа алдсан хөдөлмөрийн
             насны хүн ам.
           </Text>
@@ -601,10 +615,10 @@ const Bataa = (props) => {
             <Text style={styles.staticInfo}>877.5мян</Text>
           </View>
           <View style={{ flex: 0.5, marginTop: 30 }}>
-            <Text style={styles.staticText}>Хөдөлмөрийн насны хүн</Text>
-            <Text style={styles.staticInfo}>2.1сая</Text>
-            <Text style={styles.staticText}>Бүрэн бус хөдөлмөр эрхлэлт </Text>
-            <Text style={styles.staticInfo}>5.1мян</Text>
+            <Text style={styles.staticText}>Ажиллах хүч</Text>
+            <Text style={styles.staticInfo}>1.3сая</Text>
+            <Text style={styles.staticText}>Ажилгүй хүн </Text>
+            <Text style={styles.staticInfo}>87.6мян</Text>
           </View>
         </View>
         <View
@@ -803,17 +817,23 @@ const Bataa = (props) => {
           />
         </ScrollView>
       </View>
-      <Text
-        style={{
-          fontSize: 14,
-          fontFamily: "Montserrat-bold",
-          marginHorizontal: 20,
-          marginVertical: 30,
-          textAlign: "right",
-        }}
-      >
-        2022/03 САР
-      </Text>
+      <View style={{ flexDirection: "row", alignSelf: "flex-end", margin: 30 }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontFamily: "Montserrat-bold",
+          }}
+        >
+          2022/03 САР
+        </Text>
+        <Image
+          source={require("../../assets/icon.png")}
+          style={{
+            width: 14,
+            height: 14,
+          }}
+        />
+      </View>
     </ScrollView>
   );
 };

@@ -63,7 +63,7 @@ const Binance = (props) => {
             paddingLeft: 15,
             paddingRight: 10,
             paddingVertical: 10,
-            marginTop: 100,
+            top: 100,
           }}
         >
           {binance.p10Special}
@@ -100,10 +100,11 @@ const Binance = (props) => {
         <Image
           source={{ uri: api + "/upload/" + binance.p10Logo }}
           style={{
-            width: windowWidth / 1.5,
-            height: 150,
             alignSelf: "center",
+            width: windowWidth / 1.5,
+            height: windowHeight / 1.5,
           }}
+          resizeMode="contain"
         />
       </ImageBackground>
       {/* binance aguulga */}
@@ -169,18 +170,18 @@ const Binance = (props) => {
           </Text>
         </View>
         {/* <Text
-            style={{
-              fontSize: 16,
-              fontFamily: "Montserrat-regular",
-              color: "white",
-            }}
-          >
-            өнгөлсөн нь дэлхийн криптовалютын хамгийн том биржийн үүсгэн
-            байгуулагч, гүйцэтгэх захирал, олноо “CZ” хэмээн алдаршсан Чанпэн Жао
-            юм. Түүний цэвэр хөрөнгө 96 тэрбум ам.долларт хүрч дэлхийн хамгийн
-            чинээлэг эрхмүүдийн жагсаалтын арваннэгдүгээрт бичигдэж эхэлснийг
-            “Bloomberg” зарлажээ.
-          </Text> */}
+          style={{
+            fontSize: 16,
+            fontFamily: "Montserrat-regular",
+            color: "white",
+          }}
+        >
+          өнгөлсөн нь дэлхийн криптовалютын хамгийн том биржийн үүсгэн
+          байгуулагч, гүйцэтгэх захирал, олноо “CZ” хэмээн алдаршсан Чанпэн Жао
+          юм. Түүний цэвэр хөрөнгө 96 тэрбум ам.долларт хүрч дэлхийн хамгийн
+          чинээлэг эрхмүүдийн жагсаалтын арваннэгдүгээрт бичигдэж эхэлснийг
+          “Bloomberg” зарлажээ.
+        </Text> */}
         <Text style={styles.textStatus}>{binance.p43Text1}</Text>
         <Image
           source={{ uri: api + "/upload/" + binance.p10BiCeo }}
@@ -277,76 +278,38 @@ const Binance = (props) => {
         <Image
           source={{ uri: api + "/upload/" + binance.p10BiEco }}
           style={{
-            width: windowWidth,
-            height: windowHeight / 2.5,
-            marginVertical: 100,
+            width: windowWidth / 1.5,
+            height: windowHeight / 3,
+            alignSelf: "center",
+            marginVertical: 20,
           }}
+          resizeMode="contain"
         />
       </View>
       <View
         style={{
           width: windowWidth,
-          height: windowHeight,
           backgroundColor: "#ffc20e",
         }}
       >
-        <View style={{ flexDirection: "row", flex: 1 }}>
-          <View style={{ flex: 0.5 }}>
-            <Text style={styles.surgaltTitle}>{binance.p47Title}</Text>
-            <Text style={styles.surgalt}>{binance.p47Text}</Text>
-          </View>
-          <View style={{ borderWidth: 1, borderColor: "white" }} />
-          <View style={{ flex: 0.5 }}>
-            <Text style={styles.surgaltTitle}>{binance.p47Title1}</Text>
-            <Text style={styles.surgalt}>{binance.p47Text1}</Text>
-          </View>
-        </View>
-        <View style={{ flexDirection: "row", flex: 1 }}>
-          <View style={{ flex: 0.5 }}>
-            <Text style={[styles.surgaltTitle, { marginTop: 20 }]}>
-              {binance.p47Title2}
-            </Text>
-            <Text style={styles.surgalt}>{binance.p47Text2}</Text>
-          </View>
-          <View style={{ borderWidth: 1, borderColor: "white" }} />
-          <View style={{ flex: 0.5 }}>
-            <Text style={[styles.surgaltTitle, { marginTop: 20 }]}>
-              {binance.p47Title3}
-            </Text>
-            <Text style={styles.surgalt}>{binance.p47Text3}</Text>
-          </View>
-        </View>
-        <View style={{ flexDirection: "row", flex: 1 }}>
-          <View style={{ flex: 0.5 }}>
-            <Text style={styles.surgaltTitle}>{binance.p47Title4}</Text>
-            <Text style={[styles.surgalt, { marginLeft: 5 }]}>
-              {binance.p47Text4}
-            </Text>
-          </View>
-          <View style={{ borderWidth: 1, borderColor: "white" }} />
-          <View style={{ flex: 0.5 }}>
-            <Text style={styles.surgaltTitle}>{binance.p47Title5}</Text>
-            <Text style={[styles.surgalt, { marginLeft: 5 }]}>
-              {binance.p47Text5}
-            </Text>
-          </View>
-        </View>
-
-        <View style={{ flexDirection: "row", flex: 1 }}>
-          <View style={{ flex: 0.5 }}>
-            <Text style={[styles.surgaltTitle, { marginTop: 20 }]}>
-              {binance.p47Title6}
-            </Text>
-            <Text style={styles.surgalt}>{binance.p47Text6}</Text>
-          </View>
-          <View style={{ borderWidth: 1, borderColor: "white" }} />
-          <View style={{ flex: 0.5 }}>
-            <Text style={[styles.surgaltTitle, { marginTop: 20 }]}>
-              {binance.p47Title7}
-            </Text>
-            <Text style={styles.surgalt}>{binance.p47Text7}</Text>
-          </View>
-        </View>
+        <Text style={styles.surgaltTitle}>{binance.p47Title1}</Text>
+        <Text style={styles.surgalt}>{binance.p47Text1}</Text>
+        <Text style={styles.surgaltTitle}>{binance.p47Title4}</Text>
+        <Text style={styles.surgalt}>{binance.p47Text4}</Text>
+        <Text style={styles.surgaltTitle}>{binance.p47Title6}</Text>
+        <Text style={styles.surgalt}>{binance.p47Text6}</Text>
+        <Text style={styles.surgaltTitle}>{binance.p47Title2}</Text>
+        <Text style={styles.surgalt}>{binance.p47Text2}</Text>
+        <Text style={styles.surgaltTitle}>{binance.p47Title}</Text>
+        <Text style={styles.surgalt}>{binance.p47Text}</Text>
+        <Text style={styles.surgaltTitle}>{binance.p47Title7}</Text>
+        <Text style={styles.surgalt}>{binance.p47Text7}</Text>
+        <Text style={styles.surgaltTitle}>{binance.p47Title5}</Text>
+        <Text style={styles.surgalt}>{binance.p47Text5}</Text>
+        <Text style={styles.surgaltTitle}>{binance.p47Title3}</Text>
+        <Text style={[styles.surgalt, { marginBottom: 20 }]}>
+          {binance.p47Text3}
+        </Text>
       </View>
       {/* Binance graph */}
       <View
@@ -749,8 +712,8 @@ const Binance = (props) => {
         <Image
           source={{ uri: api + "/upload/" + binance.p10BiGraph1 }}
           style={{
-            width: windowWidth / 1.5,
-            height: 300,
+            width: windowWidth,
+            height: 350,
             alignSelf: "center",
             marginVertical: 20,
           }}
@@ -965,13 +928,15 @@ const Binance = (props) => {
       <View
         style={{
           backgroundColor: "white",
-          padding: 20,
           flexDirection: "row",
           flex: 1,
-          justifyContent: "space-around",
         }}
       >
-        <View style={{ flex: 0.33 }}>
+        <View
+          style={{
+            flex: 0.5,
+          }}
+        >
           <Text
             style={{
               textAlign: "center",
@@ -981,7 +946,13 @@ const Binance = (props) => {
           >
             4.0
           </Text>
-          <View style={{ flexDirection: "row", marginVertical: 10 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              marginVertical: 10,
+              alignSelf: "center",
+            }}
+          >
             <FontAwesome name="star" size={24} color="#ffc20e" />
             <FontAwesome name="star" size={24} color="#ffc20e" />
             <FontAwesome name="star" size={24} color="#ffc20e" />
@@ -998,7 +969,11 @@ const Binance = (props) => {
             Карьерийн өсөлт
           </Text>
         </View>
-        <View style={{ flex: 0.33 }}>
+        <View
+          style={{
+            flex: 0.5,
+          }}
+        >
           <Text
             style={{
               textAlign: "center",
@@ -1008,7 +983,13 @@ const Binance = (props) => {
           >
             2.6
           </Text>
-          <View style={{ flexDirection: "row", marginVertical: 10 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              marginVertical: 10,
+              alignSelf: "center",
+            }}
+          >
             <FontAwesome name="star" size={24} color="#ffc20e" />
             <FontAwesome name="star" size={24} color="#ffc20e" />
             <FontAwesome name="star-half-empty" size={24} color="#ffc20e" />
@@ -1024,33 +1005,6 @@ const Binance = (props) => {
             }}
           >
             Ажил, амьдралын тэнцвэр
-          </Text>
-        </View>
-        <View style={{ flex: 0.33 }}>
-          <Text
-            style={{
-              textAlign: "center",
-              fontFamily: "Montserrat-bold",
-              fontSize: 20,
-            }}
-          >
-            4.0
-          </Text>
-          <View style={{ flexDirection: "row", marginVertical: 10 }}>
-            <FontAwesome name="star" size={24} color="#ffc20e" />
-            <FontAwesome name="star" size={24} color="#ffc20e" />
-            <FontAwesome name="star" size={24} color="#ffc20e" />
-            <FontAwesome name="star" size={24} color="#ffc20e" />
-            <FontAwesome name="star-o" size={24} color="#ffc20e" />
-          </View>
-          <Text
-            style={{
-              textAlign: "center",
-              fontFamily: "Montserrat-semibold",
-              fontSize: 16,
-            }}
-          >
-            Карьерийн өсөлт
           </Text>
         </View>
       </View>
@@ -1074,7 +1028,7 @@ const Binance = (props) => {
               fontSize: 20,
             }}
           >
-            4.0
+            3.6
           </Text>
           <View
             style={{
@@ -1086,7 +1040,7 @@ const Binance = (props) => {
             <FontAwesome name="star" size={24} color="#ffc20e" />
             <FontAwesome name="star" size={24} color="#ffc20e" />
             <FontAwesome name="star" size={24} color="#ffc20e" />
-            <FontAwesome name="star" size={24} color="#ffc20e" />
+            <FontAwesome name="star-half-empty" size={24} color="#ffc20e" />
             <FontAwesome name="star-o" size={24} color="#ffc20e" />
           </View>
           <Text
@@ -1096,7 +1050,7 @@ const Binance = (props) => {
               fontSize: 16,
             }}
           >
-            Карьерийн өсөлт
+            УРАМШУУЛАЛ, НӨХӨН ОЛГОВОР ӨГӨХ БАЙДАЛ
           </Text>
         </View>
         <View
@@ -1111,7 +1065,7 @@ const Binance = (props) => {
               fontSize: 20,
             }}
           >
-            4.0
+            2.8
           </Text>
           <View
             style={{
@@ -1122,8 +1076,9 @@ const Binance = (props) => {
           >
             <FontAwesome name="star" size={24} color="#ffc20e" />
             <FontAwesome name="star" size={24} color="#ffc20e" />
-            <FontAwesome name="star" size={24} color="#ffc20e" />
-            <FontAwesome name="star" size={24} color="#ffc20e" />
+            <FontAwesome name="star-half-empty" size={24} color="#ffc20e" />
+
+            <FontAwesome name="star-o" size={24} color="#ffc20e" />
             <FontAwesome name="star-o" size={24} color="#ffc20e" />
           </View>
           <Text
@@ -1133,7 +1088,46 @@ const Binance = (props) => {
               fontSize: 16,
             }}
           >
-            Карьерийн өсөлт
+            Ажил, амьдралын тэнцвэр
+          </Text>
+        </View>
+      </View>
+      {/* Binance rating 1 */}
+      <View
+        style={{
+          backgroundColor: "white",
+          padding: 20,
+          flexDirection: "row",
+          flex: 1,
+          justifyContent: "space-around",
+        }}
+      >
+        <View style={{ flex: 0.33 }}>
+          <Text
+            style={{
+              textAlign: "center",
+              fontFamily: "Montserrat-bold",
+              fontSize: 20,
+            }}
+          >
+            4.0
+          </Text>
+          <View style={{ flexDirection: "row", marginVertical: 10 }}>
+            <FontAwesome name="star" size={24} color="#ffc20e" />
+            <FontAwesome name="star" size={24} color="#ffc20e" />
+            <FontAwesome name="star-half-empty" size={24} color="#ffc20e" />
+
+            <FontAwesome name="star-o" size={24} color="#ffc20e" />
+            <FontAwesome name="star-o" size={24} color="#ffc20e" />
+          </View>
+          <Text
+            style={{
+              textAlign: "center",
+              fontFamily: "Montserrat-semibold",
+              fontSize: 16,
+            }}
+          >
+            МЕНЕЖМЕНТ
           </Text>
         </View>
       </View>
@@ -1180,7 +1174,7 @@ const Binance = (props) => {
       <View style={{ backgroundColor: "white", padding: 20 }}>
         <View style={{ backgroundColor: "#ffc20e", padding: 20 }}>
           <Text style={{ fontFamily: "Montserrat-bold", fontSize: 16 }}>
-            Хийх ёстой ажлынхаа нарийн дэс дарааллыг гаргах
+            Хийх ёстой ажлынхаа нарийн дэс дарааллыг гаргаарай
           </Text>
           <Text
             style={{
@@ -1220,7 +1214,7 @@ const Binance = (props) => {
               paddingVertical: 5,
             }}
           >
-            Хүчтэй нууц үг ашиглаж, комьтерийнхээ хамгаалалтын программыг
+            Хүчтэй нууц үг ашиглаж, компьютерийнхээ хамгаалалтын программыг
             шинэчлээрэй.
           </Text>
           <Text
@@ -1271,7 +1265,7 @@ const Binance = (props) => {
       <View style={{ backgroundColor: "white", padding: 20 }}>
         <View style={{ backgroundColor: "#ffc20e", padding: 20 }}>
           <Text style={{ fontFamily: "Montserrat-bold", fontSize: 16 }}>
-            Ажилдаа зарцуулсан цагаасаа илүү бүтээмжид анхаарлаа хандуул
+            Ажилдаа зарцуулсан цагаасаа илүү бүтээмжид анхаарлаа хандуулaapай
           </Text>
           <Text
             style={{
@@ -1297,17 +1291,25 @@ const Binance = (props) => {
             </Text>
           </Text>
         </View>
-        <Text
-          style={{
-            fontSize: 14,
-            fontFamily: "Montserrat-bold",
-            marginHorizontal: 20,
-            marginVertical: 30,
-            textAlign: "right",
-          }}
+        <View
+          style={{ flexDirection: "row", alignSelf: "flex-end", margin: 30 }}
         >
-          2022/03 САР
-        </Text>
+          <Text
+            style={{
+              fontSize: 14,
+              fontFamily: "Montserrat-bold",
+            }}
+          >
+            2022/03 САР
+          </Text>
+          <Image
+            source={require("../../assets/icon.png")}
+            style={{
+              width: 14,
+              height: 14,
+            }}
+          />
+        </View>
       </View>
     </ScrollView>
   );

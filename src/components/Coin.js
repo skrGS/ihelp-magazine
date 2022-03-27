@@ -270,17 +270,6 @@ const Coin = (props) => {
           <Text style={styles.coinStatusBold}>{coin.p14Coin9CompanyTitle}</Text>{" "}
           {coin.p14Coin9CompanyText}
         </Text>
-        <Image
-          source={require("../../assets/icon.png")}
-          style={{
-            width: 14,
-            height: 14,
-            bottom: 28,
-
-            alignSelf: "center",
-            right: 10,
-          }}
-        />
       </View>
       <ScrollView
         style={{
@@ -400,17 +389,23 @@ const Coin = (props) => {
           resizeMode="contain"
         />
       </ScrollView>
-      <Text
-        style={{
-          fontSize: 14,
-          fontFamily: "Montserrat-bold",
-          marginHorizontal: 20,
-          textAlign: "right",
-          marginBottom: 20,
-        }}
-      >
-        2022/03 САР
-      </Text>
+      <View style={{ flexDirection: "row", alignSelf: "flex-end", margin: 20 }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontFamily: "Montserrat-bold",
+          }}
+        >
+          2022/03 САР
+        </Text>
+        <Image
+          source={require("../../assets/icon.png")}
+          style={{
+            width: 14,
+            height: 14,
+          }}
+        />
+      </View>
     </ScrollView>
   );
 };

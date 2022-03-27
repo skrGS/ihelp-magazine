@@ -7,19 +7,15 @@ import {
   Dimensions,
   Image,
 } from "react-native";
-import React, { createRef, useEffect } from "react";
+import React from "react";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 import { api } from "../../../Constants";
-import LottieView from "lottie-react-native";
 const Page3 = ({ data }) => {
   const navigation = useNavigation();
-  let animation = createRef();
-  useEffect(() => {
-    animation.current.play();
-  }, []);
+
   return (
     <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
       {/* Bayarsaihanii zurag */}
@@ -48,7 +44,8 @@ const Page3 = ({ data }) => {
             flex: 0.35,
             paddingLeft: 20,
             alignSelf: "flex-start",
-            top: 80,
+            paddingBottom: 40,
+            top: 50,
           }}
         >
           <Text
@@ -71,12 +68,6 @@ const Page3 = ({ data }) => {
             {data.p3YellowText}
           </Text>
         </View>
-        <LottieView
-          source={require("../../../assets/down.json")}
-          ref={animation}
-          loop={true}
-          style={{ width: 50, height: 50, alignSelf: "flex-end", top: 30 }}
-        />
       </ImageBackground>
       <View
         style={{ width: windowWidth / 1.1, alignSelf: "center", marginTop: 15 }}
@@ -182,13 +173,7 @@ const Page3 = ({ data }) => {
             {data.p3Title}
           </Text>
         </View>
-        {/* <Text
-          style={{ fontSize: 20, fontFamily: "Montserrat-bold", bottom: 20 }}
-        >
-          BizNetwork.mn-ийг анх та үүсгэн байгуулж байсан гэдэг. Үүнийг үүсгэн
-          байгуулах санаа танд хэрхэн төрсөн талаарх түүхээс ярилцлагаа
-          эхлүүлье.
-        </Text> */}
+
         <Text style={styles.textStatus}>{data.p3Text}</Text>
         <Text style={styles.textStatus}>{data.p3Text1}</Text>
         <Text style={styles.textStatus}>{data.p3Text2}</Text>
@@ -220,7 +205,6 @@ const Page3 = ({ data }) => {
         <Text style={styles.textStatus}>{data.p3Text12}</Text>
         <Text style={styles.textTitle}>{data.p3Title3}</Text>
         <Text style={styles.textStatus}>{data.p3Text13}</Text>
-        <Text style={styles.textStatus}>{data.p3Text14}</Text>
         <Text style={styles.textStatus}>{data.p3Text14}</Text>
         <Text style={styles.textStatus}>{data.p3Text15}</Text>
         <Text style={styles.textStatus}>{data.p3Text16}</Text>
@@ -320,28 +304,24 @@ const Page3 = ({ data }) => {
         <Text style={styles.textStatus}>{data.p3Text51}</Text>
         <Text style={styles.textStatus}>{data.p3Text52}</Text>
         <Text style={styles.textStatus}>{data.p3Text53}</Text>
+      </View>
+      <View style={{ flexDirection: "row", alignSelf: "flex-end", margin: 30 }}>
+        <Text
+          style={{
+            fontSize: 14,
+            fontFamily: "Montserrat-bold",
+          }}
+        >
+          2022/03 САР
+        </Text>
         <Image
           source={require("../../../assets/icon.png")}
           style={{
             width: 14,
             height: 14,
-            alignSelf: "center",
-            bottom: 25,
-            left: 25,
           }}
         />
       </View>
-      <Text
-        style={{
-          fontSize: 14,
-          fontFamily: "Montserrat-bold",
-          marginHorizontal: 20,
-          marginVertical: 30,
-          textAlign: "right",
-        }}
-      >
-        2022/03 САР
-      </Text>
     </ScrollView>
   );
 };

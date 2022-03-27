@@ -9,7 +9,7 @@ export default () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`${api}/api/v1/works`)
+      .get(`${api}/api/v1/works?limit=100`)
       .then((result) => {
         setWorks(result.data.data);
         setErrorMessage(null);

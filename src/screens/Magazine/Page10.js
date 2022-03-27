@@ -27,7 +27,7 @@ const Page10 = ({ data }) => {
     >
       {/* binance nuur */}
       <ImageBackground
-        style={{ width: windowWidth, height: windowHeight }}
+        style={{ width: windowWidth, height: windowHeight, flex: 1 }}
         source={{ uri: api + "/upload/" + data.p10Bg }}
       >
         <AntDesign
@@ -60,7 +60,8 @@ const Page10 = ({ data }) => {
         <View
           style={{
             alignSelf: "center",
-            marginVertical: 150,
+            // marginVertical: 140,
+            marginTop: 150,
           }}
         >
           <Text
@@ -88,10 +89,11 @@ const Page10 = ({ data }) => {
         <Image
           source={{ uri: api + "/upload/" + data.p10Logo }}
           style={{
-            width: windowWidth / 1.5,
-            height: 150,
             alignSelf: "center",
+            width: windowWidth / 1.5,
+            height: windowHeight / 1.5,
           }}
+          resizeMode="contain"
         />
       </ImageBackground>
       {/* binance aguulga */}
@@ -1160,7 +1162,7 @@ const Page10 = ({ data }) => {
       <View style={{ backgroundColor: "white", padding: 20 }}>
         <View style={{ backgroundColor: "#ffc20e", padding: 20 }}>
           <Text style={{ fontFamily: "Montserrat-bold", fontSize: 16 }}>
-            Хийх ёстой ажлынхаа нарийн дэс дарааллыг гаргах
+            Хийх ёстой ажлынхаа нарийн дэс дарааллыг гаргаарай
           </Text>
           <Text
             style={{
@@ -1200,7 +1202,7 @@ const Page10 = ({ data }) => {
               paddingVertical: 5,
             }}
           >
-            Хүчтэй нууц үг ашиглаж, комьтерийнхээ хамгаалалтын программыг
+            Хүчтэй нууц үг ашиглаж, компьютерийнхээ хамгаалалтын программыг
             шинэчлээрэй.
           </Text>
           <Text
@@ -1251,7 +1253,7 @@ const Page10 = ({ data }) => {
       <View style={{ backgroundColor: "white", padding: 20 }}>
         <View style={{ backgroundColor: "#ffc20e", padding: 20 }}>
           <Text style={{ fontFamily: "Montserrat-bold", fontSize: 16 }}>
-            Ажилдаа зарцуулсан цагаасаа илүү бүтээмжид анхаарлаа хандуул
+            Ажилдаа зарцуулсан цагаасаа илүү бүтээмжид анхаарлаа хандуулаарай
           </Text>
           <Text
             style={{
@@ -1277,17 +1279,25 @@ const Page10 = ({ data }) => {
             </Text>
           </Text>
         </View>
-        <Text
-          style={{
-            fontSize: 14,
-            fontFamily: "Montserrat-bold",
-            marginHorizontal: 20,
-            marginVertical: 30,
-            textAlign: "right",
-          }}
+        <View
+          style={{ flexDirection: "row", alignSelf: "flex-end", margin: 30 }}
         >
-          2022/03 САР
-        </Text>
+          <Text
+            style={{
+              fontSize: 14,
+              fontFamily: "Montserrat-bold",
+            }}
+          >
+            2022/03 САР
+          </Text>
+          <Image
+            source={require("../../../assets/icon.png")}
+            style={{
+              width: 14,
+              height: 14,
+            }}
+          />
+        </View>
       </View>
     </ScrollView>
   );

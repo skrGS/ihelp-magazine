@@ -17,7 +17,16 @@ const WorkDetail = () => {
           marginBottom: 10,
         }}
       />
-      <Text style={{ color: "white", fontSize: 30 }}>Нээлттэй ажлын байр</Text>
+      <Text
+        style={{
+          color: "white",
+          fontSize: 30,
+          marginLeft: 20,
+          marginVertical: 10,
+        }}
+      >
+        Нээлттэй ажлын байр
+      </Text>
       {works.map((e, index) => {
         return (
           <View key={index}>
@@ -35,6 +44,7 @@ const WorkDetail = () => {
                   alignContent: "center",
                   left: 10,
                   flex: 1,
+                  marginTop: 10,
                 }}
               >
                 <Image
@@ -94,7 +104,7 @@ const WorkDetail = () => {
               style={{
                 borderWidth: 0.5,
                 borderColor: "white",
-                marginVertical: 10,
+                marginTop: 10,
               }}
             />
           </View>
